@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-31T15:55:38+00:00",
+  "generated_at": "2026-08-31T16:20:15+00:00",
   "thresholds": {
     "proceed_below": 0.6,
     "block_above": 0.7
@@ -19,7 +19,7 @@
       "rejects": 5,
       "no_trade": 6,
       "fills": 1,
-      "oversized_initial": 6,
+      "oversized_initial": 5,
       "size_reduced": 4,
       "strategy_changed": 2,
       "contract_changed": 5,
@@ -33,7 +33,7 @@
       "rejects": 2,
       "no_trade": 2,
       "fills": 1,
-      "oversized_initial": 2,
+      "oversized_initial": 1,
       "size_reduced": 1,
       "strategy_changed": 2,
       "contract_changed": 3,
@@ -56,7 +56,8 @@
     },
     "objection_modes": {
       "insufficient_premium": 6,
-      "assignment_risk": 8
+      "assignment_risk": 7,
+      "unfavourable_expiry": 1
     }
   },
   "calibration_source": "data/calibration/adversary_20260828_182652.json",

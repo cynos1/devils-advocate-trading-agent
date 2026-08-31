@@ -1,0 +1,116 @@
+[
+  {
+    "case_id": "clean_4",
+    "expected_mode": "clean",
+    "clean": true,
+    "note": "Clean control: no deliberately injected failure mode.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLP",
+      "contract_symbol": "XLP260904C00087890",
+      "strike": 87.89,
+      "expiry": "2026-09-04",
+      "contracts": 1,
+      "expected_premium": 50.0,
+      "total_premium": 50.0,
+      "max_loss": 0.0,
+      "reasoning": "This is a bounded position selected from the eligible set. Liquidity is acceptable, size is modest, and I am not assuming a directional forecast.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLP260904C00086890",
+        "underlying": "XLP",
+        "kind": "call",
+        "strike": 86.89,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.882,
+        "ask": 0.918,
+        "mid": 0.9,
+        "spread_pct": 0.04,
+        "premium": 90.0,
+        "open_interest": 400,
+        "last_trade_age": 0.2,
+        "moneyness": 0.005206
+      },
+      {
+        "symbol": "XLP260904C00087390",
+        "underlying": "XLP",
+        "kind": "call",
+        "strike": 87.39,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6825,
+        "ask": 0.7175,
+        "mid": 0.7,
+        "spread_pct": 0.05,
+        "premium": 70.0,
+        "open_interest": 540,
+        "last_trade_age": 0.30000000000000004,
+        "moneyness": 0.01099
+      },
+      {
+        "symbol": "XLP260904C00087890",
+        "underlying": "XLP",
+        "kind": "call",
+        "strike": 87.89,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.485,
+        "ask": 0.515,
+        "mid": 0.5,
+        "spread_pct": 0.06,
+        "premium": 50.0,
+        "open_interest": 680,
+        "last_trade_age": 0.4,
+        "moneyness": 0.016775
+      },
+      {
+        "symbol": "XLP260904C00088890",
+        "underlying": "XLP",
+        "kind": "call",
+        "strike": 88.89,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.3088,
+        "ask": 0.3312,
+        "mid": 0.32,
+        "spread_pct": 0.07,
+        "premium": 32.0,
+        "open_interest": 820,
+        "last_trade_age": 0.5,
+        "moneyness": 0.028343
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 0.55,
+      "failure_mode": "insufficient_premium",
+      "objection": "$50 premium on a $8,644 covered call position (300 shares underlying, though only 1 contract sold) yields negligible return for 7 days while capping upside; the $86.89 strike offers $90 premium for barely more assignment risk, dominating this choice.",
+      "what_would_fix_it": "Select the $86.89 or $87.39 strike instead, which offer higher premium for comparable risk.",
+      "raw": "{\"severity\": 0.55, \"failure_mode\": \"insufficient_premium\", \"objection\": \"$50 premium on a $8,644 covered call position (300 shares underlying, though only 1 contract sold) yields negligible return for 7 days while capping upside; the $86.89 strike offers $90 premium for barely more assignment risk, dominating this choice.\", \"what_would_fix_it\": \"Select the $86.89 or $87.39 strike instead, which offer higher premium for comparable risk.\"}",
+      "failed": false
+    },
+    "observed_mode": "insufficient_premium",
+    "severity": 0.55,
+    "exact_mode_match": null
+  }
+]

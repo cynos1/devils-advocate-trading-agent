@@ -1,0 +1,4 @@
+case_id,expected_mode,clean,observed_mode,severity,exact_mode_match,note,error
+overconfidence_1,overconfidence,False,none,1.0,False,Injected defect: unsupported certainty in the model reasoning.,
+overconfidence_2,overconfidence,False,none,1.0,False,Injected defect: unsupported certainty in the model reasoning.,
+overconfidence_3,overconfidence,False,none,1.0,False,Injected defect: unsupported certainty in the model reasoning.,

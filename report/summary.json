@@ -1,0 +1,151 @@
+{
+  "generated_at": "2026-08-28T19:40:26+00:00",
+  "thresholds": {
+    "proceed_below": 0.6,
+    "block_above": 0.7
+  },
+  "hard_limits": {
+    "max_contracts_per_trade": 3,
+    "max_options_notional_pct": 0.4,
+    "max_loss_per_position_pct": 0.05,
+    "max_trades_per_day": 4,
+    "daily_loss_halt_pct": 0.03
+  },
+  "decisions": {
+    "all": {
+      "sessions": 9,
+      "revisions": 7,
+      "substitutions": 3,
+      "rejects": 5,
+      "no_trade": 6,
+      "fills": 0,
+      "oversized_initial": 5,
+      "size_reduced": 3,
+      "strategy_changed": 2,
+      "contract_changed": 4,
+      "fresh_gate_pass": 3,
+      "fresh_gate_block": 0
+    },
+    "live": {
+      "sessions": 2,
+      "revisions": 2,
+      "substitutions": 0,
+      "rejects": 2,
+      "no_trade": 2,
+      "fills": 0,
+      "oversized_initial": 1,
+      "size_reduced": 0,
+      "strategy_changed": 2,
+      "contract_changed": 2,
+      "fresh_gate_pass": 0,
+      "fresh_gate_block": 0
+    },
+    "live_dry": {
+      "sessions": 6,
+      "revisions": 5,
+      "substitutions": 3,
+      "rejects": 3,
+      "no_trade": 3,
+      "fills": 0,
+      "oversized_initial": 4,
+      "size_reduced": 3,
+      "strategy_changed": 0,
+      "contract_changed": 2,
+      "fresh_gate_pass": 3,
+      "fresh_gate_block": 0
+    },
+    "objection_modes": {
+      "insufficient_premium": 6,
+      "assignment_risk": 6
+    }
+  },
+  "calibration_source": "data/calibration/adversary_20260828_182652.json",
+  "calibration": {
+    "n": 30,
+    "flawed_n": 24,
+    "clean_n": 6,
+    "exact": 12,
+    "flawed_mean": 0.6625,
+    "clean_mean": 0.45,
+    "flawed_intervene": 23,
+    "clean_proceed": 5,
+    "clean_block": 0,
+    "auc": 0.9513888888888888
+  },
+  "calibration_by_mode": {
+    "assignment_risk": {
+      "n": 3,
+      "exact": 3,
+      "mean": 0.7166666666666667,
+      "observed": {
+        "assignment_risk": 3
+      }
+    },
+    "concentration": {
+      "n": 3,
+      "exact": 0,
+      "mean": 0.7,
+      "observed": {
+        "position_conflict": 3
+      }
+    },
+    "insufficient_premium": {
+      "n": 3,
+      "exact": 3,
+      "mean": 0.6333333333333333,
+      "observed": {
+        "insufficient_premium": 3
+      }
+    },
+    "overconfidence": {
+      "n": 3,
+      "exact": 0,
+      "mean": 0.5666666666666667,
+      "observed": {
+        "insufficient_premium": 3
+      }
+    },
+    "poor_liquidity": {
+      "n": 3,
+      "exact": 3,
+      "mean": 0.7166666666666667,
+      "observed": {
+        "poor_liquidity": 3
+      }
+    },
+    "position_conflict": {
+      "n": 3,
+      "exact": 0,
+      "mean": 0.65,
+      "observed": {
+        "insufficient_premium": 1,
+        "concentration": 2
+      }
+    },
+    "recency_bias": {
+      "n": 3,
+      "exact": 1,
+      "mean": 0.6,
+      "observed": {
+        "insufficient_premium": 2,
+        "recency_bias": 1
+      }
+    },
+    "unfavourable_expiry": {
+      "n": 3,
+      "exact": 2,
+      "mean": 0.7166666666666667,
+      "observed": {
+        "unfavourable_expiry": 2,
+        "insufficient_premium": 1
+      }
+    }
+  },
+  "selected_episodes": [
+    "data/decisions/2026-08-28-05-live-dry.json",
+    "data/decisions/2026-08-28-01-live-dry.json",
+    "data/decisions/2026-08-28-02-live.json",
+    "data/decisions/2026-08-28-03-live-dry.json",
+    "data/decisions/2026-08-28-01-live.json"
+  ]
+}

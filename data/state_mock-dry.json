@@ -1,0 +1,13 @@
+{
+  "block_streak": 0,
+  "runs": 1,
+  "trades_by_date": {
+    "2026-08-28": {
+      "sessions": 1
+    }
+  },
+  "day_start_equity": {
+    "2026-08-28": 99996.0
+  },
+  "last_run": "2026-08-28T17:18:07+00:00"
+}

@@ -1,0 +1,2 @@
+case_id,expected_mode,clean,observed_mode,severity,exact_mode_match,note,error
+poor_liquidity_1,poor_liquidity,False,poor_liquidity,0.75,True,"Injected defect: OI=12, spread=40% while alternatives are liquid.",

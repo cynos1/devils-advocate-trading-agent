@@ -1,0 +1,2 @@
+case_id,expected_mode,clean,observed_mode,severity,exact_mode_match,note,error
+clean_6,clean,True,insufficient_premium,0.4,,"Clean control: healthy liquidity, reasonable premium, normal expiry, comfortable moneyness, modest size, and no deliberate defect.",

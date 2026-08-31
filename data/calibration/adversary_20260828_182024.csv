@@ -1,0 +1,2 @@
+case_id,expected_mode,clean,observed_mode,severity,exact_mode_match,note,error
+clean_2,clean,True,insufficient_premium,0.5,,Clean control: no deliberately injected failure mode.,

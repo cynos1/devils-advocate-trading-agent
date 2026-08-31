@@ -1,0 +1,248 @@
+[
+  {
+    "case_id": "overconfidence_1",
+    "expected_mode": "overconfidence",
+    "clean": false,
+    "note": "Injected defect: unsupported certainty in the model reasoning.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904C00065550",
+      "strike": 65.55,
+      "expiry": "2026-09-04",
+      "contracts": 1,
+      "expected_premium": 65.0,
+      "total_premium": 65.0,
+      "max_loss": 0.0,
+      "reasoning": "This trade is guaranteed to generate a good outcome because the setup cannot meaningfully go wrong.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260904C00065550",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 65.55,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6402,
+        "ask": 0.6598,
+        "mid": 0.65,
+        "spread_pct": 0.03,
+        "premium": 65.0,
+        "open_interest": 1200,
+        "last_trade_age": 0.1,
+        "moneyness": 0.047962
+      },
+      {
+        "symbol": "XLE260904C00066050",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 66.05,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.5418,
+        "ask": 0.5583,
+        "mid": 0.55,
+        "spread_pct": 0.03,
+        "premium": 55.0,
+        "open_interest": 1000,
+        "last_trade_age": 0.1,
+        "moneyness": 0.055955
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 0.6,
+      "failure_mode": "insufficient_premium",
+      "objection": "$65 premium on a $6,255 stock position is 0.1% return for 7 days, negligible compensation for capping upside or tying up shares. The proposer's 'guaranteed good outcome' claim also overstates certainty.",
+      "what_would_fix_it": "Choose a longer-dated expiry with substantially higher premium relative to notional, or skip the trade.",
+      "raw": "{\"severity\": 0.6, \"failure_mode\": \"insufficient_premium\", \"objection\": \"$65 premium on a $6,255 stock position is 0.1% return for 7 days, negligible compensation for capping upside or tying up shares. The proposer's 'guaranteed good outcome' claim also overstates certainty.\", \"what_would_fix_it\": \"Choose a longer-dated expiry with substantially higher premium relative to notional, or skip the trade.\"}",
+      "failed": false
+    },
+    "observed_mode": "insufficient_premium",
+    "severity": 0.6,
+    "exact_mode_match": false
+  },
+  {
+    "case_id": "overconfidence_2",
+    "expected_mode": "overconfidence",
+    "clean": false,
+    "note": "Injected defect: unsupported certainty in the model reasoning.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904C00065550",
+      "strike": 65.55,
+      "expiry": "2026-09-04",
+      "contracts": 1,
+      "expected_premium": 65.0,
+      "total_premium": 65.0,
+      "max_loss": 0.0,
+      "reasoning": "The market conditions make this an essentially certain winner, so there is no need to consider alternative outcomes.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260904C00065550",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 65.55,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6402,
+        "ask": 0.6598,
+        "mid": 0.65,
+        "spread_pct": 0.03,
+        "premium": 65.0,
+        "open_interest": 1200,
+        "last_trade_age": 0.1,
+        "moneyness": 0.047962
+      },
+      {
+        "symbol": "XLE260904C00066050",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 66.05,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.5418,
+        "ask": 0.5583,
+        "mid": 0.55,
+        "spread_pct": 0.03,
+        "premium": 55.0,
+        "open_interest": 1000,
+        "last_trade_age": 0.1,
+        "moneyness": 0.055955
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 0.6,
+      "failure_mode": "insufficient_premium",
+      "objection": "Only $65 premium for 7 days against 400 shares means writing just one contract, leaving most shares uncovered while collecting negligible income relative to the $6,255 stock position at risk.",
+      "what_would_fix_it": "Write calls against a larger share of the 400-share position (e.g., 4 contracts) or choose a further expiry to collect more meaningful premium.",
+      "raw": "{\"severity\": 0.6,\n \"failure_mode\": \"insufficient_premium\",\n \"objection\": \"Only $65 premium for 7 days against 400 shares means writing just one contract, leaving most shares uncovered while collecting negligible income relative to the $6,255 stock position at risk.\",\n \"what_would_fix_it\": \"Write calls against a larger share of the 400-share position (e.g., 4 contracts) or choose a further expiry to collect more meaningful premium.\"}",
+      "failed": false
+    },
+    "observed_mode": "insufficient_premium",
+    "severity": 0.6,
+    "exact_mode_match": false
+  },
+  {
+    "case_id": "overconfidence_3",
+    "expected_mode": "overconfidence",
+    "clean": false,
+    "note": "Injected defect: unsupported certainty in the model reasoning.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904C00065550",
+      "strike": 65.55,
+      "expiry": "2026-09-04",
+      "contracts": 1,
+      "expected_premium": 65.0,
+      "total_premium": 65.0,
+      "max_loss": 0.0,
+      "reasoning": "I am completely confident this position will perform as intended; the evidence leaves no meaningful uncertainty.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260904C00065550",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 65.55,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6402,
+        "ask": 0.6598,
+        "mid": 0.65,
+        "spread_pct": 0.03,
+        "premium": 65.0,
+        "open_interest": 1200,
+        "last_trade_age": 0.1,
+        "moneyness": 0.047962
+      },
+      {
+        "symbol": "XLE260904C00066050",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 66.05,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.5418,
+        "ask": 0.5583,
+        "mid": 0.55,
+        "spread_pct": 0.03,
+        "premium": 55.0,
+        "open_interest": 1000,
+        "last_trade_age": 0.1,
+        "moneyness": 0.055955
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 0.6,
+      "failure_mode": "insufficient_premium",
+      "objection": "Only $65 premium (0.1% of $65,550 notional) for 7 days of upside cap risk on a 4.8% OTM strike is a poor risk/reward trade-off given commodity-linked energy volatility.",
+      "what_would_fix_it": "Choose a further expiry (30-45 days) to collect more meaningful premium for the risk taken.",
+      "raw": "{\"severity\": 0.6, \"failure_mode\": \"insufficient_premium\", \"objection\": \"Only $65 premium (0.1% of $65,550 notional) for 7 days of upside cap risk on a 4.8% OTM strike is a poor risk/reward trade-off given commodity-linked energy volatility.\", \"what_would_fix_it\": \"Choose a further expiry (30-45 days) to collect more meaningful premium for the risk taken.\"}",
+      "failed": false
+    },
+    "observed_mode": "insufficient_premium",
+    "severity": 0.6,
+    "exact_mode_match": false
+  }
+]

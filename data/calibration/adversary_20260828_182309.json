@@ -1,0 +1,100 @@
+[
+  {
+    "case_id": "clean_4",
+    "expected_mode": "clean",
+    "clean": true,
+    "note": "Clean control: healthy liquidity, reasonable premium, normal expiry, comfortable moneyness, modest size, and no deliberate defect.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLP",
+      "contract_symbol": "XLP260904C00089440",
+      "strike": 89.44,
+      "expiry": "2026-09-04",
+      "contracts": 1,
+      "expected_premium": 70.0,
+      "total_premium": 70.0,
+      "max_loss": 0.0,
+      "reasoning": "This is a modest, inventory-aware position selected from a liquid eligible set. Premium is reasonable relative to nearby contracts, the strike is comfortably out of the money, and I am not assuming a directional forecast.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLP260904C00089440",
+        "underlying": "XLP",
+        "kind": "call",
+        "strike": 89.44,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6912,
+        "ask": 0.7087,
+        "mid": 0.7,
+        "spread_pct": 0.025,
+        "premium": 70.0,
+        "open_interest": 1500,
+        "last_trade_age": 0.1,
+        "moneyness": 0.034706
+      },
+      {
+        "symbol": "XLP260904C00089940",
+        "underlying": "XLP",
+        "kind": "call",
+        "strike": 89.94,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6304,
+        "ask": 0.6496,
+        "mid": 0.64,
+        "spread_pct": 0.03,
+        "premium": 64.0,
+        "open_interest": 1300,
+        "last_trade_age": 0.1,
+        "moneyness": 0.040491
+      },
+      {
+        "symbol": "XLP260904C00090440",
+        "underlying": "XLP",
+        "kind": "call",
+        "strike": 90.44,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.5713,
+        "ask": 0.5887,
+        "mid": 0.58,
+        "spread_pct": 0.03,
+        "premium": 58.0,
+        "open_interest": 1200,
+        "last_trade_age": 0.1,
+        "moneyness": 0.046275
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 0.4,
+      "failure_mode": "insufficient_premium",
+      "objection": "$70 premium on ~$8,644 notional covered by 300 shares (only 1 contract covers 100) is a 0.81% return for just 7 days, compensating little for capping upside near-term.",
+      "what_would_fix_it": "Choose a further-dated expiry (30-45 days) to collect more premium per unit of upside surrendered.",
+      "raw": "{\"severity\": 0.4, \"failure_mode\": \"insufficient_premium\", \"objection\": \"$70 premium on ~$8,644 notional covered by 300 shares (only 1 contract covers 100) is a 0.81% return for just 7 days, compensating little for capping upside near-term.\", \"what_would_fix_it\": \"Choose a further-dated expiry (30-45 days) to collect more premium per unit of upside surrendered.\"}",
+      "failed": false
+    },
+    "observed_mode": "insufficient_premium",
+    "severity": 0.4,
+    "exact_mode_match": null
+  }
+]

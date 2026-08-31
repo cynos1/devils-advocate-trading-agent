@@ -1,0 +1,3302 @@
+[
+  {
+    "case_id": "overconfidence_1",
+    "expected_mode": "overconfidence",
+    "clean": false,
+    "note": "Injected defect: unsupported certainty in the model reasoning.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904C00065550",
+      "strike": 65.55,
+      "expiry": "2026-09-04",
+      "contracts": 1,
+      "expected_premium": 65.0,
+      "total_premium": 65.0,
+      "max_loss": 0.0,
+      "reasoning": "This trade is guaranteed to generate a good outcome because the setup cannot meaningfully go wrong.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260904C00065550",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 65.55,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6402,
+        "ask": 0.6598,
+        "mid": 0.65,
+        "spread_pct": 0.03,
+        "premium": 65.0,
+        "open_interest": 1200,
+        "last_trade_age": 0.1,
+        "moneyness": 0.047962
+      },
+      {
+        "symbol": "XLE260904C00066050",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 66.05,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.5418,
+        "ask": 0.5583,
+        "mid": 0.55,
+        "spread_pct": 0.03,
+        "premium": 55.0,
+        "open_interest": 1000,
+        "last_trade_age": 0.1,
+        "moneyness": 0.055955
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 0.6,
+      "failure_mode": "insufficient_premium",
+      "objection": "$65 premium on a $6,555 notional covered call over just 7 days is a negligible 0.1% return for surrendering upside past 4.8%, plus 400 shares means only 1 of 4 lots are covered anyway.",
+      "what_would_fix_it": "Write calls against the full 400-share position (4 contracts) or choose a longer-dated expiry with higher annualized premium.",
+      "raw": "{\"severity\": 0.6,\n \"failure_mode\": \"insufficient_premium\",\n \"objection\": \"$65 premium on a $6,555 notional covered call over just 7 days is a negligible 0.1% return for surrendering upside past 4.8%, plus 400 shares means only 1 of 4 lots are covered anyway.\",\n \"what_would_fix_it\": \"Write calls against the full 400-share position (4 contracts) or choose a longer-dated expiry with higher annualized premium.\"}",
+      "failed": false
+    },
+    "observed_mode": "insufficient_premium",
+    "severity": 0.6,
+    "exact_mode_match": false
+  },
+  {
+    "case_id": "overconfidence_2",
+    "expected_mode": "overconfidence",
+    "clean": false,
+    "note": "Injected defect: unsupported certainty in the model reasoning.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904C00065550",
+      "strike": 65.55,
+      "expiry": "2026-09-04",
+      "contracts": 1,
+      "expected_premium": 65.0,
+      "total_premium": 65.0,
+      "max_loss": 0.0,
+      "reasoning": "The market conditions make this an essentially certain winner, so there is no need to consider alternative outcomes.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260904C00065550",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 65.55,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6402,
+        "ask": 0.6598,
+        "mid": 0.65,
+        "spread_pct": 0.03,
+        "premium": 65.0,
+        "open_interest": 1200,
+        "last_trade_age": 0.1,
+        "moneyness": 0.047962
+      },
+      {
+        "symbol": "XLE260904C00066050",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 66.05,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.5418,
+        "ask": 0.5583,
+        "mid": 0.55,
+        "spread_pct": 0.03,
+        "premium": 55.0,
+        "open_interest": 1000,
+        "last_trade_age": 0.1,
+        "moneyness": 0.055955
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 0.6,
+      "failure_mode": "insufficient_premium",
+      "objection": "$65 premium on a $62.55 stock for 7 days is only ~0.1% weekly yield, barely compensating for capping upside if XLE rallies toward earnings-driven energy moves. The proposer's 'essentially certain' claim ignores this poor risk/reward given only 4.8% cushion.",
+      "what_would_fix_it": "Choose a further expiry (30+ days) or higher strike to collect more premium relative to the capped upside.",
+      "raw": "{\"severity\": 0.6,\n \"failure_mode\": \"insufficient_premium\",\n \"objection\": \"$65 premium on a $62.55 stock for 7 days is only ~0.1% weekly yield, barely compensating for capping upside if XLE rallies toward earnings-driven energy moves. The proposer's 'essentially certain' claim ignores this poor risk/reward given only 4.8% cushion.\",\n \"what_would_fix_it\": \"Choose a further expiry (30+ days) or higher strike to collect more premium relative to the capped upside.\"}",
+      "failed": false
+    },
+    "observed_mode": "insufficient_premium",
+    "severity": 0.6,
+    "exact_mode_match": false
+  },
+  {
+    "case_id": "overconfidence_3",
+    "expected_mode": "overconfidence",
+    "clean": false,
+    "note": "Injected defect: unsupported certainty in the model reasoning.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904C00065550",
+      "strike": 65.55,
+      "expiry": "2026-09-04",
+      "contracts": 1,
+      "expected_premium": 65.0,
+      "total_premium": 65.0,
+      "max_loss": 0.0,
+      "reasoning": "I am completely confident this position will perform as intended; the evidence leaves no meaningful uncertainty.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260904C00065550",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 65.55,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6402,
+        "ask": 0.6598,
+        "mid": 0.65,
+        "spread_pct": 0.03,
+        "premium": 65.0,
+        "open_interest": 1200,
+        "last_trade_age": 0.1,
+        "moneyness": 0.047962
+      },
+      {
+        "symbol": "XLE260904C00066050",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 66.05,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.5418,
+        "ask": 0.5583,
+        "mid": 0.55,
+        "spread_pct": 0.03,
+        "premium": 55.0,
+        "open_interest": 1000,
+        "last_trade_age": 0.1,
+        "moneyness": 0.055955
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 0.5,
+      "failure_mode": "insufficient_premium",
+      "objection": "Only $65 premium (0.1% of spot value) for 7 days on a 400-share position ties up upside for negligible income. The proposer's absolute certainty claim also ignores that any adverse or favorable move exposes real opportunity cost.",
+      "what_would_fix_it": "Choose a further-dated expiry (30-45 days) to collect meaningfully more premium for the risk taken.",
+      "raw": "{\"severity\": 0.5, \"failure_mode\": \"insufficient_premium\", \"objection\": \"Only $65 premium (0.1% of spot value) for 7 days on a 400-share position ties up upside for negligible income. The proposer's absolute certainty claim also ignores that any adverse or favorable move exposes real opportunity cost.\", \"what_would_fix_it\": \"Choose a further-dated expiry (30-45 days) to collect meaningfully more premium for the risk taken.\"}",
+      "failed": false
+    },
+    "observed_mode": "insufficient_premium",
+    "severity": 0.5,
+    "exact_mode_match": false
+  },
+  {
+    "case_id": "recency_bias_1",
+    "expected_mode": "recency_bias",
+    "clean": false,
+    "note": "Injected defect: recent observations are treated as predictive.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904C00065550",
+      "strike": 65.55,
+      "expiry": "2026-09-04",
+      "contracts": 1,
+      "expected_premium": 65.0,
+      "total_premium": 65.0,
+      "max_loss": 0.0,
+      "reasoning": "Premium jumped yesterday, so I expect the same strength to continue and am prioritizing this contract.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260904C00065550",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 65.55,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6402,
+        "ask": 0.6598,
+        "mid": 0.65,
+        "spread_pct": 0.03,
+        "premium": 65.0,
+        "open_interest": 1200,
+        "last_trade_age": 0.1,
+        "moneyness": 0.047962
+      },
+      {
+        "symbol": "XLE260904C00066050",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 66.05,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.5418,
+        "ask": 0.5583,
+        "mid": 0.55,
+        "spread_pct": 0.03,
+        "premium": 55.0,
+        "open_interest": 1000,
+        "last_trade_age": 0.1,
+        "moneyness": 0.055955
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 0.6,
+      "failure_mode": "insufficient_premium",
+      "objection": "Only $65 premium for 7 days on a $6,255 stock position is roughly 0.1% return, barely compensating for capping upside to 4.8% and tying up 400 shares.",
+      "what_would_fix_it": "Choose a longer-dated expiry with higher absolute premium or skip the trade this cycle.",
+      "raw": "{\"severity\": 0.6, \"failure_mode\": \"insufficient_premium\", \"objection\": \"Only $65 premium for 7 days on a $6,255 stock position is roughly 0.1% return, barely compensating for capping upside to 4.8% and tying up 400 shares.\", \"what_would_fix_it\": \"Choose a longer-dated expiry with higher absolute premium or skip the trade this cycle.\"}",
+      "failed": false
+    },
+    "observed_mode": "insufficient_premium",
+    "severity": 0.6,
+    "exact_mode_match": false
+  },
+  {
+    "case_id": "recency_bias_2",
+    "expected_mode": "recency_bias",
+    "clean": false,
+    "note": "Injected defect: recent observations are treated as predictive.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904C00065550",
+      "strike": 65.55,
+      "expiry": "2026-09-04",
+      "contracts": 1,
+      "expected_premium": 65.0,
+      "total_premium": 65.0,
+      "max_loss": 0.0,
+      "reasoning": "The last session was strong for XLE options; that recent move is the main reason to sell this call now.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260904C00065550",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 65.55,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6402,
+        "ask": 0.6598,
+        "mid": 0.65,
+        "spread_pct": 0.03,
+        "premium": 65.0,
+        "open_interest": 1200,
+        "last_trade_age": 0.1,
+        "moneyness": 0.047962
+      },
+      {
+        "symbol": "XLE260904C00066050",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 66.05,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.5418,
+        "ask": 0.5583,
+        "mid": 0.55,
+        "spread_pct": 0.03,
+        "premium": 55.0,
+        "open_interest": 1000,
+        "last_trade_age": 0.1,
+        "moneyness": 0.055955
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 0.6,
+      "failure_mode": "recency_bias",
+      "objection": "The rationale explicitly relies on one strong session's options action rather than any durable thesis about XLE's 7-day trajectory, ignoring 400-share upside if it rallies further.",
+      "what_would_fix_it": "Base the strike/timing on volatility and technical levels over a longer window, not the last session's move.",
+      "raw": "{\"severity\": 0.6, \"failure_mode\": \"recency_bias\", \"objection\": \"The rationale explicitly relies on one strong session's options action rather than any durable thesis about XLE's 7-day trajectory, ignoring 400-share upside if it rallies further.\", \"what_would_fix_it\": \"Base the strike/timing on volatility and technical levels over a longer window, not the last session's move.\"}",
+      "failed": false
+    },
+    "observed_mode": "recency_bias",
+    "severity": 0.6,
+    "exact_mode_match": true
+  },
+  {
+    "case_id": "recency_bias_3",
+    "expected_mode": "recency_bias",
+    "clean": false,
+    "note": "Injected defect: recent observations are treated as predictive.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904C00065550",
+      "strike": 65.55,
+      "expiry": "2026-09-04",
+      "contracts": 1,
+      "expected_premium": 65.0,
+      "total_premium": 65.0,
+      "max_loss": 0.0,
+      "reasoning": "Because today's quote is richer than the last quote I saw, the recent premium trend should persist into expiry.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260904C00065550",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 65.55,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6402,
+        "ask": 0.6598,
+        "mid": 0.65,
+        "spread_pct": 0.03,
+        "premium": 65.0,
+        "open_interest": 1200,
+        "last_trade_age": 0.1,
+        "moneyness": 0.047962
+      },
+      {
+        "symbol": "XLE260904C00066050",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 66.05,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.5418,
+        "ask": 0.5583,
+        "mid": 0.55,
+        "spread_pct": 0.03,
+        "premium": 55.0,
+        "open_interest": 1000,
+        "last_trade_age": 0.1,
+        "moneyness": 0.055955
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 0.6,
+      "failure_mode": "insufficient_premium",
+      "objection": "Only $65 premium for 7 days on a $6,255 stock position is a negligible 0.1% return, barely compensating for surrendering upside above $65.55.",
+      "what_would_fix_it": "Choose a longer-dated expiry with substantially higher absolute premium relative to position size.",
+      "raw": "{\"severity\": 0.6, \"failure_mode\": \"insufficient_premium\", \"objection\": \"Only $65 premium for 7 days on a $6,255 stock position is a negligible 0.1% return, barely compensating for surrendering upside above $65.55.\", \"what_would_fix_it\": \"Choose a longer-dated expiry with substantially higher absolute premium relative to position size.\"}",
+      "failed": false
+    },
+    "observed_mode": "insufficient_premium",
+    "severity": 0.6,
+    "exact_mode_match": false
+  },
+  {
+    "case_id": "insufficient_premium_1",
+    "expected_mode": "insufficient_premium",
+    "clean": false,
+    "note": "Injected defect: only $12/contract despite stronger nearby alternatives.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904C00064000",
+      "strike": 64.0,
+      "expiry": "2026-09-04",
+      "contracts": 2,
+      "expected_premium": 12.0,
+      "total_premium": 24.0,
+      "max_loss": 0.0,
+      "reasoning": "Choosing this contract for income while keeping the strike modestly out of the money.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260904C00063000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.882,
+        "ask": 0.918,
+        "mid": 0.9,
+        "spread_pct": 0.04,
+        "premium": 90.0,
+        "open_interest": 400,
+        "last_trade_age": 0.2,
+        "moneyness": 0.007194
+      },
+      {
+        "symbol": "XLE260904C00063500",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.5,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6825,
+        "ask": 0.7175,
+        "mid": 0.7,
+        "spread_pct": 0.05,
+        "premium": 70.0,
+        "open_interest": 540,
+        "last_trade_age": 0.30000000000000004,
+        "moneyness": 0.015188
+      },
+      {
+        "symbol": "XLE260904C00064000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 64.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.11,
+        "ask": 0.13,
+        "mid": 0.12,
+        "spread_pct": 0.06,
+        "premium": 12.0,
+        "open_interest": 680,
+        "last_trade_age": 0.4,
+        "moneyness": 0.023181
+      },
+      {
+        "symbol": "XLE260904C00065000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 65.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.3088,
+        "ask": 0.3312,
+        "mid": 0.32,
+        "spread_pct": 0.07,
+        "premium": 32.0,
+        "open_interest": 820,
+        "last_trade_age": 0.5,
+        "moneyness": 0.039169
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 0.7,
+      "failure_mode": "insufficient_premium",
+      "objection": "$12 premium on a $64 strike is absurdly low versus the $63/$63.50/$65 chain (all $32-$90) for the same 7-day expiry, suggesting a mispriced or illiquid quote being selected. This contract offers far worse compensation than clearly superior alternatives at similar or better strikes.",
+      "what_would_fix_it": "Use the $65 strike at $32 premium instead, which offers more upside room and nearly 3x the income.",
+      "raw": "{\"severity\": 0.7, \"failure_mode\": \"insufficient_premium\", \"objection\": \"$12 premium on a $64 strike is absurdly low versus the $63/$63.50/$65 chain (all $32-$90) for the same 7-day expiry, suggesting a mispriced or illiquid quote being selected. This contract offers far worse compensation than clearly superior alternatives at similar or better strikes.\", \"what_would_fix_it\": \"Use the $65 strike at $32 premium instead, which offers more upside room and nearly 3x the income.\"}",
+      "failed": false
+    },
+    "observed_mode": "insufficient_premium",
+    "severity": 0.7,
+    "exact_mode_match": true
+  },
+  {
+    "case_id": "insufficient_premium_2",
+    "expected_mode": "insufficient_premium",
+    "clean": false,
+    "note": "Injected defect: only $16/contract despite stronger nearby alternatives.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904C00064000",
+      "strike": 64.0,
+      "expiry": "2026-09-04",
+      "contracts": 2,
+      "expected_premium": 16.0,
+      "total_premium": 32.0,
+      "max_loss": 0.0,
+      "reasoning": "Choosing this contract for income while keeping the strike modestly out of the money.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260904C00063000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.882,
+        "ask": 0.918,
+        "mid": 0.9,
+        "spread_pct": 0.04,
+        "premium": 90.0,
+        "open_interest": 400,
+        "last_trade_age": 0.2,
+        "moneyness": 0.007194
+      },
+      {
+        "symbol": "XLE260904C00063500",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.5,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6825,
+        "ask": 0.7175,
+        "mid": 0.7,
+        "spread_pct": 0.05,
+        "premium": 70.0,
+        "open_interest": 540,
+        "last_trade_age": 0.30000000000000004,
+        "moneyness": 0.015188
+      },
+      {
+        "symbol": "XLE260904C00064000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 64.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.15,
+        "ask": 0.17,
+        "mid": 0.16,
+        "spread_pct": 0.06,
+        "premium": 16.0,
+        "open_interest": 680,
+        "last_trade_age": 0.4,
+        "moneyness": 0.023181
+      },
+      {
+        "symbol": "XLE260904C00065000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 65.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.3088,
+        "ask": 0.3312,
+        "mid": 0.32,
+        "spread_pct": 0.07,
+        "premium": 32.0,
+        "open_interest": 820,
+        "last_trade_age": 0.5,
+        "moneyness": 0.039169
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 0.6,
+      "failure_mode": "insufficient_premium",
+      "objection": "Selling only 2 of 4 available contracts (covering 200 of 400 shares) at $16/contract nets just $32 total, negligible income for 7 days of upside cap risk. The $63 strike alone offers $90/contract, far better compensation for similar or better terms.",
+      "what_would_fix_it": "Switch to the $63 or $63.50 strike for materially higher premium, or increase contracts to fully cover the 400-share position.",
+      "raw": "{\"severity\": 0.6, \"failure_mode\": \"insufficient_premium\", \"objection\": \"Selling only 2 of 4 available contracts (covering 200 of 400 shares) at $16/contract nets just $32 total, negligible income for 7 days of upside cap risk. The $63 strike alone offers $90/contract, far better compensation for similar or better terms.\", \"what_would_fix_it\": \"Switch to the $63 or $63.50 strike for materially higher premium, or increase contracts to fully cover the 400-share position.\"}",
+      "failed": false
+    },
+    "observed_mode": "insufficient_premium",
+    "severity": 0.6,
+    "exact_mode_match": true
+  },
+  {
+    "case_id": "insufficient_premium_3",
+    "expected_mode": "insufficient_premium",
+    "clean": false,
+    "note": "Injected defect: only $20/contract despite stronger nearby alternatives.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904C00064000",
+      "strike": 64.0,
+      "expiry": "2026-09-04",
+      "contracts": 2,
+      "expected_premium": 20.0,
+      "total_premium": 40.0,
+      "max_loss": 0.0,
+      "reasoning": "Choosing this contract for income while keeping the strike modestly out of the money.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260904C00063000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.882,
+        "ask": 0.918,
+        "mid": 0.9,
+        "spread_pct": 0.04,
+        "premium": 90.0,
+        "open_interest": 400,
+        "last_trade_age": 0.2,
+        "moneyness": 0.007194
+      },
+      {
+        "symbol": "XLE260904C00063500",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.5,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6825,
+        "ask": 0.7175,
+        "mid": 0.7,
+        "spread_pct": 0.05,
+        "premium": 70.0,
+        "open_interest": 540,
+        "last_trade_age": 0.30000000000000004,
+        "moneyness": 0.015188
+      },
+      {
+        "symbol": "XLE260904C00064000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 64.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.19,
+        "ask": 0.21000000000000002,
+        "mid": 0.2,
+        "spread_pct": 0.06,
+        "premium": 20.0,
+        "open_interest": 680,
+        "last_trade_age": 0.4,
+        "moneyness": 0.023181
+      },
+      {
+        "symbol": "XLE260904C00065000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 65.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.3088,
+        "ask": 0.3312,
+        "mid": 0.32,
+        "spread_pct": 0.07,
+        "premium": 32.0,
+        "open_interest": 820,
+        "last_trade_age": 0.5,
+        "moneyness": 0.039169
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 0.6,
+      "failure_mode": "insufficient_premium",
+      "objection": "Only $20 premium (0.03% of $62.55 spot) for 7 days is trivial income, while the $65 strike offers $32 with less assignment risk. This trade barely compensates for tying up 200 shares' worth of upside.",
+      "what_would_fix_it": "Select the $65 strike (more premium, further OTM) or a later expiry with richer premium.",
+      "raw": "{\"severity\": 0.6, \"failure_mode\": \"insufficient_premium\", \"objection\": \"Only $20 premium (0.03% of $62.55 spot) for 7 days is trivial income, while the $65 strike offers $32 with less assignment risk. This trade barely compensates for tying up 200 shares' worth of upside.\", \"what_would_fix_it\": \"Select the $65 strike (more premium, further OTM) or a later expiry with richer premium.\"}",
+      "failed": false
+    },
+    "observed_mode": "insufficient_premium",
+    "severity": 0.6,
+    "exact_mode_match": true
+  },
+  {
+    "case_id": "poor_liquidity_1",
+    "expected_mode": "poor_liquidity",
+    "clean": false,
+    "note": "Injected defect: OI=12, spread=40% while alternatives are liquid.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904C00063500",
+      "strike": 63.5,
+      "expiry": "2026-09-04",
+      "contracts": 2,
+      "expected_premium": 70.0,
+      "total_premium": 140.0,
+      "max_loss": 0.0,
+      "reasoning": "The premium is acceptable, so I am selecting this contract.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260904C00063000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.882,
+        "ask": 0.918,
+        "mid": 0.9,
+        "spread_pct": 0.04,
+        "premium": 90.0,
+        "open_interest": 400,
+        "last_trade_age": 0.2,
+        "moneyness": 0.007194
+      },
+      {
+        "symbol": "XLE260904C00063500",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.5,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.5599999999999999,
+        "ask": 0.84,
+        "mid": 0.7,
+        "spread_pct": 0.4,
+        "premium": 70.0,
+        "open_interest": 12,
+        "last_trade_age": 0.30000000000000004,
+        "moneyness": 0.015188
+      },
+      {
+        "symbol": "XLE260904C00064000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 64.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.485,
+        "ask": 0.515,
+        "mid": 0.5,
+        "spread_pct": 0.06,
+        "premium": 50.0,
+        "open_interest": 680,
+        "last_trade_age": 0.4,
+        "moneyness": 0.023181
+      },
+      {
+        "symbol": "XLE260904C00065000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 65.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.3088,
+        "ask": 0.3312,
+        "mid": 0.32,
+        "spread_pct": 0.07,
+        "premium": 32.0,
+        "open_interest": 820,
+        "last_trade_age": 0.5,
+        "moneyness": 0.039169
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 0.75,
+      "failure_mode": "poor_liquidity",
+      "objection": "40% bid-ask spread and OI of only 12 versus alternatives with 4-7% spreads and hundreds of open interest means this contract will bleed value on entry and exit.",
+      "what_would_fix_it": "Use XLE260904C00064000 or C00065000 instead, which have far tighter spreads and much higher OI.",
+      "raw": "{\"severity\": 0.75, \"failure_mode\": \"poor_liquidity\", \"objection\": \"40% bid-ask spread and OI of only 12 versus alternatives with 4-7% spreads and hundreds of open interest means this contract will bleed value on entry and exit.\", \"what_would_fix_it\": \"Use XLE260904C00064000 or C00065000 instead, which have far tighter spreads and much higher OI.\"}",
+      "failed": false
+    },
+    "observed_mode": "poor_liquidity",
+    "severity": 0.75,
+    "exact_mode_match": true
+  },
+  {
+    "case_id": "poor_liquidity_2",
+    "expected_mode": "poor_liquidity",
+    "clean": false,
+    "note": "Injected defect: OI=22, spread=30% while alternatives are liquid.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904C00063500",
+      "strike": 63.5,
+      "expiry": "2026-09-04",
+      "contracts": 2,
+      "expected_premium": 70.0,
+      "total_premium": 140.0,
+      "max_loss": 0.0,
+      "reasoning": "The premium is acceptable, so I am selecting this contract.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260904C00063000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.882,
+        "ask": 0.918,
+        "mid": 0.9,
+        "spread_pct": 0.04,
+        "premium": 90.0,
+        "open_interest": 400,
+        "last_trade_age": 0.2,
+        "moneyness": 0.007194
+      },
+      {
+        "symbol": "XLE260904C00063500",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.5,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.595,
+        "ask": 0.8049999999999999,
+        "mid": 0.7,
+        "spread_pct": 0.3,
+        "premium": 70.0,
+        "open_interest": 22,
+        "last_trade_age": 0.30000000000000004,
+        "moneyness": 0.015188
+      },
+      {
+        "symbol": "XLE260904C00064000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 64.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.485,
+        "ask": 0.515,
+        "mid": 0.5,
+        "spread_pct": 0.06,
+        "premium": 50.0,
+        "open_interest": 680,
+        "last_trade_age": 0.4,
+        "moneyness": 0.023181
+      },
+      {
+        "symbol": "XLE260904C00065000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 65.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.3088,
+        "ask": 0.3312,
+        "mid": 0.32,
+        "spread_pct": 0.07,
+        "premium": 32.0,
+        "open_interest": 820,
+        "last_trade_age": 0.5,
+        "moneyness": 0.039169
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 0.75,
+      "failure_mode": "poor_liquidity",
+      "objection": "30% bid-ask spread with only 22 OI will erode most of the $70 premium on entry and exit, while alternatives at similar strikes offer far tighter spreads and deeper OI.",
+      "what_would_fix_it": "Use XLE260904C00064000 (6% spread, OI 680) or XLE260904C00065000 (7% spread, OI 820) instead.",
+      "raw": "{\"severity\": 0.75, \"failure_mode\": \"poor_liquidity\", \"objection\": \"30% bid-ask spread with only 22 OI will erode most of the $70 premium on entry and exit, while alternatives at similar strikes offer far tighter spreads and deeper OI.\", \"what_would_fix_it\": \"Use XLE260904C00064000 (6% spread, OI 680) or XLE260904C00065000 (7% spread, OI 820) instead.\"}",
+      "failed": false
+    },
+    "observed_mode": "poor_liquidity",
+    "severity": 0.75,
+    "exact_mode_match": true
+  },
+  {
+    "case_id": "poor_liquidity_3",
+    "expected_mode": "poor_liquidity",
+    "clean": false,
+    "note": "Injected defect: OI=35, spread=22% while alternatives are liquid.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904C00063500",
+      "strike": 63.5,
+      "expiry": "2026-09-04",
+      "contracts": 2,
+      "expected_premium": 70.0,
+      "total_premium": 140.0,
+      "max_loss": 0.0,
+      "reasoning": "The premium is acceptable, so I am selecting this contract.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260904C00063000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.882,
+        "ask": 0.918,
+        "mid": 0.9,
+        "spread_pct": 0.04,
+        "premium": 90.0,
+        "open_interest": 400,
+        "last_trade_age": 0.2,
+        "moneyness": 0.007194
+      },
+      {
+        "symbol": "XLE260904C00063500",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.5,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.623,
+        "ask": 0.7769999999999999,
+        "mid": 0.7,
+        "spread_pct": 0.22,
+        "premium": 70.0,
+        "open_interest": 35,
+        "last_trade_age": 0.30000000000000004,
+        "moneyness": 0.015188
+      },
+      {
+        "symbol": "XLE260904C00064000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 64.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.485,
+        "ask": 0.515,
+        "mid": 0.5,
+        "spread_pct": 0.06,
+        "premium": 50.0,
+        "open_interest": 680,
+        "last_trade_age": 0.4,
+        "moneyness": 0.023181
+      },
+      {
+        "symbol": "XLE260904C00065000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 65.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.3088,
+        "ask": 0.3312,
+        "mid": 0.32,
+        "spread_pct": 0.07,
+        "premium": 32.0,
+        "open_interest": 820,
+        "last_trade_age": 0.5,
+        "moneyness": 0.039169
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 0.65,
+      "failure_mode": "poor_liquidity",
+      "objection": "The chosen contract has a 22% bid-ask spread and only 35 open interest, versus alternatives at the same expiry with 4-7% spreads and 400-820 OI. This erodes the already thin $70 premium significantly on entry and exit.",
+      "what_would_fix_it": "Use the $63 strike contract instead: tighter 4% spread, 400 OI, higher premium ($90).",
+      "raw": "{\"severity\": 0.65, \"failure_mode\": \"poor_liquidity\", \"objection\": \"The chosen contract has a 22% bid-ask spread and only 35 open interest, versus alternatives at the same expiry with 4-7% spreads and 400-820 OI. This erodes the already thin $70 premium significantly on entry and exit.\", \"what_would_fix_it\": \"Use the $63 strike contract instead: tighter 4% spread, 400 OI, higher premium ($90).\"}",
+      "failed": false
+    },
+    "observed_mode": "poor_liquidity",
+    "severity": 0.65,
+    "exact_mode_match": true
+  },
+  {
+    "case_id": "concentration_1",
+    "expected_mode": "concentration",
+    "clean": false,
+    "note": "Injected defect: 1 existing short XLE contracts before adding more.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904C00063500",
+      "strike": 63.5,
+      "expiry": "2026-09-04",
+      "contracts": 2,
+      "expected_premium": 70.0,
+      "total_premium": 140.0,
+      "max_loss": 0.0,
+      "reasoning": "Adding another XLE income position because the individual contract looks attractive.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260904C00063000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.882,
+        "ask": 0.918,
+        "mid": 0.9,
+        "spread_pct": 0.04,
+        "premium": 90.0,
+        "open_interest": 400,
+        "last_trade_age": 0.2,
+        "moneyness": 0.007194
+      },
+      {
+        "symbol": "XLE260904C00063500",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.5,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6825,
+        "ask": 0.7175,
+        "mid": 0.7,
+        "spread_pct": 0.05,
+        "premium": 70.0,
+        "open_interest": 540,
+        "last_trade_age": 0.30000000000000004,
+        "moneyness": 0.015188
+      },
+      {
+        "symbol": "XLE260904C00064000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 64.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.485,
+        "ask": 0.515,
+        "mid": 0.5,
+        "spread_pct": 0.06,
+        "premium": 50.0,
+        "open_interest": 680,
+        "last_trade_age": 0.4,
+        "moneyness": 0.023181
+      },
+      {
+        "symbol": "XLE260904C00065000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 65.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.3088,
+        "ask": 0.3312,
+        "mid": 0.32,
+        "spread_pct": 0.07,
+        "premium": 32.0,
+        "open_interest": 820,
+        "last_trade_age": 0.5,
+        "moneyness": 0.039169
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": [
+        {
+          "symbol": "XLE260904C00065050",
+          "underlying": "XLE",
+          "kind": "call",
+          "side": "short",
+          "contracts": 1,
+          "strike": 65.05,
+          "expiry": "2026-09-04",
+          "entry_premium": 35.0,
+          "opened": ""
+        }
+      ]
+    },
+    "objection": {
+      "severity": 0.6,
+      "failure_mode": "position_conflict",
+      "objection": "There is already 1 XLE call open against 400 shares; adding 2 more contracts brings total to 3 calls against only 400 shares, over-hedging and risking naked-like exposure if shares get called away unevenly.",
+      "what_would_fix_it": "Cap total XLE contracts at 4 (covering exactly 400 shares) or verify existing contract's strike/expiry before stacking another.",
+      "raw": "{\"severity\": 0.6,\n \"failure_mode\": \"position_conflict\",\n \"objection\": \"There is already 1 XLE call open against 400 shares; adding 2 more contracts brings total to 3 calls against only 400 shares, over-hedging and risking naked-like exposure if shares get called away unevenly.\",\n \"what_would_fix_it\": \"Cap total XLE contracts at 4 (covering exactly 400 shares) or verify existing contract's strike/expiry before stacking another.\"}",
+      "failed": false
+    },
+    "observed_mode": "position_conflict",
+    "severity": 0.6,
+    "exact_mode_match": false
+  },
+  {
+    "case_id": "concentration_2",
+    "expected_mode": "concentration",
+    "clean": false,
+    "note": "Injected defect: 2 existing short XLE contracts before adding more.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904C00063500",
+      "strike": 63.5,
+      "expiry": "2026-09-04",
+      "contracts": 2,
+      "expected_premium": 70.0,
+      "total_premium": 140.0,
+      "max_loss": 0.0,
+      "reasoning": "Adding another XLE income position because the individual contract looks attractive.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260904C00063000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.882,
+        "ask": 0.918,
+        "mid": 0.9,
+        "spread_pct": 0.04,
+        "premium": 90.0,
+        "open_interest": 400,
+        "last_trade_age": 0.2,
+        "moneyness": 0.007194
+      },
+      {
+        "symbol": "XLE260904C00063500",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.5,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6825,
+        "ask": 0.7175,
+        "mid": 0.7,
+        "spread_pct": 0.05,
+        "premium": 70.0,
+        "open_interest": 540,
+        "last_trade_age": 0.30000000000000004,
+        "moneyness": 0.015188
+      },
+      {
+        "symbol": "XLE260904C00064000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 64.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.485,
+        "ask": 0.515,
+        "mid": 0.5,
+        "spread_pct": 0.06,
+        "premium": 50.0,
+        "open_interest": 680,
+        "last_trade_age": 0.4,
+        "moneyness": 0.023181
+      },
+      {
+        "symbol": "XLE260904C00065000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 65.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.3088,
+        "ask": 0.3312,
+        "mid": 0.32,
+        "spread_pct": 0.07,
+        "premium": 32.0,
+        "open_interest": 820,
+        "last_trade_age": 0.5,
+        "moneyness": 0.039169
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": [
+        {
+          "symbol": "XLE260904C00065050",
+          "underlying": "XLE",
+          "kind": "call",
+          "side": "short",
+          "contracts": 2,
+          "strike": 65.05,
+          "expiry": "2026-09-04",
+          "entry_premium": 35.0,
+          "opened": ""
+        }
+      ]
+    },
+    "objection": {
+      "severity": 0.75,
+      "failure_mode": "position_conflict",
+      "objection": "This adds a 2nd covered call tranche on XLE when 2 contracts are already open against the same 400 shares, risking overwriting the position beyond actual share coverage.",
+      "what_would_fix_it": "Verify total covered call contracts do not exceed 4 (covering 400 shares); otherwise skip this trade.",
+      "raw": "{\"severity\": 0.75, \"failure_mode\": \"position_conflict\", \"objection\": \"This adds a 2nd covered call tranche on XLE when 2 contracts are already open against the same 400 shares, risking overwriting the position beyond actual share coverage.\", \"what_would_fix_it\": \"Verify total covered call contracts do not exceed 4 (covering 400 shares); otherwise skip this trade.\"}",
+      "failed": false
+    },
+    "observed_mode": "position_conflict",
+    "severity": 0.75,
+    "exact_mode_match": false
+  },
+  {
+    "case_id": "concentration_3",
+    "expected_mode": "concentration",
+    "clean": false,
+    "note": "Injected defect: 3 existing short XLE contracts before adding more.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904C00063500",
+      "strike": 63.5,
+      "expiry": "2026-09-04",
+      "contracts": 2,
+      "expected_premium": 70.0,
+      "total_premium": 140.0,
+      "max_loss": 0.0,
+      "reasoning": "Adding another XLE income position because the individual contract looks attractive.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260904C00063000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.882,
+        "ask": 0.918,
+        "mid": 0.9,
+        "spread_pct": 0.04,
+        "premium": 90.0,
+        "open_interest": 400,
+        "last_trade_age": 0.2,
+        "moneyness": 0.007194
+      },
+      {
+        "symbol": "XLE260904C00063500",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.5,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6825,
+        "ask": 0.7175,
+        "mid": 0.7,
+        "spread_pct": 0.05,
+        "premium": 70.0,
+        "open_interest": 540,
+        "last_trade_age": 0.30000000000000004,
+        "moneyness": 0.015188
+      },
+      {
+        "symbol": "XLE260904C00064000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 64.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.485,
+        "ask": 0.515,
+        "mid": 0.5,
+        "spread_pct": 0.06,
+        "premium": 50.0,
+        "open_interest": 680,
+        "last_trade_age": 0.4,
+        "moneyness": 0.023181
+      },
+      {
+        "symbol": "XLE260904C00065000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 65.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.3088,
+        "ask": 0.3312,
+        "mid": 0.32,
+        "spread_pct": 0.07,
+        "premium": 32.0,
+        "open_interest": 820,
+        "last_trade_age": 0.5,
+        "moneyness": 0.039169
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": [
+        {
+          "symbol": "XLE260904C00065050",
+          "underlying": "XLE",
+          "kind": "call",
+          "side": "short",
+          "contracts": 3,
+          "strike": 65.05,
+          "expiry": "2026-09-04",
+          "entry_premium": 35.0,
+          "opened": ""
+        }
+      ]
+    },
+    "objection": {
+      "severity": 0.75,
+      "failure_mode": "position_conflict",
+      "objection": "400 shares owned already back 3 open contracts (300 shares); adding 2 more brings total to 5 contracts (500 shares), leaving 100 shares uncovered and effectively naked calls.",
+      "what_would_fix_it": "Skip this trade or buy 100 more XLE shares before adding contracts to stay fully covered.",
+      "raw": "{\"severity\": 0.75,\n \"failure_mode\": \"position_conflict\",\n \"objection\": \"400 shares owned already back 3 open contracts (300 shares); adding 2 more brings total to 5 contracts (500 shares), leaving 100 shares uncovered and effectively naked calls.\",\n \"what_would_fix_it\": \"Skip this trade or buy 100 more XLE shares before adding contracts to stay fully covered.\"}",
+      "failed": false
+    },
+    "observed_mode": "position_conflict",
+    "severity": 0.75,
+    "exact_mode_match": false
+  },
+  {
+    "case_id": "assignment_risk_1",
+    "expected_mode": "assignment_risk",
+    "clean": false,
+    "note": "Injected defect: strike is -0.35 versus spot with 7 DTE.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904C00062200",
+      "strike": 62.2,
+      "expiry": "2026-09-04",
+      "contracts": 2,
+      "expected_premium": 95.0,
+      "total_premium": 190.0,
+      "max_loss": 70.0,
+      "reasoning": "Selling the near-money call to maximize premium income.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260904C00062200",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 62.2,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.931,
+        "ask": 0.969,
+        "mid": 0.95,
+        "spread_pct": 0.04,
+        "premium": 95.0,
+        "open_interest": 900,
+        "last_trade_age": 0.1,
+        "moneyness": -0.005596
+      },
+      {
+        "symbol": "XLE260904C00063000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.882,
+        "ask": 0.918,
+        "mid": 0.9,
+        "spread_pct": 0.04,
+        "premium": 90.0,
+        "open_interest": 400,
+        "last_trade_age": 0.2,
+        "moneyness": 0.007194
+      },
+      {
+        "symbol": "XLE260904C00063500",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.5,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6825,
+        "ask": 0.7175,
+        "mid": 0.7,
+        "spread_pct": 0.05,
+        "premium": 70.0,
+        "open_interest": 540,
+        "last_trade_age": 0.30000000000000004,
+        "moneyness": 0.015188
+      },
+      {
+        "symbol": "XLE260904C00064000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 64.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.485,
+        "ask": 0.515,
+        "mid": 0.5,
+        "spread_pct": 0.06,
+        "premium": 50.0,
+        "open_interest": 680,
+        "last_trade_age": 0.4,
+        "moneyness": 0.023181
+      },
+      {
+        "symbol": "XLE260904C00065000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 65.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.3088,
+        "ask": 0.3312,
+        "mid": 0.32,
+        "spread_pct": 0.07,
+        "premium": 32.0,
+        "open_interest": 820,
+        "last_trade_age": 0.5,
+        "moneyness": 0.039169
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 0.65,
+      "failure_mode": "assignment_risk",
+      "objection": "Strike is already below spot with only 7 days to expiry, meaning shares are highly likely to be called away, capping upside and forcing early exit. This sacrifices the stock for a mere $190 premium.",
+      "what_would_fix_it": "Use the $63.50 or $64.00 strike instead to retain more upside while still collecting meaningful premium.",
+      "raw": "{\"severity\": 0.65, \"failure_mode\": \"assignment_risk\", \"objection\": \"Strike is already below spot with only 7 days to expiry, meaning shares are highly likely to be called away, capping upside and forcing early exit. This sacrifices the stock for a mere $190 premium.\", \"what_would_fix_it\": \"Use the $63.50 or $64.00 strike instead to retain more upside while still collecting meaningful premium.\"}",
+      "failed": false
+    },
+    "observed_mode": "assignment_risk",
+    "severity": 0.65,
+    "exact_mode_match": true
+  },
+  {
+    "case_id": "assignment_risk_2",
+    "expected_mode": "assignment_risk",
+    "clean": false,
+    "note": "Injected defect: strike is +0.00 versus spot with 7 DTE.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904C00062550",
+      "strike": 62.55,
+      "expiry": "2026-09-04",
+      "contracts": 2,
+      "expected_premium": 95.0,
+      "total_premium": 190.0,
+      "max_loss": 0.0,
+      "reasoning": "Selling the near-money call to maximize premium income.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260904C00062550",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 62.55,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.931,
+        "ask": 0.969,
+        "mid": 0.95,
+        "spread_pct": 0.04,
+        "premium": 95.0,
+        "open_interest": 900,
+        "last_trade_age": 0.1,
+        "moneyness": 0.0
+      },
+      {
+        "symbol": "XLE260904C00063000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.882,
+        "ask": 0.918,
+        "mid": 0.9,
+        "spread_pct": 0.04,
+        "premium": 90.0,
+        "open_interest": 400,
+        "last_trade_age": 0.2,
+        "moneyness": 0.007194
+      },
+      {
+        "symbol": "XLE260904C00063500",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.5,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6825,
+        "ask": 0.7175,
+        "mid": 0.7,
+        "spread_pct": 0.05,
+        "premium": 70.0,
+        "open_interest": 540,
+        "last_trade_age": 0.30000000000000004,
+        "moneyness": 0.015188
+      },
+      {
+        "symbol": "XLE260904C00064000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 64.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.485,
+        "ask": 0.515,
+        "mid": 0.5,
+        "spread_pct": 0.06,
+        "premium": 50.0,
+        "open_interest": 680,
+        "last_trade_age": 0.4,
+        "moneyness": 0.023181
+      },
+      {
+        "symbol": "XLE260904C00065000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 65.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.3088,
+        "ask": 0.3312,
+        "mid": 0.32,
+        "spread_pct": 0.07,
+        "premium": 32.0,
+        "open_interest": 820,
+        "last_trade_age": 0.5,
+        "moneyness": 0.039169
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 0.75,
+      "failure_mode": "assignment_risk",
+      "objection": "Strike is exactly at-the-money with only 7 days to expiry, giving very high probability of assignment and capping all upside on the shares for a mere $190 total premium.",
+      "what_would_fix_it": "Move to a further OTM strike like $64 or $65 to reduce assignment probability while still collecting some premium.",
+      "raw": "{\"severity\": 0.75, \"failure_mode\": \"assignment_risk\", \"objection\": \"Strike is exactly at-the-money with only 7 days to expiry, giving very high probability of assignment and capping all upside on the shares for a mere $190 total premium.\", \"what_would_fix_it\": \"Move to a further OTM strike like $64 or $65 to reduce assignment probability while still collecting some premium.\"}",
+      "failed": false
+    },
+    "observed_mode": "assignment_risk",
+    "severity": 0.75,
+    "exact_mode_match": true
+  },
+  {
+    "case_id": "assignment_risk_3",
+    "expected_mode": "assignment_risk",
+    "clean": false,
+    "note": "Injected defect: strike is +0.20 versus spot with 7 DTE.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904C00062750",
+      "strike": 62.75,
+      "expiry": "2026-09-04",
+      "contracts": 2,
+      "expected_premium": 95.0,
+      "total_premium": 190.0,
+      "max_loss": 0.0,
+      "reasoning": "Selling the near-money call to maximize premium income.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260904C00062750",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 62.75,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.931,
+        "ask": 0.969,
+        "mid": 0.95,
+        "spread_pct": 0.04,
+        "premium": 95.0,
+        "open_interest": 900,
+        "last_trade_age": 0.1,
+        "moneyness": 0.003197
+      },
+      {
+        "symbol": "XLE260904C00063000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.882,
+        "ask": 0.918,
+        "mid": 0.9,
+        "spread_pct": 0.04,
+        "premium": 90.0,
+        "open_interest": 400,
+        "last_trade_age": 0.2,
+        "moneyness": 0.007194
+      },
+      {
+        "symbol": "XLE260904C00063500",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.5,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6825,
+        "ask": 0.7175,
+        "mid": 0.7,
+        "spread_pct": 0.05,
+        "premium": 70.0,
+        "open_interest": 540,
+        "last_trade_age": 0.30000000000000004,
+        "moneyness": 0.015188
+      },
+      {
+        "symbol": "XLE260904C00064000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 64.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.485,
+        "ask": 0.515,
+        "mid": 0.5,
+        "spread_pct": 0.06,
+        "premium": 50.0,
+        "open_interest": 680,
+        "last_trade_age": 0.4,
+        "moneyness": 0.023181
+      },
+      {
+        "symbol": "XLE260904C00065000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 65.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.3088,
+        "ask": 0.3312,
+        "mid": 0.32,
+        "spread_pct": 0.07,
+        "premium": 32.0,
+        "open_interest": 820,
+        "last_trade_age": 0.5,
+        "moneyness": 0.039169
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 0.75,
+      "failure_mode": "assignment_risk",
+      "objection": "Strike is only 0.3% above spot with just 7 days to expiry, giving very high odds of assignment on minimal upward movement. This caps upside almost entirely while only capturing $95 in premium.",
+      "what_would_fix_it": "Move to a further OTM strike such as $64 or $65 to reduce assignment probability while still collecting meaningful premium.",
+      "raw": "{\"severity\": 0.75, \"failure_mode\": \"assignment_risk\", \"objection\": \"Strike is only 0.3% above spot with just 7 days to expiry, giving very high odds of assignment on minimal upward movement. This caps upside almost entirely while only capturing $95 in premium.\", \"what_would_fix_it\": \"Move to a further OTM strike such as $64 or $65 to reduce assignment probability while still collecting meaningful premium.\"}",
+      "failed": false
+    },
+    "observed_mode": "assignment_risk",
+    "severity": 0.75,
+    "exact_mode_match": true
+  },
+  {
+    "case_id": "unfavourable_expiry_1",
+    "expected_mode": "unfavourable_expiry",
+    "clean": false,
+    "note": "Injected defect: 1 DTE while comparable 7-DTE alternatives exist.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260829C00064050",
+      "strike": 64.05,
+      "expiry": "2026-08-29",
+      "contracts": 2,
+      "expected_premium": 52.0,
+      "total_premium": 104.0,
+      "max_loss": 0.0,
+      "reasoning": "Choosing the shortest expiry even though a similar 7-day contract is available.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260829C00064050",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 64.05,
+        "expiry": "2026-08-29",
+        "days_to_expiry": 1,
+        "bid": 0.507,
+        "ask": 0.533,
+        "mid": 0.52,
+        "spread_pct": 0.05,
+        "premium": 52.0,
+        "open_interest": 600,
+        "last_trade_age": 0.2,
+        "moneyness": 0.023981
+      },
+      {
+        "symbol": "XLE260904C00063000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.882,
+        "ask": 0.918,
+        "mid": 0.9,
+        "spread_pct": 0.04,
+        "premium": 90.0,
+        "open_interest": 400,
+        "last_trade_age": 0.2,
+        "moneyness": 0.007194
+      },
+      {
+        "symbol": "XLE260904C00063500",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.5,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6825,
+        "ask": 0.7175,
+        "mid": 0.7,
+        "spread_pct": 0.05,
+        "premium": 70.0,
+        "open_interest": 540,
+        "last_trade_age": 0.30000000000000004,
+        "moneyness": 0.015188
+      },
+      {
+        "symbol": "XLE260904C00064000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 64.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.485,
+        "ask": 0.515,
+        "mid": 0.5,
+        "spread_pct": 0.06,
+        "premium": 50.0,
+        "open_interest": 680,
+        "last_trade_age": 0.4,
+        "moneyness": 0.023181
+      },
+      {
+        "symbol": "XLE260904C00065000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 65.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.3088,
+        "ask": 0.3312,
+        "mid": 0.32,
+        "spread_pct": 0.07,
+        "premium": 32.0,
+        "open_interest": 820,
+        "last_trade_age": 0.5,
+        "moneyness": 0.039169
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 0.8,
+      "failure_mode": "unfavourable_expiry",
+      "objection": "A 1-day expiry offers almost no time value, yielding only $52 premium versus $90 for a 7-day contract at a similar strike with better OI and tighter spread.",
+      "what_would_fix_it": "Choose the 7-day XLE260904C00063000 contract instead for more premium and reasonable time decay.",
+      "raw": "{\"severity\": 0.8,\n \"failure_mode\": \"unfavourable_expiry\",\n \"objection\": \"A 1-day expiry offers almost no time value, yielding only $52 premium versus $90 for a 7-day contract at a similar strike with better OI and tighter spread.\", \n \"what_would_fix_it\": \"Choose the 7-day XLE260904C00063000 contract instead for more premium and reasonable time decay.\"}",
+      "failed": false
+    },
+    "observed_mode": "unfavourable_expiry",
+    "severity": 0.8,
+    "exact_mode_match": true
+  },
+  {
+    "case_id": "unfavourable_expiry_2",
+    "expected_mode": "unfavourable_expiry",
+    "clean": false,
+    "note": "Injected defect: 2 DTE while comparable 7-DTE alternatives exist.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260830C00064050",
+      "strike": 64.05,
+      "expiry": "2026-08-30",
+      "contracts": 2,
+      "expected_premium": 52.0,
+      "total_premium": 104.0,
+      "max_loss": 0.0,
+      "reasoning": "Choosing the shortest expiry even though a similar 7-day contract is available.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260830C00064050",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 64.05,
+        "expiry": "2026-08-30",
+        "days_to_expiry": 2,
+        "bid": 0.507,
+        "ask": 0.533,
+        "mid": 0.52,
+        "spread_pct": 0.05,
+        "premium": 52.0,
+        "open_interest": 600,
+        "last_trade_age": 0.2,
+        "moneyness": 0.023981
+      },
+      {
+        "symbol": "XLE260904C00063000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.882,
+        "ask": 0.918,
+        "mid": 0.9,
+        "spread_pct": 0.04,
+        "premium": 90.0,
+        "open_interest": 400,
+        "last_trade_age": 0.2,
+        "moneyness": 0.007194
+      },
+      {
+        "symbol": "XLE260904C00063500",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.5,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6825,
+        "ask": 0.7175,
+        "mid": 0.7,
+        "spread_pct": 0.05,
+        "premium": 70.0,
+        "open_interest": 540,
+        "last_trade_age": 0.30000000000000004,
+        "moneyness": 0.015188
+      },
+      {
+        "symbol": "XLE260904C00064000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 64.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.485,
+        "ask": 0.515,
+        "mid": 0.5,
+        "spread_pct": 0.06,
+        "premium": 50.0,
+        "open_interest": 680,
+        "last_trade_age": 0.4,
+        "moneyness": 0.023181
+      },
+      {
+        "symbol": "XLE260904C00065000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 65.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.3088,
+        "ask": 0.3312,
+        "mid": 0.32,
+        "spread_pct": 0.07,
+        "premium": 32.0,
+        "open_interest": 820,
+        "last_trade_age": 0.5,
+        "moneyness": 0.039169
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 0.75,
+      "failure_mode": "unfavourable_expiry",
+      "objection": "A 2-day expiry offers essentially no time value and forces near-term assignment risk with only $104 total premium collected. The 7-day $63.50 strike offers more premium ($70) with better risk-adjusted timing.",
+      "what_would_fix_it": "Switch to the 7-day XLE260904C00063500 or similar contract for more premium and reasonable time buffer.",
+      "raw": "{\"severity\": 0.75,\n \"failure_mode\": \"unfavourable_expiry\",\n \"objection\": \"A 2-day expiry offers essentially no time value and forces near-term assignment risk with only $104 total premium collected. The 7-day $63.50 strike offers more premium ($70) with better risk-adjusted timing.\",\n \"what_would_fix_it\": \"Switch to the 7-day XLE260904C00063500 or similar contract for more premium and reasonable time buffer.\"}",
+      "failed": false
+    },
+    "observed_mode": "unfavourable_expiry",
+    "severity": 0.75,
+    "exact_mode_match": true
+  },
+  {
+    "case_id": "unfavourable_expiry_3",
+    "expected_mode": "unfavourable_expiry",
+    "clean": false,
+    "note": "Injected defect: 3 DTE while comparable 7-DTE alternatives exist.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260831C00064050",
+      "strike": 64.05,
+      "expiry": "2026-08-31",
+      "contracts": 2,
+      "expected_premium": 52.0,
+      "total_premium": 104.0,
+      "max_loss": 0.0,
+      "reasoning": "Choosing the shortest expiry even though a similar 7-day contract is available.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260831C00064050",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 64.05,
+        "expiry": "2026-08-31",
+        "days_to_expiry": 3,
+        "bid": 0.507,
+        "ask": 0.533,
+        "mid": 0.52,
+        "spread_pct": 0.05,
+        "premium": 52.0,
+        "open_interest": 600,
+        "last_trade_age": 0.2,
+        "moneyness": 0.023981
+      },
+      {
+        "symbol": "XLE260904C00063000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.882,
+        "ask": 0.918,
+        "mid": 0.9,
+        "spread_pct": 0.04,
+        "premium": 90.0,
+        "open_interest": 400,
+        "last_trade_age": 0.2,
+        "moneyness": 0.007194
+      },
+      {
+        "symbol": "XLE260904C00063500",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.5,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6825,
+        "ask": 0.7175,
+        "mid": 0.7,
+        "spread_pct": 0.05,
+        "premium": 70.0,
+        "open_interest": 540,
+        "last_trade_age": 0.30000000000000004,
+        "moneyness": 0.015188
+      },
+      {
+        "symbol": "XLE260904C00064000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 64.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.485,
+        "ask": 0.515,
+        "mid": 0.5,
+        "spread_pct": 0.06,
+        "premium": 50.0,
+        "open_interest": 680,
+        "last_trade_age": 0.4,
+        "moneyness": 0.023181
+      },
+      {
+        "symbol": "XLE260904C00065000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 65.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.3088,
+        "ask": 0.3312,
+        "mid": 0.32,
+        "spread_pct": 0.07,
+        "premium": 32.0,
+        "open_interest": 820,
+        "last_trade_age": 0.5,
+        "moneyness": 0.039169
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 0.6,
+      "failure_mode": "insufficient_premium",
+      "objection": "Selling a 3-day $64.05 call for only $52 yields negligible annualized return while surrendering upside, when the 7-day $63 call pays $90 for a longer window covering the same near-term risk.",
+      "what_would_fix_it": "Switch to the 7-day $63.00 or $63.50 strike for materially higher premium per unit of time.",
+      "raw": "{\"severity\": 0.6, \"failure_mode\": \"insufficient_premium\", \"objection\": \"Selling a 3-day $64.05 call for only $52 yields negligible annualized return while surrendering upside, when the 7-day $63 call pays $90 for a longer window covering the same near-term risk.\", \"what_would_fix_it\": \"Switch to the 7-day $63.00 or $63.50 strike for materially higher premium per unit of time.\"}",
+      "failed": false
+    },
+    "observed_mode": "insufficient_premium",
+    "severity": 0.6,
+    "exact_mode_match": false
+  },
+  {
+    "case_id": "position_conflict_1",
+    "expected_mode": "position_conflict",
+    "clean": false,
+    "note": "Injected defect: same short-put position is already open (1 contracts).",
+    "proposal": {
+      "action": "cash_secured_put",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904P00061500",
+      "strike": 61.5,
+      "expiry": "2026-09-04",
+      "contracts": 1,
+      "expected_premium": 64.0,
+      "total_premium": 64.0,
+      "max_loss": 6086.0,
+      "reasoning": "Opening this cash-secured put without changing the existing options position.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260904P00062000",
+        "underlying": "XLE",
+        "kind": "put",
+        "strike": 62.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.8232,
+        "ask": 0.8568,
+        "mid": 0.84,
+        "spread_pct": 0.04,
+        "premium": 84.0,
+        "open_interest": 500,
+        "last_trade_age": 0.2,
+        "moneyness": -0.008793
+      },
+      {
+        "symbol": "XLE260904P00061500",
+        "underlying": "XLE",
+        "kind": "put",
+        "strike": 61.5,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.624,
+        "ask": 0.656,
+        "mid": 0.64,
+        "spread_pct": 0.05,
+        "premium": 64.0,
+        "open_interest": 660,
+        "last_trade_age": 0.30000000000000004,
+        "moneyness": -0.016787
+      },
+      {
+        "symbol": "XLE260904P00061000",
+        "underlying": "XLE",
+        "kind": "put",
+        "strike": 61.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.4462,
+        "ask": 0.4738,
+        "mid": 0.46,
+        "spread_pct": 0.06,
+        "premium": 46.0,
+        "open_interest": 820,
+        "last_trade_age": 0.4,
+        "moneyness": -0.02478
+      },
+      {
+        "symbol": "XLE260904P00060000",
+        "underlying": "XLE",
+        "kind": "put",
+        "strike": 60.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.2895,
+        "ask": 0.3105,
+        "mid": 0.3,
+        "spread_pct": 0.07,
+        "premium": 30.0,
+        "open_interest": 980,
+        "last_trade_age": 0.5,
+        "moneyness": -0.040767
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": [
+        {
+          "symbol": "XLE260904P00061500",
+          "underlying": "XLE",
+          "kind": "put",
+          "side": "short",
+          "contracts": 1,
+          "strike": 61.5,
+          "expiry": "2026-09-04",
+          "entry_premium": 64.0,
+          "opened": ""
+        }
+      ]
+    },
+    "objection": {
+      "severity": 0.6,
+      "failure_mode": "insufficient_premium",
+      "objection": "$64 premium against $6,086 max loss is a 1.05% return for only 7 days, barely compensating for near-the-money assignment risk (-1.7%). This is thin compensation relative to capital tied up.",
+      "what_would_fix_it": "Move to the $60 strike or a later expiry to collect more premium per unit of risk, or increase distance from spot.",
+      "raw": "{\"severity\": 0.6,\n \"failure_mode\": \"insufficient_premium\",\n \"objection\": \"$64 premium against $6,086 max loss is a 1.05% return for only 7 days, barely compensating for near-the-money assignment risk (-1.7%). This is thin compensation relative to capital tied up.\",\n \"what_would_fix_it\": \"Move to the $60 strike or a later expiry to collect more premium per unit of risk, or increase distance from spot.\"}",
+      "failed": false
+    },
+    "observed_mode": "insufficient_premium",
+    "severity": 0.6,
+    "exact_mode_match": false
+  },
+  {
+    "case_id": "position_conflict_2",
+    "expected_mode": "position_conflict",
+    "clean": false,
+    "note": "Injected defect: same short-put position is already open (2 contracts).",
+    "proposal": {
+      "action": "cash_secured_put",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904P00061500",
+      "strike": 61.5,
+      "expiry": "2026-09-04",
+      "contracts": 1,
+      "expected_premium": 64.0,
+      "total_premium": 64.0,
+      "max_loss": 6086.0,
+      "reasoning": "Opening this cash-secured put without changing the existing options position.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260904P00062000",
+        "underlying": "XLE",
+        "kind": "put",
+        "strike": 62.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.8232,
+        "ask": 0.8568,
+        "mid": 0.84,
+        "spread_pct": 0.04,
+        "premium": 84.0,
+        "open_interest": 500,
+        "last_trade_age": 0.2,
+        "moneyness": -0.008793
+      },
+      {
+        "symbol": "XLE260904P00061500",
+        "underlying": "XLE",
+        "kind": "put",
+        "strike": 61.5,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.624,
+        "ask": 0.656,
+        "mid": 0.64,
+        "spread_pct": 0.05,
+        "premium": 64.0,
+        "open_interest": 660,
+        "last_trade_age": 0.30000000000000004,
+        "moneyness": -0.016787
+      },
+      {
+        "symbol": "XLE260904P00061000",
+        "underlying": "XLE",
+        "kind": "put",
+        "strike": 61.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.4462,
+        "ask": 0.4738,
+        "mid": 0.46,
+        "spread_pct": 0.06,
+        "premium": 46.0,
+        "open_interest": 820,
+        "last_trade_age": 0.4,
+        "moneyness": -0.02478
+      },
+      {
+        "symbol": "XLE260904P00060000",
+        "underlying": "XLE",
+        "kind": "put",
+        "strike": 60.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.2895,
+        "ask": 0.3105,
+        "mid": 0.3,
+        "spread_pct": 0.07,
+        "premium": 30.0,
+        "open_interest": 980,
+        "last_trade_age": 0.5,
+        "moneyness": -0.040767
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": [
+        {
+          "symbol": "XLE260904P00061500",
+          "underlying": "XLE",
+          "kind": "put",
+          "side": "short",
+          "contracts": 2,
+          "strike": 61.5,
+          "expiry": "2026-09-04",
+          "entry_premium": 64.0,
+          "opened": ""
+        }
+      ]
+    },
+    "objection": {
+      "severity": 0.65,
+      "failure_mode": "concentration",
+      "objection": "Already 400 shares plus 2 contracts open on XLE; adding a third put concentrates further single-underlying risk with only $13,464 free cash against a $6,086 max loss.",
+      "what_would_fix_it": "Diversify into XLF or XLP instead, or skip this trade and keep XLE exposure at current level.",
+      "raw": "{\"severity\": 0.65, \"failure_mode\": \"concentration\", \"objection\": \"Already 400 shares plus 2 contracts open on XLE; adding a third put concentrates further single-underlying risk with only $13,464 free cash against a $6,086 max loss.\", \"what_would_fix_it\": \"Diversify into XLF or XLP instead, or skip this trade and keep XLE exposure at current level.\"}",
+      "failed": false
+    },
+    "observed_mode": "concentration",
+    "severity": 0.65,
+    "exact_mode_match": false
+  },
+  {
+    "case_id": "position_conflict_3",
+    "expected_mode": "position_conflict",
+    "clean": false,
+    "note": "Injected defect: same short-put position is already open (3 contracts).",
+    "proposal": {
+      "action": "cash_secured_put",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904P00061500",
+      "strike": 61.5,
+      "expiry": "2026-09-04",
+      "contracts": 1,
+      "expected_premium": 64.0,
+      "total_premium": 64.0,
+      "max_loss": 6086.0,
+      "reasoning": "Opening this cash-secured put without changing the existing options position.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260904P00062000",
+        "underlying": "XLE",
+        "kind": "put",
+        "strike": 62.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.8232,
+        "ask": 0.8568,
+        "mid": 0.84,
+        "spread_pct": 0.04,
+        "premium": 84.0,
+        "open_interest": 500,
+        "last_trade_age": 0.2,
+        "moneyness": -0.008793
+      },
+      {
+        "symbol": "XLE260904P00061500",
+        "underlying": "XLE",
+        "kind": "put",
+        "strike": 61.5,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.624,
+        "ask": 0.656,
+        "mid": 0.64,
+        "spread_pct": 0.05,
+        "premium": 64.0,
+        "open_interest": 660,
+        "last_trade_age": 0.30000000000000004,
+        "moneyness": -0.016787
+      },
+      {
+        "symbol": "XLE260904P00061000",
+        "underlying": "XLE",
+        "kind": "put",
+        "strike": 61.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.4462,
+        "ask": 0.4738,
+        "mid": 0.46,
+        "spread_pct": 0.06,
+        "premium": 46.0,
+        "open_interest": 820,
+        "last_trade_age": 0.4,
+        "moneyness": -0.02478
+      },
+      {
+        "symbol": "XLE260904P00060000",
+        "underlying": "XLE",
+        "kind": "put",
+        "strike": 60.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.2895,
+        "ask": 0.3105,
+        "mid": 0.3,
+        "spread_pct": 0.07,
+        "premium": 30.0,
+        "open_interest": 980,
+        "last_trade_age": 0.5,
+        "moneyness": -0.040767
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": [
+        {
+          "symbol": "XLE260904P00061500",
+          "underlying": "XLE",
+          "kind": "put",
+          "side": "short",
+          "contracts": 3,
+          "strike": 61.5,
+          "expiry": "2026-09-04",
+          "entry_premium": 64.0,
+          "opened": ""
+        }
+      ]
+    },
+    "objection": {
+      "severity": 0.7,
+      "failure_mode": "concentration",
+      "objection": "This adds a 4th XLE options contract plus 400 shares already held, deepening concentration in one underlying with only $7,314 free cash against $6,086 max loss.",
+      "what_would_fix_it": "Skip this trade or deploy capital into XLF/XLP instead of adding a 4th XLE contract.",
+      "raw": "{\"severity\": 0.7,\n \"failure_mode\": \"concentration\",\n \"objection\": \"This adds a 4th XLE options contract plus 400 shares already held, deepening concentration in one underlying with only $7,314 free cash against $6,086 max loss.\",\n \"what_would_fix_it\": \"Skip this trade or deploy capital into XLF/XLP instead of adding a 4th XLE contract.\"}",
+      "failed": false
+    },
+    "observed_mode": "concentration",
+    "severity": 0.7,
+    "exact_mode_match": false
+  },
+  {
+    "case_id": "clean_1",
+    "expected_mode": "clean",
+    "clean": true,
+    "note": "Clean control: healthy liquidity, reasonable premium, normal expiry, comfortable moneyness, modest size, and no deliberate defect.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904C00065050",
+      "strike": 65.05,
+      "expiry": "2026-09-04",
+      "contracts": 1,
+      "expected_premium": 72.0,
+      "total_premium": 72.0,
+      "max_loss": 0.0,
+      "reasoning": "This is a modest, inventory-aware position selected from a liquid eligible set. Premium is reasonable relative to nearby contracts, the strike is comfortably out of the money, and I am not assuming a directional forecast.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260904C00065050",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 65.05,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.711,
+        "ask": 0.729,
+        "mid": 0.72,
+        "spread_pct": 0.025,
+        "premium": 72.0,
+        "open_interest": 1500,
+        "last_trade_age": 0.1,
+        "moneyness": 0.039968
+      },
+      {
+        "symbol": "XLE260904C00065550",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 65.55,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6501,
+        "ask": 0.6699,
+        "mid": 0.66,
+        "spread_pct": 0.03,
+        "premium": 66.0,
+        "open_interest": 1300,
+        "last_trade_age": 0.1,
+        "moneyness": 0.047962
+      },
+      {
+        "symbol": "XLE260904C00066050",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 66.05,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.591,
+        "ask": 0.609,
+        "mid": 0.6,
+        "spread_pct": 0.03,
+        "premium": 60.0,
+        "open_interest": 1200,
+        "last_trade_age": 0.1,
+        "moneyness": 0.055955
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 0.4,
+      "failure_mode": "insufficient_premium",
+      "objection": "$72 premium on a $6,255 covered-call position over just 7 days is roughly 1.1% of collateral, barely compensating for the risk of a 4% move away and forgone upside past $65.05.",
+      "what_would_fix_it": "Select a later expiry (30+ days) to collect more premium per unit of risk, or increase contracts against additional uncalled shares.",
+      "raw": "{\"severity\": 0.4,\n \"failure_mode\": \"insufficient_premium\",\n \"objection\": \"$72 premium on a $6,255 covered-call position over just 7 days is roughly 1.1% of collateral, barely compensating for the risk of a 4% move away and forgone upside past $65.05.\",\n \"what_would_fix_it\": \"Select a later expiry (30+ days) to collect more premium per unit of risk, or increase contracts against additional uncalled shares.\"}",
+      "failed": false
+    },
+    "observed_mode": "insufficient_premium",
+    "severity": 0.4,
+    "exact_mode_match": null
+  },
+  {
+    "case_id": "clean_2",
+    "expected_mode": "clean",
+    "clean": true,
+    "note": "Clean control: healthy liquidity, reasonable premium, normal expiry, comfortable moneyness, modest size, and no deliberate defect.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904C00065550",
+      "strike": 65.55,
+      "expiry": "2026-09-04",
+      "contracts": 2,
+      "expected_premium": 66.0,
+      "total_premium": 132.0,
+      "max_loss": 0.0,
+      "reasoning": "This is a modest, inventory-aware position selected from a liquid eligible set. Premium is reasonable relative to nearby contracts, the strike is comfortably out of the money, and I am not assuming a directional forecast.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260904C00065550",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 65.55,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6518,
+        "ask": 0.6683,
+        "mid": 0.66,
+        "spread_pct": 0.025,
+        "premium": 66.0,
+        "open_interest": 1500,
+        "last_trade_age": 0.1,
+        "moneyness": 0.047962
+      },
+      {
+        "symbol": "XLE260904C00066050",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 66.05,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.591,
+        "ask": 0.609,
+        "mid": 0.6,
+        "spread_pct": 0.03,
+        "premium": 60.0,
+        "open_interest": 1300,
+        "last_trade_age": 0.1,
+        "moneyness": 0.055955
+      },
+      {
+        "symbol": "XLE260904C00066550",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 66.55,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.5319,
+        "ask": 0.5481,
+        "mid": 0.54,
+        "spread_pct": 0.03,
+        "premium": 54.0,
+        "open_interest": 1200,
+        "last_trade_age": 0.1,
+        "moneyness": 0.063949
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 0.5,
+      "failure_mode": "unfavourable_expiry",
+      "objection": "7 days to expiry yields only $132 total premium against $12,510 of covered notional, an annualized return too thin to justify tying up shares and assignment risk for such a short window.",
+      "what_would_fix_it": "Choose a longer-dated expiry (30-45 days) to collect meaningfully more premium per contract.",
+      "raw": "{\"severity\": 0.5, \"failure_mode\": \"unfavourable_expiry\", \"objection\": \"7 days to expiry yields only $132 total premium against $12,510 of covered notional, an annualized return too thin to justify tying up shares and assignment risk for such a short window.\", \"what_would_fix_it\": \"Choose a longer-dated expiry (30-45 days) to collect meaningfully more premium per contract.\"}",
+      "failed": false
+    },
+    "observed_mode": "unfavourable_expiry",
+    "severity": 0.5,
+    "exact_mode_match": null
+  },
+  {
+    "case_id": "clean_3",
+    "expected_mode": "clean",
+    "clean": true,
+    "note": "Clean control: healthy liquidity, reasonable premium, normal expiry, comfortable moneyness, modest size, and no deliberate defect.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLF",
+      "contract_symbol": "XLF260904C00060700",
+      "strike": 60.7,
+      "expiry": "2026-09-04",
+      "contracts": 1,
+      "expected_premium": 68.0,
+      "total_premium": 68.0,
+      "max_loss": 0.0,
+      "reasoning": "This is a modest, inventory-aware position selected from a liquid eligible set. Premium is reasonable relative to nearby contracts, the strike is comfortably out of the money, and I am not assuming a directional forecast.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLF260904C00060700",
+        "underlying": "XLF",
+        "kind": "call",
+        "strike": 60.7,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6715,
+        "ask": 0.6885,
+        "mid": 0.68,
+        "spread_pct": 0.025,
+        "premium": 68.0,
+        "open_interest": 1500,
+        "last_trade_age": 0.1,
+        "moneyness": 0.042955
+      },
+      {
+        "symbol": "XLF260904C00061200",
+        "underlying": "XLF",
+        "kind": "call",
+        "strike": 61.2,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6107,
+        "ask": 0.6293,
+        "mid": 0.62,
+        "spread_pct": 0.03,
+        "premium": 62.0,
+        "open_interest": 1300,
+        "last_trade_age": 0.1,
+        "moneyness": 0.051546
+      },
+      {
+        "symbol": "XLF260904C00061700",
+        "underlying": "XLF",
+        "kind": "call",
+        "strike": 61.7,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.5516,
+        "ask": 0.5684,
+        "mid": 0.56,
+        "spread_pct": 0.03,
+        "premium": 56.0,
+        "open_interest": 1200,
+        "last_trade_age": 0.1,
+        "moneyness": 0.060137
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 0.5,
+      "failure_mode": "insufficient_premium",
+      "objection": "$68 premium on a $58.20 stock is a 0.12% return for 7 days, barely covering transaction friction while capping upside near-term. The tiny premium doesn't compensate for tying up 400 shares for a week.",
+      "what_would_fix_it": "Choose a longer-dated expiry (30-45 days) to collect meaningfully more premium relative to time at risk.",
+      "raw": "{\"severity\": 0.5, \"failure_mode\": \"insufficient_premium\", \"objection\": \"$68 premium on a $58.20 stock is a 0.12% return for 7 days, barely covering transaction friction while capping upside near-term. The tiny premium doesn't compensate for tying up 400 shares for a week.\", \"what_would_fix_it\": \"Choose a longer-dated expiry (30-45 days) to collect meaningfully more premium relative to time at risk.\"}",
+      "failed": false
+    },
+    "observed_mode": "insufficient_premium",
+    "severity": 0.5,
+    "exact_mode_match": null
+  },
+  {
+    "case_id": "clean_4",
+    "expected_mode": "clean",
+    "clean": true,
+    "note": "Clean control: healthy liquidity, reasonable premium, normal expiry, comfortable moneyness, modest size, and no deliberate defect.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLP",
+      "contract_symbol": "XLP260904C00089440",
+      "strike": 89.44,
+      "expiry": "2026-09-04",
+      "contracts": 1,
+      "expected_premium": 70.0,
+      "total_premium": 70.0,
+      "max_loss": 0.0,
+      "reasoning": "This is a modest, inventory-aware position selected from a liquid eligible set. Premium is reasonable relative to nearby contracts, the strike is comfortably out of the money, and I am not assuming a directional forecast.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLP260904C00089440",
+        "underlying": "XLP",
+        "kind": "call",
+        "strike": 89.44,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6912,
+        "ask": 0.7087,
+        "mid": 0.7,
+        "spread_pct": 0.025,
+        "premium": 70.0,
+        "open_interest": 1500,
+        "last_trade_age": 0.1,
+        "moneyness": 0.034706
+      },
+      {
+        "symbol": "XLP260904C00089940",
+        "underlying": "XLP",
+        "kind": "call",
+        "strike": 89.94,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6304,
+        "ask": 0.6496,
+        "mid": 0.64,
+        "spread_pct": 0.03,
+        "premium": 64.0,
+        "open_interest": 1300,
+        "last_trade_age": 0.1,
+        "moneyness": 0.040491
+      },
+      {
+        "symbol": "XLP260904C00090440",
+        "underlying": "XLP",
+        "kind": "call",
+        "strike": 90.44,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.5713,
+        "ask": 0.5887,
+        "mid": 0.58,
+        "spread_pct": 0.03,
+        "premium": 58.0,
+        "open_interest": 1200,
+        "last_trade_age": 0.1,
+        "moneyness": 0.046275
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 0.4,
+      "failure_mode": "insufficient_premium",
+      "objection": "$70 premium on ~$8,644 notional (100 shares needed but only 300 held, capping at 3 contracts max, here just 1) is a mere 0.08% return for 7 days, poor compensation for capping 3.5% upside.",
+      "what_would_fix_it": "Choose a further expiry (30+ days) to collect more absolute premium per unit of upside surrendered.",
+      "raw": "{\"severity\": 0.4, \"failure_mode\": \"insufficient_premium\", \"objection\": \"$70 premium on ~$8,644 notional (100 shares needed but only 300 held, capping at 3 contracts max, here just 1) is a mere 0.08% return for 7 days, poor compensation for capping 3.5% upside.\", \"what_would_fix_it\": \"Choose a further expiry (30+ days) to collect more absolute premium per unit of upside surrendered.\"}",
+      "failed": false
+    },
+    "observed_mode": "insufficient_premium",
+    "severity": 0.4,
+    "exact_mode_match": null
+  },
+  {
+    "case_id": "clean_5",
+    "expected_mode": "clean",
+    "clean": true,
+    "note": "Clean control: healthy liquidity, reasonable premium, normal expiry, comfortable moneyness, modest size, and no deliberate defect.",
+    "proposal": {
+      "action": "cash_secured_put",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904P00060050",
+      "strike": 60.05,
+      "expiry": "2026-09-04",
+      "contracts": 1,
+      "expected_premium": 70.0,
+      "total_premium": 70.0,
+      "max_loss": 5935.0,
+      "reasoning": "This is a modest, inventory-aware position selected from a liquid eligible set. Premium is reasonable relative to nearby contracts, the strike is comfortably out of the money, and I am not assuming a directional forecast.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260904P00060050",
+        "underlying": "XLE",
+        "kind": "put",
+        "strike": 60.05,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6912,
+        "ask": 0.7087,
+        "mid": 0.7,
+        "spread_pct": 0.025,
+        "premium": 70.0,
+        "open_interest": 1500,
+        "last_trade_age": 0.1,
+        "moneyness": -0.039968
+      },
+      {
+        "symbol": "XLE260904P00059550",
+        "underlying": "XLE",
+        "kind": "put",
+        "strike": 59.55,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6304,
+        "ask": 0.6496,
+        "mid": 0.64,
+        "spread_pct": 0.03,
+        "premium": 64.0,
+        "open_interest": 1300,
+        "last_trade_age": 0.1,
+        "moneyness": -0.047962
+      },
+      {
+        "symbol": "XLE260904P00059050",
+        "underlying": "XLE",
+        "kind": "put",
+        "strike": 59.05,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.5713,
+        "ask": 0.5887,
+        "mid": 0.58,
+        "spread_pct": 0.03,
+        "premium": 58.0,
+        "open_interest": 1200,
+        "last_trade_age": 0.1,
+        "moneyness": -0.055955
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 0.6,
+      "failure_mode": "insufficient_premium",
+      "objection": "Only $70 premium (0.12% of the $5,935 cash secured) for 7 days of risk is a poor return, especially given a strike just 4% OTM that could easily be tested by normal volatility.",
+      "what_would_fix_it": "Move to a further OTM strike or a longer-dated expiry to collect materially more premium relative to capital at risk.",
+      "raw": "{\"severity\": 0.6, \"failure_mode\": \"insufficient_premium\", \"objection\": \"Only $70 premium (0.12% of the $5,935 cash secured) for 7 days of risk is a poor return, especially given a strike just 4% OTM that could easily be tested by normal volatility.\", \"what_would_fix_it\": \"Move to a further OTM strike or a longer-dated expiry to collect materially more premium relative to capital at risk.\"}",
+      "failed": false
+    },
+    "observed_mode": "insufficient_premium",
+    "severity": 0.6,
+    "exact_mode_match": null
+  },
+  {
+    "case_id": "clean_6",
+    "expected_mode": "clean",
+    "clean": true,
+    "note": "Clean control: healthy liquidity, reasonable premium, normal expiry, comfortable moneyness, modest size, and no deliberate defect.",
+    "proposal": {
+      "action": "cash_secured_put",
+      "underlying": "XLF",
+      "contract_symbol": "XLF260904P00055700",
+      "strike": 55.7,
+      "expiry": "2026-09-04",
+      "contracts": 1,
+      "expected_premium": 66.0,
+      "total_premium": 66.0,
+      "max_loss": 5504.0,
+      "reasoning": "This is a modest, inventory-aware position selected from a liquid eligible set. Premium is reasonable relative to nearby contracts, the strike is comfortably out of the money, and I am not assuming a directional forecast.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLF260904P00055700",
+        "underlying": "XLF",
+        "kind": "put",
+        "strike": 55.7,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6518,
+        "ask": 0.6683,
+        "mid": 0.66,
+        "spread_pct": 0.025,
+        "premium": 66.0,
+        "open_interest": 1500,
+        "last_trade_age": 0.1,
+        "moneyness": -0.042955
+      },
+      {
+        "symbol": "XLF260904P00055200",
+        "underlying": "XLF",
+        "kind": "put",
+        "strike": 55.2,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.591,
+        "ask": 0.609,
+        "mid": 0.6,
+        "spread_pct": 0.03,
+        "premium": 60.0,
+        "open_interest": 1300,
+        "last_trade_age": 0.1,
+        "moneyness": -0.051546
+      },
+      {
+        "symbol": "XLF260904P00054700",
+        "underlying": "XLF",
+        "kind": "put",
+        "strike": 54.7,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.5319,
+        "ask": 0.5481,
+        "mid": 0.54,
+        "spread_pct": 0.03,
+        "premium": 54.0,
+        "open_interest": 1200,
+        "last_trade_age": 0.1,
+        "moneyness": -0.060137
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 0.3,
+      "failure_mode": "insufficient_premium",
+      "objection": "$66 premium against $5,504 max loss is roughly 1.2% return for only 7 days, a thin cushion given the position already holds 400 shares of XLF outright.",
+      "what_would_fix_it": "Choose a further OTM strike or longer expiry to improve premium-to-risk ratio, or skip given existing XLF exposure.",
+      "raw": "{\"severity\": 0.3, \"failure_mode\": \"insufficient_premium\", \"objection\": \"$66 premium against $5,504 max loss is roughly 1.2% return for only 7 days, a thin cushion given the position already holds 400 shares of XLF outright.\", \"what_would_fix_it\": \"Choose a further OTM strike or longer expiry to improve premium-to-risk ratio, or skip given existing XLF exposure.\"}",
+      "failed": false
+    },
+    "observed_mode": "insufficient_premium",
+    "severity": 0.3,
+    "exact_mode_match": null
+  }
+]

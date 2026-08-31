@@ -1,0 +1,2 @@
+case_id,expected_mode,clean,observed_mode,severity,exact_mode_match,note,error
+assignment_risk_1,assignment_risk,False,assignment_risk,0.65,True,Injected defect: strike is -0.35 versus spot with 7 DTE.,

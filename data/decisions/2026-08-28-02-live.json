@@ -1,0 +1,166 @@
+{
+  "date": "2026-08-28",
+  "session": 2,
+  "time": "18:06 UTC",
+  "mode": "live",
+  "dry": false,
+  "blocks": [],
+  "fills": [],
+  "equity": 99635.99,
+  "cash": 25757.99,
+  "free_cash": 25757.99,
+  "market_open": true,
+  "shares": {
+    "XLE": 400,
+    "XLF": 400,
+    "XLP": 300
+  },
+  "open_options": [],
+  "eligible_count": 3,
+  "eligible": [
+    "XLE260904C00063500",
+    "XLE260904P00061000",
+    "XLF260904C00058500"
+  ],
+  "candidates": [
+    {
+      "symbol": "XLE260904C00063500",
+      "underlying": "XLE",
+      "kind": "call",
+      "strike": 63.5,
+      "expiry": "2026-09-04",
+      "days_to_expiry": 7,
+      "bid": 0.41,
+      "ask": 0.42,
+      "mid": 0.415,
+      "spread_pct": 0.0241,
+      "premium": 41.5,
+      "open_interest": 1554,
+      "last_trade_age_days": 0.01,
+      "moneyness": 0.0155,
+      "implied_volatility": 0.228
+    },
+    {
+      "symbol": "XLE260904P00061000",
+      "underlying": "XLE",
+      "kind": "put",
+      "strike": 61.0,
+      "expiry": "2026-09-04",
+      "days_to_expiry": 7,
+      "bid": 0.25,
+      "ask": 0.27,
+      "mid": 0.26,
+      "spread_pct": 0.0769,
+      "premium": 26.0,
+      "open_interest": 465,
+      "last_trade_age_days": 0.02,
+      "moneyness": -0.0245,
+      "implied_volatility": 0.2394
+    },
+    {
+      "symbol": "XLF260904C00058500",
+      "underlying": "XLF",
+      "kind": "call",
+      "strike": 58.5,
+      "expiry": "2026-09-04",
+      "days_to_expiry": 7,
+      "bid": 0.25,
+      "ask": 0.27,
+      "mid": 0.26,
+      "spread_pct": 0.0769,
+      "premium": 26.0,
+      "open_interest": 1275,
+      "last_trade_age_days": 0.01,
+      "moneyness": 0.0071,
+      "implied_volatility": 0.1307
+    }
+  ],
+  "proposal": {
+    "action": "covered_call",
+    "underlying": "XLE",
+    "contract_symbol": "XLE260904C00063500",
+    "strike": 63.5,
+    "expiry": "2026-09-04",
+    "contracts": 4,
+    "expected_premium": 41.5,
+    "total_premium": 166.0,
+    "max_loss": 0.0,
+    "reasoning": "I'm selling calls against my full 400-share XLE position at a strike above cost basis, collecting decent premium on a tight 2.4% spread while keeping upside room to the $63.50 strike.",
+    "raw": "{\"action\": \"covered_call\", \"underlying\": \"XLE\", \"contract_symbol\": \"XLE260904C00063500\", \"strike\": 63.5, \"expiry\": \"2026-09-04\", \"contracts\": 4, \"expected_premium\": 42.0, \"reasoning\": \"I'm selling calls against my full 400-share XLE position at a strike above cost basis, collecting decent premium on a tight 2.4% spread while keeping upside room to the $63.50 strike.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "objection": {
+    "severity": 0.55,
+    "failure_mode": "assignment_risk",
+    "objection": "Strike is only 1.6% OTM with just 7 days to expiry, giving minimal room against normal weekly volatility in XLE; a small move triggers assignment and caps upside almost immediately.",
+    "what_would_fix_it": "Choose a further-dated expiry (3-4 weeks) or a strike at least 4-5% OTM to allow more room before assignment.",
+    "raw": "{\"severity\": 0.55, \"failure_mode\": \"assignment_risk\", \"objection\": \"Strike is only 1.6% OTM with just 7 days to expiry, giving minimal room against normal weekly volatility in XLE; a small move triggers assignment and caps upside almost immediately.\", \"what_would_fix_it\": \"Choose a further-dated expiry (3-4 weeks) or a strike at least 4-5% OTM to allow more room before assignment.\"}",
+    "failed": false
+  },
+  "ruling1": {
+    "outcome": "revise",
+    "rationale": "The adversary raised assignment_risk at severity 0.55. Sending back for one revision. It also failed a hard limit: 4 contracts exceeds the 3 per-trade limit.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904C00063500",
+      "strike": 63.5,
+      "expiry": "2026-09-04",
+      "contracts": 4,
+      "expected_premium": 41.5,
+      "total_premium": 166.0,
+      "max_loss": 0.0,
+      "reasoning": "I'm selling calls against my full 400-share XLE position at a strike above cost basis, collecting decent premium on a tight 2.4% spread while keeping upside room to the $63.50 strike.",
+      "raw": "{\"action\": \"covered_call\", \"underlying\": \"XLE\", \"contract_symbol\": \"XLE260904C00063500\", \"strike\": 63.5, \"expiry\": \"2026-09-04\", \"contracts\": 4, \"expected_premium\": 42.0, \"reasoning\": \"I'm selling calls against my full 400-share XLE position at a strike above cost basis, collecting decent premium on a tight 2.4% spread while keeping upside room to the $63.50 strike.\"}",
+      "failed": false,
+      "corrections": []
+    }
+  },
+  "revision": {
+    "action": "cash_secured_put",
+    "underlying": "XLE",
+    "contract_symbol": "XLE260904P00061000",
+    "strike": 61.0,
+    "expiry": "2026-09-04",
+    "contracts": 2,
+    "expected_premium": 26.0,
+    "total_premium": 52.0,
+    "max_loss": 12148.0,
+    "reasoning": "Switching to a cash-secured put avoids the capped-upside assignment problem entirely since assignment just means buying more XLE at a 2.4% discount, not losing upside. I have ample free cash to cover the $12,200 collateral for two contracts while collecting premium.",
+    "raw": "{\"action\": \"cash_secured_put\", \"underlying\": \"XLE\", \"contract_symbol\": \"XLE260904P00061000\", \"strike\": 61.0, \"expiry\": \"2026-09-04\", \"contracts\": 2, \"expected_premium\": 26.0, \"reasoning\": \"Switching to a cash-secured put avoids the capped-upside assignment problem entirely since assignment just means buying more XLE at a 2.4% discount, not losing upside. I have ample free cash to cover the $12,200 collateral for two contracts while collecting premium.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "objection2": {
+    "severity": 0.5,
+    "failure_mode": "insufficient_premium",
+    "objection": "$52 total premium for $12,148 collateral over 7 days is a negligible ~0.43% return, barely compensating for assignment and spread costs. The wide 7.7% bid-ask spread further erodes this thin edge.",
+    "what_would_fix_it": "Choose a further-dated expiry or lower strike offering meaningfully higher premium relative to collateral.",
+    "raw": "{\"severity\": 0.5, \"failure_mode\": \"insufficient_premium\", \"objection\": \"$52 total premium for $12,148 collateral over 7 days is a negligible ~0.43% return, barely compensating for assignment and spread costs. The wide 7.7% bid-ask spread further erodes this thin edge.\", \"what_would_fix_it\": \"Choose a further-dated expiry or lower strike offering meaningfully higher premium relative to collateral.\"}",
+    "failed": false
+  },
+  "ruling2": {
+    "outcome": "reject",
+    "rationale": "The revision still drew insufficient_premium at severity 0.50, and no smaller alternative existed. The trade then failed a hard limit and no safer alternative was available. Max loss $12,148.00 exceeds the $4,981.80 limit (5% of equity).",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  },
+  "ruling": {
+    "outcome": "reject",
+    "rationale": "The revision still drew insufficient_premium at severity 0.50, and no smaller alternative existed. The trade then failed a hard limit and no safer alternative was available. Max loss $12,148.00 exceeds the $4,981.80 limit (5% of equity).",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  },
+  "final_ruling": {
+    "outcome": "reject",
+    "rationale": "The revision still drew insufficient_premium at severity 0.50, and no smaller alternative existed. The trade then failed a hard limit and no safer alternative was available. Max loss $12,148.00 exceeds the $4,981.80 limit (5% of equity).",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  }
+}

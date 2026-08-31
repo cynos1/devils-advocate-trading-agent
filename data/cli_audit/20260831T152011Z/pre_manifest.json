@@ -1,0 +1,6 @@
+{
+  "phase": "pre",
+  "timestamp_utc": "20260831T152011Z",
+  "paper_trading": true,
+  "execution_authority": "read_only_cli_audit"
+}

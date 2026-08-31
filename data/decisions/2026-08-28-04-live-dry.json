@@ -1,0 +1,151 @@
+{
+  "date": "2026-08-28",
+  "session": 4,
+  "time": "17:36 UTC",
+  "mode": "live-dry",
+  "dry": true,
+  "blocks": [],
+  "fills": [],
+  "equity": 99607.99,
+  "cash": 25757.99,
+  "free_cash": 25757.99,
+  "market_open": true,
+  "shares": {
+    "XLE": 400,
+    "XLF": 400,
+    "XLP": 300
+  },
+  "open_options": [],
+  "eligible_count": 3,
+  "eligible": [
+    "XLE260904C00063000",
+    "XLE260904P00062500",
+    "XLP260904C00085500"
+  ],
+  "candidates": [
+    {
+      "symbol": "XLE260904C00063000",
+      "underlying": "XLE",
+      "kind": "call",
+      "strike": 63.0,
+      "expiry": "2026-09-04",
+      "days_to_expiry": 7,
+      "bid": 0.57,
+      "ask": 0.6,
+      "mid": 0.585,
+      "spread_pct": 0.0513,
+      "premium": 58.5,
+      "open_interest": 3012,
+      "last_trade_age_days": 0.01,
+      "moneyness": 0.0079,
+      "implied_volatility": 0.2292
+    },
+    {
+      "symbol": "XLE260904P00062500",
+      "underlying": "XLE",
+      "kind": "put",
+      "strike": 62.5,
+      "expiry": "2026-09-04",
+      "days_to_expiry": 7,
+      "bid": 0.73,
+      "ask": 0.77,
+      "mid": 0.75,
+      "spread_pct": 0.0533,
+      "premium": 75.0,
+      "open_interest": 297,
+      "last_trade_age_days": 0.01,
+      "moneyness": -0.0001,
+      "implied_volatility": 0.2228
+    },
+    {
+      "symbol": "XLP260904C00085500",
+      "underlying": "XLP",
+      "kind": "call",
+      "strike": 85.5,
+      "expiry": "2026-09-04",
+      "days_to_expiry": 7,
+      "bid": 0.59,
+      "ask": 0.63,
+      "mid": 0.61,
+      "spread_pct": 0.0656,
+      "premium": 61.0,
+      "open_interest": 79,
+      "last_trade_age_days": 0.05,
+      "moneyness": 0.0014,
+      "implied_volatility": 0.1356
+    }
+  ],
+  "proposal": {
+    "action": "covered_call",
+    "underlying": "XLE",
+    "contract_symbol": "XLE260904C00063000",
+    "strike": 63.0,
+    "expiry": "2026-09-04",
+    "contracts": 2,
+    "expected_premium": 58.5,
+    "total_premium": 117.0,
+    "max_loss": 0.0,
+    "reasoning": "I'm selling calls against half my XLE shares to collect premium while the strike is just above my cost basis, capping some upside but leaving room for further gains if XLE rallies.",
+    "raw": "{\"action\": \"covered_call\", \"underlying\": \"XLE\", \"contract_symbol\": \"XLE260904C00063000\", \"strike\": 63.0, \"expiry\": \"2026-09-04\", \"contracts\": 2, \"expected_premium\": 58.0, \"reasoning\": \"I'm selling calls against half my XLE shares to collect premium while the strike is just above my cost basis, capping some upside but leaving room for further gains if XLE rallies.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "objection": {
+    "severity": 0.6,
+    "failure_mode": "assignment_risk",
+    "objection": "Strike is only 0.8% OTM with just 7 days to expiry, giving very little room before shares get called away, especially given XLE's sector volatility. Premium collected ($117 total) is minimal compensation for capping upside on 200 shares.",
+    "what_would_fix_it": "Choose a further OTM strike (e.g. 2-3% above spot) or a longer-dated expiry to collect more premium for the assignment risk taken.",
+    "raw": "{\"severity\": 0.6, \"failure_mode\": \"assignment_risk\", \"objection\": \"Strike is only 0.8% OTM with just 7 days to expiry, giving very little room before shares get called away, especially given XLE's sector volatility. Premium collected ($117 total) is minimal compensation for capping upside on 200 shares.\", \"what_would_fix_it\": \"Choose a further OTM strike (e.g. 2-3% above spot) or a longer-dated expiry to collect more premium for the assignment risk taken.\"}",
+    "failed": false
+  },
+  "ruling1": {
+    "outcome": "revise",
+    "rationale": "The adversary raised assignment_risk at severity 0.60. Sending back for one revision.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904C00063000",
+      "strike": 63.0,
+      "expiry": "2026-09-04",
+      "contracts": 2,
+      "expected_premium": 58.5,
+      "total_premium": 117.0,
+      "max_loss": 0.0,
+      "reasoning": "I'm selling calls against half my XLE shares to collect premium while the strike is just above my cost basis, capping some upside but leaving room for further gains if XLE rallies.",
+      "raw": "{\"action\": \"covered_call\", \"underlying\": \"XLE\", \"contract_symbol\": \"XLE260904C00063000\", \"strike\": 63.0, \"expiry\": \"2026-09-04\", \"contracts\": 2, \"expected_premium\": 58.0, \"reasoning\": \"I'm selling calls against half my XLE shares to collect premium while the strike is just above my cost basis, capping some upside but leaving room for further gains if XLE rallies.\"}",
+      "failed": false,
+      "corrections": []
+    }
+  },
+  "revision": {
+    "action": "no_trade",
+    "underlying": "",
+    "contract_symbol": "",
+    "strike": 0.0,
+    "expiry": "",
+    "contracts": 0,
+    "expected_premium": 0.0,
+    "total_premium": 0.0,
+    "max_loss": 0.0,
+    "reasoning": "The only eligible strikes are near-the-money (XLE call 0.8% OTM, XLP call 0.14% OTM) with just 7 days to expiry, so I can't address the assignment-risk objection with what's available; skipping this week.",
+    "raw": "{\"action\": \"no_trade\", \"underlying\": \"\", \"contract_symbol\": \"\", \"strike\": 0, \"expiry\": \"\", \"contracts\": 0, \"expected_premium\": 0, \"reasoning\": \"The only eligible strikes are near-the-money (XLE call 0.8% OTM, XLP call 0.14% OTM) with just 7 days to expiry, so I can't address the assignment-risk objection with what's available; skipping this week.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "ruling": {
+    "outcome": "reject",
+    "rationale": "The revision produced no trade: The only eligible strikes are near-the-money (XLE call 0.8% OTM, XLP call 0.14% OTM) with just 7 days to expiry, so I can't address the assignment-risk objection with what's available; skipping this week.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  },
+  "final_ruling": {
+    "outcome": "reject",
+    "rationale": "The revision produced no trade: The only eligible strikes are near-the-money (XLE call 0.8% OTM, XLP call 0.14% OTM) with just 7 days to expiry, so I can't address the assignment-risk objection with what's available; skipping this week.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  }
+}

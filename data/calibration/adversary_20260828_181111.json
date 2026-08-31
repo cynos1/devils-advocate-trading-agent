@@ -1,0 +1,344 @@
+[
+  {
+    "case_id": "overconfidence_1",
+    "expected_mode": "overconfidence",
+    "clean": false,
+    "note": "Injected defect: unsupported certainty in the model reasoning.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904C00063500",
+      "strike": 63.5,
+      "expiry": "2026-09-04",
+      "contracts": 2,
+      "expected_premium": 70.0,
+      "total_premium": 140.0,
+      "max_loss": 0.0,
+      "reasoning": "This covered call is guaranteed income and there is effectively no assignment risk.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260904C00063000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.882,
+        "ask": 0.918,
+        "mid": 0.9,
+        "spread_pct": 0.04,
+        "premium": 90.0,
+        "open_interest": 400,
+        "last_trade_age": 0.2,
+        "moneyness": 0.007194
+      },
+      {
+        "symbol": "XLE260904C00063500",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.5,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6825,
+        "ask": 0.7175,
+        "mid": 0.7,
+        "spread_pct": 0.05,
+        "premium": 70.0,
+        "open_interest": 540,
+        "last_trade_age": 0.30000000000000004,
+        "moneyness": 0.015188
+      },
+      {
+        "symbol": "XLE260904C00064000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 64.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.485,
+        "ask": 0.515,
+        "mid": 0.5,
+        "spread_pct": 0.06,
+        "premium": 50.0,
+        "open_interest": 680,
+        "last_trade_age": 0.4,
+        "moneyness": 0.023181
+      },
+      {
+        "symbol": "XLE260904C00065000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 65.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.3088,
+        "ask": 0.3312,
+        "mid": 0.32,
+        "spread_pct": 0.07,
+        "premium": 32.0,
+        "open_interest": 820,
+        "last_trade_age": 0.5,
+        "moneyness": 0.039169
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 1.0,
+      "failure_mode": "none",
+      "objection": "The adversary could not be reached (RuntimeError). Treated as blocking.",
+      "what_would_fix_it": "",
+      "raw": "",
+      "failed": true
+    },
+    "observed_mode": "none",
+    "severity": 1.0,
+    "exact_mode_match": false
+  },
+  {
+    "case_id": "overconfidence_2",
+    "expected_mode": "overconfidence",
+    "clean": false,
+    "note": "Injected defect: unsupported certainty in the model reasoning.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904C00063500",
+      "strike": 63.5,
+      "expiry": "2026-09-04",
+      "contracts": 2,
+      "expected_premium": 70.0,
+      "total_premium": 140.0,
+      "max_loss": 0.0,
+      "reasoning": "Assignment cannot happen here, so there is no meaningful downside to selling these calls.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260904C00063000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.882,
+        "ask": 0.918,
+        "mid": 0.9,
+        "spread_pct": 0.04,
+        "premium": 90.0,
+        "open_interest": 400,
+        "last_trade_age": 0.2,
+        "moneyness": 0.007194
+      },
+      {
+        "symbol": "XLE260904C00063500",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.5,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6825,
+        "ask": 0.7175,
+        "mid": 0.7,
+        "spread_pct": 0.05,
+        "premium": 70.0,
+        "open_interest": 540,
+        "last_trade_age": 0.30000000000000004,
+        "moneyness": 0.015188
+      },
+      {
+        "symbol": "XLE260904C00064000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 64.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.485,
+        "ask": 0.515,
+        "mid": 0.5,
+        "spread_pct": 0.06,
+        "premium": 50.0,
+        "open_interest": 680,
+        "last_trade_age": 0.4,
+        "moneyness": 0.023181
+      },
+      {
+        "symbol": "XLE260904C00065000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 65.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.3088,
+        "ask": 0.3312,
+        "mid": 0.32,
+        "spread_pct": 0.07,
+        "premium": 32.0,
+        "open_interest": 820,
+        "last_trade_age": 0.5,
+        "moneyness": 0.039169
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 1.0,
+      "failure_mode": "none",
+      "objection": "The adversary could not be reached (RuntimeError). Treated as blocking.",
+      "what_would_fix_it": "",
+      "raw": "",
+      "failed": true
+    },
+    "observed_mode": "none",
+    "severity": 1.0,
+    "exact_mode_match": false
+  },
+  {
+    "case_id": "overconfidence_3",
+    "expected_mode": "overconfidence",
+    "clean": false,
+    "note": "Injected defect: unsupported certainty in the model reasoning.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904C00063500",
+      "strike": 63.5,
+      "expiry": "2026-09-04",
+      "contracts": 2,
+      "expected_premium": 70.0,
+      "total_premium": 140.0,
+      "max_loss": 0.0,
+      "reasoning": "This trade is certain to work because XLE will stay below the strike through expiry.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260904C00063000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.882,
+        "ask": 0.918,
+        "mid": 0.9,
+        "spread_pct": 0.04,
+        "premium": 90.0,
+        "open_interest": 400,
+        "last_trade_age": 0.2,
+        "moneyness": 0.007194
+      },
+      {
+        "symbol": "XLE260904C00063500",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 63.5,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6825,
+        "ask": 0.7175,
+        "mid": 0.7,
+        "spread_pct": 0.05,
+        "premium": 70.0,
+        "open_interest": 540,
+        "last_trade_age": 0.30000000000000004,
+        "moneyness": 0.015188
+      },
+      {
+        "symbol": "XLE260904C00064000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 64.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.485,
+        "ask": 0.515,
+        "mid": 0.5,
+        "spread_pct": 0.06,
+        "premium": 50.0,
+        "open_interest": 680,
+        "last_trade_age": 0.4,
+        "moneyness": 0.023181
+      },
+      {
+        "symbol": "XLE260904C00065000",
+        "underlying": "XLE",
+        "kind": "call",
+        "strike": 65.0,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.3088,
+        "ask": 0.3312,
+        "mid": 0.32,
+        "spread_pct": 0.07,
+        "premium": 32.0,
+        "open_interest": 820,
+        "last_trade_age": 0.5,
+        "moneyness": 0.039169
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 1.0,
+      "failure_mode": "none",
+      "objection": "The adversary could not be reached (RuntimeError). Treated as blocking.",
+      "what_would_fix_it": "",
+      "raw": "",
+      "failed": true
+    },
+    "observed_mode": "none",
+    "severity": 1.0,
+    "exact_mode_match": false
+  }
+]

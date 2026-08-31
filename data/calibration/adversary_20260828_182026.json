@@ -1,0 +1,116 @@
+[
+  {
+    "case_id": "clean_3",
+    "expected_mode": "clean",
+    "clean": true,
+    "note": "Clean control: no deliberately injected failure mode.",
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLF",
+      "contract_symbol": "XLF260904C00059650",
+      "strike": 59.65,
+      "expiry": "2026-09-04",
+      "contracts": 1,
+      "expected_premium": 50.0,
+      "total_premium": 50.0,
+      "max_loss": 0.0,
+      "reasoning": "This is a bounded position selected from the eligible set. Liquidity is acceptable, size is modest, and I am not assuming a directional forecast.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLF260904C00058650",
+        "underlying": "XLF",
+        "kind": "call",
+        "strike": 58.65,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.882,
+        "ask": 0.918,
+        "mid": 0.9,
+        "spread_pct": 0.04,
+        "premium": 90.0,
+        "open_interest": 400,
+        "last_trade_age": 0.2,
+        "moneyness": 0.007732
+      },
+      {
+        "symbol": "XLF260904C00059150",
+        "underlying": "XLF",
+        "kind": "call",
+        "strike": 59.15,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6825,
+        "ask": 0.7175,
+        "mid": 0.7,
+        "spread_pct": 0.05,
+        "premium": 70.0,
+        "open_interest": 540,
+        "last_trade_age": 0.30000000000000004,
+        "moneyness": 0.016323
+      },
+      {
+        "symbol": "XLF260904C00059650",
+        "underlying": "XLF",
+        "kind": "call",
+        "strike": 59.65,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.485,
+        "ask": 0.515,
+        "mid": 0.5,
+        "spread_pct": 0.06,
+        "premium": 50.0,
+        "open_interest": 680,
+        "last_trade_age": 0.4,
+        "moneyness": 0.024914
+      },
+      {
+        "symbol": "XLF260904C00060650",
+        "underlying": "XLF",
+        "kind": "call",
+        "strike": 60.65,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.3088,
+        "ask": 0.3312,
+        "mid": 0.32,
+        "spread_pct": 0.07,
+        "premium": 32.0,
+        "open_interest": 820,
+        "last_trade_age": 0.5,
+        "moneyness": 0.042096
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 0.5,
+      "failure_mode": "insufficient_premium",
+      "objection": "Only $50 premium for 7 days on a $5,820 position is a 0.086% return, barely covering the 6% spread cost, while capping upside to 2.5%. The $58.65 strike offers nearly double the premium for similar risk.",
+      "what_would_fix_it": "Select the $58.65 or $59.15 strike instead for better premium relative to spread cost.",
+      "raw": "{\"severity\": 0.5, \"failure_mode\": \"insufficient_premium\", \"objection\": \"Only $50 premium for 7 days on a $5,820 position is a 0.086% return, barely covering the 6% spread cost, while capping upside to 2.5%. The $58.65 strike offers nearly double the premium for similar risk.\", \"what_would_fix_it\": \"Select the $58.65 or $59.15 strike instead for better premium relative to spread cost.\"}",
+      "failed": false
+    },
+    "observed_mode": "insufficient_premium",
+    "severity": 0.5,
+    "exact_mode_match": null
+  }
+]

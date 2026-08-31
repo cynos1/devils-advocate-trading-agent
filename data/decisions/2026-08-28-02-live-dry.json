@@ -1,0 +1,151 @@
+{
+  "date": "2026-08-28",
+  "session": 2,
+  "time": "17:19 UTC",
+  "mode": "live-dry",
+  "dry": true,
+  "blocks": [],
+  "fills": [],
+  "equity": 99644.99,
+  "cash": 25757.99,
+  "free_cash": 25757.99,
+  "market_open": true,
+  "shares": {
+    "XLE": 400,
+    "XLF": 400,
+    "XLP": 300
+  },
+  "open_options": [],
+  "eligible_count": 3,
+  "eligible": [
+    "XLE260904P00062500",
+    "XLF260904P00058000",
+    "XLP260904C00085500"
+  ],
+  "candidates": [
+    {
+      "symbol": "XLE260904P00062500",
+      "underlying": "XLE",
+      "kind": "put",
+      "strike": 62.5,
+      "expiry": "2026-09-04",
+      "days_to_expiry": 7,
+      "bid": 0.71,
+      "ask": 0.73,
+      "mid": 0.72,
+      "spread_pct": 0.0278,
+      "premium": 72.0,
+      "open_interest": 297,
+      "last_trade_age_days": 0.02,
+      "moneyness": -0.0008,
+      "implied_volatility": 0.2232
+    },
+    {
+      "symbol": "XLF260904P00058000",
+      "underlying": "XLF",
+      "kind": "put",
+      "strike": 58.0,
+      "expiry": "2026-09-04",
+      "days_to_expiry": 7,
+      "bid": 0.33,
+      "ask": 0.35,
+      "mid": 0.34,
+      "spread_pct": 0.0588,
+      "premium": 34.0,
+      "open_interest": 514,
+      "last_trade_age_days": 0.03,
+      "moneyness": -0.0022,
+      "implied_volatility": 0.1329
+    },
+    {
+      "symbol": "XLP260904C00085500",
+      "underlying": "XLP",
+      "kind": "call",
+      "strike": 85.5,
+      "expiry": "2026-09-04",
+      "days_to_expiry": 7,
+      "bid": 0.59,
+      "ask": 0.63,
+      "mid": 0.61,
+      "spread_pct": 0.0656,
+      "premium": 61.0,
+      "open_interest": 79,
+      "last_trade_age_days": 0.04,
+      "moneyness": 0.0016,
+      "implied_volatility": 0.1387
+    }
+  ],
+  "proposal": {
+    "action": "covered_call",
+    "underlying": "XLP",
+    "contract_symbol": "XLP260904C00085500",
+    "strike": 85.5,
+    "expiry": "2026-09-04",
+    "contracts": 3,
+    "expected_premium": 61.0,
+    "total_premium": 183.0,
+    "max_loss": 0.0,
+    "reasoning": "I own 300 shares of XLP so I can cover 3 calls; selling slightly OTM calls near current price collects premium while only capping upside marginally above cost basis.",
+    "raw": "{\"action\": \"covered_call\", \"underlying\": \"XLP\", \"contract_symbol\": \"XLP260904C00085500\", \"strike\": 85.5, \"expiry\": \"2026-09-04\", \"contracts\": 3, \"expected_premium\": 61.0, \"reasoning\": \"I own 300 shares of XLP so I can cover 3 calls; selling slightly OTM calls near current price collects premium while only capping upside marginally above cost basis.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "objection": {
+    "severity": 0.65,
+    "failure_mode": "assignment_risk",
+    "objection": "Strike is only 0.2% above spot with just 7 days to expiry, giving very high probability of assignment and capping upside almost immediately given normal volatility.",
+    "what_would_fix_it": "Choose a later expiry (30-45 days) with a strike further OTM, e.g. 3-5% above spot.",
+    "raw": "{\"severity\": 0.65, \"failure_mode\": \"assignment_risk\", \"objection\": \"Strike is only 0.2% above spot with just 7 days to expiry, giving very high probability of assignment and capping upside almost immediately given normal volatility.\", \"what_would_fix_it\": \"Choose a later expiry (30-45 days) with a strike further OTM, e.g. 3-5% above spot.\"}",
+    "failed": false
+  },
+  "ruling1": {
+    "outcome": "revise",
+    "rationale": "The adversary raised assignment_risk at severity 0.65. Sending back for one revision.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLP",
+      "contract_symbol": "XLP260904C00085500",
+      "strike": 85.5,
+      "expiry": "2026-09-04",
+      "contracts": 3,
+      "expected_premium": 61.0,
+      "total_premium": 183.0,
+      "max_loss": 0.0,
+      "reasoning": "I own 300 shares of XLP so I can cover 3 calls; selling slightly OTM calls near current price collects premium while only capping upside marginally above cost basis.",
+      "raw": "{\"action\": \"covered_call\", \"underlying\": \"XLP\", \"contract_symbol\": \"XLP260904C00085500\", \"strike\": 85.5, \"expiry\": \"2026-09-04\", \"contracts\": 3, \"expected_premium\": 61.0, \"reasoning\": \"I own 300 shares of XLP so I can cover 3 calls; selling slightly OTM calls near current price collects premium while only capping upside marginally above cost basis.\"}",
+      "failed": false,
+      "corrections": []
+    }
+  },
+  "revision": {
+    "action": "no_trade",
+    "underlying": "",
+    "contract_symbol": "",
+    "strike": 0.0,
+    "expiry": "",
+    "contracts": 0,
+    "expected_premium": 0.0,
+    "total_premium": 0.0,
+    "max_loss": 0.0,
+    "reasoning": "The proposer returned no readable JSON, so nothing was proposed.",
+    "raw": "",
+    "failed": true,
+    "corrections": []
+  },
+  "ruling": {
+    "outcome": "reject",
+    "rationale": "The revision produced no trade: The proposer returned no readable JSON, so nothing was proposed.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  },
+  "final_ruling": {
+    "outcome": "reject",
+    "rationale": "The revision produced no trade: The proposer returned no readable JSON, so nothing was proposed.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  }
+}

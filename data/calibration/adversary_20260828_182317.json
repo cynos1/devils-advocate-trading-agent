@@ -1,0 +1,100 @@
+[
+  {
+    "case_id": "clean_6",
+    "expected_mode": "clean",
+    "clean": true,
+    "note": "Clean control: healthy liquidity, reasonable premium, normal expiry, comfortable moneyness, modest size, and no deliberate defect.",
+    "proposal": {
+      "action": "cash_secured_put",
+      "underlying": "XLF",
+      "contract_symbol": "XLF260904P00055700",
+      "strike": 55.7,
+      "expiry": "2026-09-04",
+      "contracts": 1,
+      "expected_premium": 66.0,
+      "total_premium": 66.0,
+      "max_loss": 5504.0,
+      "reasoning": "This is a modest, inventory-aware position selected from a liquid eligible set. Premium is reasonable relative to nearby contracts, the strike is comfortably out of the money, and I am not assuming a directional forecast.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLF260904P00055700",
+        "underlying": "XLF",
+        "kind": "put",
+        "strike": 55.7,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6518,
+        "ask": 0.6683,
+        "mid": 0.66,
+        "spread_pct": 0.025,
+        "premium": 66.0,
+        "open_interest": 1500,
+        "last_trade_age": 0.1,
+        "moneyness": -0.042955
+      },
+      {
+        "symbol": "XLF260904P00055200",
+        "underlying": "XLF",
+        "kind": "put",
+        "strike": 55.2,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.591,
+        "ask": 0.609,
+        "mid": 0.6,
+        "spread_pct": 0.03,
+        "premium": 60.0,
+        "open_interest": 1300,
+        "last_trade_age": 0.1,
+        "moneyness": -0.051546
+      },
+      {
+        "symbol": "XLF260904P00054700",
+        "underlying": "XLF",
+        "kind": "put",
+        "strike": 54.7,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.5319,
+        "ask": 0.5481,
+        "mid": 0.54,
+        "spread_pct": 0.03,
+        "premium": 54.0,
+        "open_interest": 1200,
+        "last_trade_age": 0.1,
+        "moneyness": -0.060137
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 0.4,
+      "failure_mode": "insufficient_premium",
+      "objection": "$66 premium against $5,504 max loss is a 1.2% return for 7 days on a strike only 4.3% OTM, poor compensation given existing 400-share XLF exposure already held.",
+      "what_would_fix_it": "Choose a further OTM strike or longer expiry to improve premium-to-risk ratio, or skip given existing XLF concentration.",
+      "raw": "{\"severity\": 0.4, \"failure_mode\": \"insufficient_premium\", \"objection\": \"$66 premium against $5,504 max loss is a 1.2% return for 7 days on a strike only 4.3% OTM, poor compensation given existing 400-share XLF exposure already held.\", \"what_would_fix_it\": \"Choose a further OTM strike or longer expiry to improve premium-to-risk ratio, or skip given existing XLF concentration.\"}",
+      "failed": false
+    },
+    "observed_mode": "insufficient_premium",
+    "severity": 0.4,
+    "exact_mode_match": null
+  }
+]

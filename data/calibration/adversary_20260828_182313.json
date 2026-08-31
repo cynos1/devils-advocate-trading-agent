@@ -1,0 +1,100 @@
+[
+  {
+    "case_id": "clean_5",
+    "expected_mode": "clean",
+    "clean": true,
+    "note": "Clean control: healthy liquidity, reasonable premium, normal expiry, comfortable moneyness, modest size, and no deliberate defect.",
+    "proposal": {
+      "action": "cash_secured_put",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904P00060050",
+      "strike": 60.05,
+      "expiry": "2026-09-04",
+      "contracts": 1,
+      "expected_premium": 70.0,
+      "total_premium": 70.0,
+      "max_loss": 5935.0,
+      "reasoning": "This is a modest, inventory-aware position selected from a liquid eligible set. Premium is reasonable relative to nearby contracts, the strike is comfortably out of the money, and I am not assuming a directional forecast.",
+      "raw": "",
+      "failed": false,
+      "corrections": []
+    },
+    "candidates": [
+      {
+        "symbol": "XLE260904P00060050",
+        "underlying": "XLE",
+        "kind": "put",
+        "strike": 60.05,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6912,
+        "ask": 0.7087,
+        "mid": 0.7,
+        "spread_pct": 0.025,
+        "premium": 70.0,
+        "open_interest": 1500,
+        "last_trade_age": 0.1,
+        "moneyness": -0.039968
+      },
+      {
+        "symbol": "XLE260904P00059550",
+        "underlying": "XLE",
+        "kind": "put",
+        "strike": 59.55,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.6304,
+        "ask": 0.6496,
+        "mid": 0.64,
+        "spread_pct": 0.03,
+        "premium": 64.0,
+        "open_interest": 1300,
+        "last_trade_age": 0.1,
+        "moneyness": -0.047962
+      },
+      {
+        "symbol": "XLE260904P00059050",
+        "underlying": "XLE",
+        "kind": "put",
+        "strike": 59.05,
+        "expiry": "2026-09-04",
+        "days_to_expiry": 7,
+        "bid": 0.5713,
+        "ask": 0.5887,
+        "mid": 0.58,
+        "spread_pct": 0.03,
+        "premium": 58.0,
+        "open_interest": 1200,
+        "last_trade_age": 0.1,
+        "moneyness": -0.055955
+      }
+    ],
+    "snapshot": {
+      "equity": 99996.0,
+      "cash": 25764.0,
+      "market_open": true,
+      "shares": {
+        "XLE": 400,
+        "XLF": 400,
+        "XLP": 300
+      },
+      "spots": {
+        "XLE": 62.55,
+        "XLF": 58.2,
+        "XLP": 86.44
+      },
+      "open_options": []
+    },
+    "objection": {
+      "severity": 0.5,
+      "failure_mode": "insufficient_premium",
+      "objection": "Only $70 premium (0.12% of $5,935 cash-secured) for 7 days to collect a mere 4% OTM put is thin compensation given assignment exposes $5,935 capital and existing 400-share XLE concentration.",
+      "what_would_fix_it": "Choose a further OTM strike or longer-dated expiry for materially higher premium relative to capital at risk.",
+      "raw": "{\"severity\": 0.5, \"failure_mode\": \"insufficient_premium\", \"objection\": \"Only $70 premium (0.12% of $5,935 cash-secured) for 7 days to collect a mere 4% OTM put is thin compensation given assignment exposes $5,935 capital and existing 400-share XLE concentration.\", \"what_would_fix_it\": \"Choose a further OTM strike or longer-dated expiry for materially higher premium relative to capital at risk.\"}",
+      "failed": false
+    },
+    "observed_mode": "insufficient_premium",
+    "severity": 0.5,
+    "exact_mode_match": null
+  }
+]

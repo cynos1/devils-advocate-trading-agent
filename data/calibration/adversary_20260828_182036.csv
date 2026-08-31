@@ -1,0 +1,2 @@
+case_id,expected_mode,clean,observed_mode,severity,exact_mode_match,note,error
+concentration_1,concentration,False,position_conflict,0.6,False,Injected defect: 1 existing short XLE contracts before adding more.,

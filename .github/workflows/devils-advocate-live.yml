@@ -1,0 +1,114 @@
+name: Devil's Advocate — Daily Paper Live
+
+on:
+  schedule:
+    # 10:30 AM Eastern during the current EDT period
+    - cron: "30 14 * * 1-5"
+
+  # Allows us to test it manually from GitHub
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: devils-advocate-paper-live
+  cancel-in-progress: false
+
+jobs:
+  paper-live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    env:
+      ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+      ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
+
+      ALPACA_LIVE_TRADE: "false"
+      ALPACA_OUTPUT: "json"
+
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+      PYTHONUNBUFFERED: "1"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "stable"
+
+      - name: Install Alpaca CLI
+        run: |
+          go install github.com/alpacahq/cli/cmd/alpaca@latest
+          echo "$(go env GOPATH)/bin" >> "$GITHUB_PATH"
+
+      - name: Verify Alpaca CLI
+        run: |
+          alpaca version
+          alpaca doctor
+
+      - name: Run deterministic gate tests
+        run: |
+          python3 -m tests.test_gate
+
+      - name: Capture pre-run Alpaca state
+        run: |
+          chmod +x scripts/alpaca_cli_audit.sh
+          scripts/alpaca_cli_audit.sh pre
+
+      - name: Run Devil's Advocate live
+        run: |
+          python3 -m agent.run --live
+
+      - name: Capture post-run Alpaca state
+        if: always()
+        run: |
+          scripts/alpaca_cli_audit.sh post
+
+      - name: Rebuild judge report
+        if: always()
+        run: |
+          python3 build_report.py
+
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: devils-advocate-${{ github.run_id }}
+          retention-days: 30
+          path: |
+            data/decisions/
+            data/cli_audit/
+            data/calibration/
+            report/
+
+      - name: Commit audit trail
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add data/decisions data/cli_audit report || true
+
+          if git diff --cached --quiet; then
+            echo "No new audit artifacts."
+          else
+            git commit -m "audit: daily Devil's Advocate paper run"
+            git push || echo "Push blocked; evidence remains in Actions artifact."
+          fi

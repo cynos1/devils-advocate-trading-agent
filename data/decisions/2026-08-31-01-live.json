@@ -1,0 +1,240 @@
+{
+  "date": "2026-08-31",
+  "session": 1,
+  "time": "15:55 UTC",
+  "mode": "live",
+  "dry": false,
+  "blocks": [],
+  "fills": [
+    {
+      "symbol": "XLE260904C00064000",
+      "side": "short",
+      "kind": "call",
+      "contracts": 2,
+      "premium": 40.0,
+      "status": "OrderStatus.PENDING_NEW",
+      "id": "189d4216-ccd8-4846-819d-54b8211c2c8f"
+    }
+  ],
+  "equity": 99731.49,
+  "cash": 25757.99,
+  "free_cash": 25757.99,
+  "market_open": true,
+  "shares": {
+    "XLE": 400,
+    "XLF": 400,
+    "XLP": 300
+  },
+  "open_options": [],
+  "eligible_count": 4,
+  "eligible": [
+    "XLE260904C00063500",
+    "XLE260904C00064000",
+    "XLE260904P00063000",
+    "XLP260904P00084500"
+  ],
+  "candidates": [
+    {
+      "symbol": "XLE260904C00063500",
+      "underlying": "XLE",
+      "kind": "call",
+      "strike": 63.5,
+      "expiry": "2026-09-04",
+      "days_to_expiry": 4,
+      "bid": 0.62,
+      "ask": 0.65,
+      "mid": 0.635,
+      "spread_pct": 0.0472,
+      "premium": 63.5,
+      "open_interest": 1559,
+      "last_trade_age_days": 0.01,
+      "moneyness": 0.0034,
+      "implied_volatility": 0.2743
+    },
+    {
+      "symbol": "XLE260904C00064000",
+      "underlying": "XLE",
+      "kind": "call",
+      "strike": 64.0,
+      "expiry": "2026-09-04",
+      "days_to_expiry": 4,
+      "bid": 0.39,
+      "ask": 0.41,
+      "mid": 0.4,
+      "spread_pct": 0.05,
+      "premium": 40.0,
+      "open_interest": 351,
+      "last_trade_age_days": 0.01,
+      "moneyness": 0.0113,
+      "implied_volatility": 0.2599
+    },
+    {
+      "symbol": "XLE260904P00063000",
+      "underlying": "XLE",
+      "kind": "put",
+      "strike": 63.0,
+      "expiry": "2026-09-04",
+      "days_to_expiry": 4,
+      "bid": 0.53,
+      "ask": 0.57,
+      "mid": 0.55,
+      "spread_pct": 0.0727,
+      "premium": 55.0,
+      "open_interest": 1157,
+      "last_trade_age_days": 0.02,
+      "moneyness": -0.0045,
+      "implied_volatility": 0.2632
+    },
+    {
+      "symbol": "XLP260904P00084500",
+      "underlying": "XLP",
+      "kind": "put",
+      "strike": 84.5,
+      "expiry": "2026-09-04",
+      "days_to_expiry": 4,
+      "bid": 0.31,
+      "ask": 0.32,
+      "mid": 0.315,
+      "spread_pct": 0.0317,
+      "premium": 31.5,
+      "open_interest": 294,
+      "last_trade_age_days": 0.03,
+      "moneyness": -0.008,
+      "implied_volatility": 0.1691
+    }
+  ],
+  "proposal": {
+    "action": "covered_call",
+    "underlying": "XLE",
+    "contract_symbol": "XLE260904C00063500",
+    "strike": 63.5,
+    "expiry": "2026-09-04",
+    "contracts": 4,
+    "expected_premium": 63.5,
+    "total_premium": 254.0,
+    "max_loss": 0.0,
+    "reasoning": "I own 400 XLE shares near the $63.50 strike, so selling calls collects decent premium while capping upside slightly above my cost basis. Short 4-day expiry limits opportunity cost if shares get called away.",
+    "raw": "{\"action\": \"covered_call\", \"underlying\": \"XLE\", \"contract_symbol\": \"XLE260904C00063500\", \"strike\": 63.5, \"expiry\": \"2026-09-04\", \"contracts\": 4, \"expected_premium\": 64.0, \"reasoning\": \"I own 400 XLE shares near the $63.50 strike, so selling calls collects decent premium while capping upside slightly above my cost basis. Short 4-day expiry limits opportunity cost if shares get called away.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "objection": {
+    "severity": 0.7,
+    "failure_mode": "assignment_risk",
+    "objection": "Strike is only 0.3% above spot with just 4 days to expiry, making assignment highly likely and forcing shares away almost immediately for negligible premium.",
+    "what_would_fix_it": "Choose the $64.00 strike or a further-dated expiry to reduce assignment probability and capture more time value.",
+    "raw": "{\"severity\": 0.7,\n \"failure_mode\": \"assignment_risk\",\n \"objection\": \"Strike is only 0.3% above spot with just 4 days to expiry, making assignment highly likely and forcing shares away almost immediately for negligible premium.\",\n \"what_would_fix_it\": \"Choose the $64.00 strike or a further-dated expiry to reduce assignment probability and capture more time value.\"}",
+    "failed": false
+  },
+  "ruling1": {
+    "outcome": "revise",
+    "rationale": "The adversary raised assignment_risk at severity 0.70. Sending back for one revision. It also failed a hard limit: 4 contracts exceeds the 3 per-trade limit.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904C00063500",
+      "strike": 63.5,
+      "expiry": "2026-09-04",
+      "contracts": 4,
+      "expected_premium": 63.5,
+      "total_premium": 254.0,
+      "max_loss": 0.0,
+      "reasoning": "I own 400 XLE shares near the $63.50 strike, so selling calls collects decent premium while capping upside slightly above my cost basis. Short 4-day expiry limits opportunity cost if shares get called away.",
+      "raw": "{\"action\": \"covered_call\", \"underlying\": \"XLE\", \"contract_symbol\": \"XLE260904C00063500\", \"strike\": 63.5, \"expiry\": \"2026-09-04\", \"contracts\": 4, \"expected_premium\": 64.0, \"reasoning\": \"I own 400 XLE shares near the $63.50 strike, so selling calls collects decent premium while capping upside slightly above my cost basis. Short 4-day expiry limits opportunity cost if shares get called away.\"}",
+      "failed": false,
+      "corrections": []
+    }
+  },
+  "revision": {
+    "action": "covered_call",
+    "underlying": "XLE",
+    "contract_symbol": "XLE260904C00064000",
+    "strike": 64.0,
+    "expiry": "2026-09-04",
+    "contracts": 4,
+    "expected_premium": 40.0,
+    "total_premium": 160.0,
+    "max_loss": 0.0,
+    "reasoning": "I'm moving to the $64 strike, which sits about 1.1% above spot, giving more cushion against assignment than the $63.50 strike while still collecting decent premium on shares I already own.",
+    "raw": "{\"action\": \"covered_call\", \"underlying\": \"XLE\", \"contract_symbol\": \"XLE260904C00064000\", \"strike\": 64.0, \"expiry\": \"2026-09-04\", \"contracts\": 4, \"expected_premium\": 40.0, \"reasoning\": \"I'm moving to the $64 strike, which sits about 1.1% above spot, giving more cushion against assignment than the $63.50 strike while still collecting decent premium on shares I already own.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "objection2": {
+    "severity": 0.6,
+    "failure_mode": "assignment_risk",
+    "objection": "Strike is only 1.1% OTM with just 4 days to expiry, meaning routine volatility in XLE could easily push shares through $64 and trigger assignment, capping upside on shares held near cost basis.",
+    "what_would_fix_it": "Choose a further OTM strike (e.g. $65+) or extend expiry to allow more cushion for the same premium target.",
+    "raw": "{\"severity\": 0.6,\n \"failure_mode\": \"assignment_risk\",\n \"objection\": \"Strike is only 1.1% OTM with just 4 days to expiry, meaning routine volatility in XLE could easily push shares through $64 and trigger assignment, capping upside on shares held near cost basis.\",\n \"what_would_fix_it\": \"Choose a further OTM strike (e.g. $65+) or extend expiry to allow more cushion for the same premium target.\"}",
+    "failed": false
+  },
+  "ruling2": {
+    "outcome": "substitute",
+    "rationale": "The revision still drew assignment_risk at severity 0.60. Substituted a safer version: reduced from 4 to 2 contracts.",
+    "substituted": true,
+    "original_contracts": 4,
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904C00064000",
+      "strike": 64.0,
+      "expiry": "2026-09-04",
+      "contracts": 2,
+      "expected_premium": 40.0,
+      "total_premium": 80.0,
+      "max_loss": 0.0,
+      "reasoning": "I'm moving to the $64 strike, which sits about 1.1% above spot, giving more cushion against assignment than the $63.50 strike while still collecting decent premium on shares I already own.",
+      "raw": "{\"action\": \"covered_call\", \"underlying\": \"XLE\", \"contract_symbol\": \"XLE260904C00064000\", \"strike\": 64.0, \"expiry\": \"2026-09-04\", \"contracts\": 4, \"expected_premium\": 40.0, \"reasoning\": \"I'm moving to the $64 strike, which sits about 1.1% above spot, giving more cushion against assignment than the $63.50 strike while still collecting decent premium on shares I already own.\"}",
+      "failed": false,
+      "corrections": []
+    }
+  },
+  "ruling": {
+    "outcome": "substitute",
+    "rationale": "The revision still drew assignment_risk at severity 0.60. Substituted a safer version: reduced from 4 to 2 contracts.",
+    "substituted": true,
+    "original_contracts": 4,
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904C00064000",
+      "strike": 64.0,
+      "expiry": "2026-09-04",
+      "contracts": 2,
+      "expected_premium": 40.0,
+      "total_premium": 80.0,
+      "max_loss": 0.0,
+      "reasoning": "I'm moving to the $64 strike, which sits about 1.1% above spot, giving more cushion against assignment than the $63.50 strike while still collecting decent premium on shares I already own.",
+      "raw": "{\"action\": \"covered_call\", \"underlying\": \"XLE\", \"contract_symbol\": \"XLE260904C00064000\", \"strike\": 64.0, \"expiry\": \"2026-09-04\", \"contracts\": 4, \"expected_premium\": 40.0, \"reasoning\": \"I'm moving to the $64 strike, which sits about 1.1% above spot, giving more cushion against assignment than the $63.50 strike while still collecting decent premium on shares I already own.\"}",
+      "failed": false,
+      "corrections": []
+    }
+  },
+  "final_ruling": {
+    "outcome": "substitute",
+    "rationale": "The revision still drew assignment_risk at severity 0.60. Substituted a safer version: reduced from 4 to 2 contracts.",
+    "substituted": true,
+    "original_contracts": 4,
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260904C00064000",
+      "strike": 64.0,
+      "expiry": "2026-09-04",
+      "contracts": 2,
+      "expected_premium": 40.0,
+      "total_premium": 80.0,
+      "max_loss": 0.0,
+      "reasoning": "I'm moving to the $64 strike, which sits about 1.1% above spot, giving more cushion against assignment than the $63.50 strike while still collecting decent premium on shares I already own.",
+      "raw": "{\"action\": \"covered_call\", \"underlying\": \"XLE\", \"contract_symbol\": \"XLE260904C00064000\", \"strike\": 64.0, \"expiry\": \"2026-09-04\", \"contracts\": 4, \"expected_premium\": 40.0, \"reasoning\": \"I'm moving to the $64 strike, which sits about 1.1% above spot, giving more cushion against assignment than the $63.50 strike while still collecting decent premium on shares I already own.\"}",
+      "failed": false,
+      "corrections": []
+    }
+  },
+  "execution_check": {
+    "may_execute": true,
+    "blocks": []
+  }
+}

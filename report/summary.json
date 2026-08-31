@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-31T15:38:50+00:00",
+  "generated_at": "2026-08-31T15:55:38+00:00",
   "thresholds": {
     "proceed_below": 0.6,
     "block_above": 0.7
@@ -13,31 +13,31 @@
   },
   "decisions": {
     "all": {
-      "sessions": 9,
-      "revisions": 7,
-      "substitutions": 3,
+      "sessions": 10,
+      "revisions": 8,
+      "substitutions": 4,
       "rejects": 5,
       "no_trade": 6,
-      "fills": 0,
-      "oversized_initial": 5,
-      "size_reduced": 3,
+      "fills": 1,
+      "oversized_initial": 6,
+      "size_reduced": 4,
       "strategy_changed": 2,
-      "contract_changed": 4,
-      "fresh_gate_pass": 3,
+      "contract_changed": 5,
+      "fresh_gate_pass": 4,
       "fresh_gate_block": 0
     },
     "live": {
-      "sessions": 2,
-      "revisions": 2,
-      "substitutions": 0,
+      "sessions": 3,
+      "revisions": 3,
+      "substitutions": 1,
       "rejects": 2,
       "no_trade": 2,
-      "fills": 0,
-      "oversized_initial": 1,
-      "size_reduced": 0,
+      "fills": 1,
+      "oversized_initial": 2,
+      "size_reduced": 1,
       "strategy_changed": 2,
-      "contract_changed": 2,
-      "fresh_gate_pass": 0,
+      "contract_changed": 3,
+      "fresh_gate_pass": 1,
       "fresh_gate_block": 0
     },
     "live_dry": {
@@ -56,7 +56,7 @@
     },
     "objection_modes": {
       "insufficient_premium": 6,
-      "assignment_risk": 6
+      "assignment_risk": 8
     }
   },
   "calibration_source": "data/calibration/adversary_20260828_182652.json",
@@ -142,10 +142,10 @@
     }
   },
   "selected_episodes": [
+    "data/decisions/2026-08-31-01-live.json",
     "data/decisions/2026-08-28-05-live-dry.json",
     "data/decisions/2026-08-28-01-live-dry.json",
     "data/decisions/2026-08-28-02-live.json",
-    "data/decisions/2026-08-28-03-live-dry.json",
-    "data/decisions/2026-08-28-01-live.json"
+    "data/decisions/2026-08-28-03-live-dry.json"
   ]
 }

@@ -1,0 +1,152 @@
+{
+  "date": "2026-09-01",
+  "session": 1,
+  "time": "17:55 UTC",
+  "mode": "live",
+  "dry": false,
+  "blocks": [],
+  "fills": [],
+  "equity": 99964.33,
+  "cash": 25881.83,
+  "free_cash": 25881.83,
+  "market_open": true,
+  "shares": {
+    "XLE": 400,
+    "XLF": 400,
+    "XLP": 300
+  },
+  "open_options": [
+    {
+      "symbol": "XLE260904C00064000",
+      "underlying": "XLE",
+      "kind": "call",
+      "side": "short",
+      "contracts": 3,
+      "strike": 64.0,
+      "expiry": "2026-09-04",
+      "entry_premium": 41.3333,
+      "opened": ""
+    }
+  ],
+  "eligible_count": 4,
+  "eligible": [
+    "XLE260904P00064500",
+    "XLF260904C00057500",
+    "XLP260904C00085500",
+    "XLP260904C00086000"
+  ],
+  "candidates": [
+    {
+      "symbol": "XLE260904P00064500",
+      "underlying": "XLE",
+      "kind": "put",
+      "strike": 64.5,
+      "expiry": "2026-09-04",
+      "days_to_expiry": 3,
+      "bid": 0.55,
+      "ask": 0.59,
+      "mid": 0.57,
+      "spread_pct": 0.0702,
+      "premium": 57.0,
+      "open_interest": 107,
+      "last_trade_age_days": 0.02,
+      "moneyness": -0.0029,
+      "implied_volatility": 0.2856
+    },
+    {
+      "symbol": "XLF260904C00057500",
+      "underlying": "XLF",
+      "kind": "call",
+      "strike": 57.5,
+      "expiry": "2026-09-04",
+      "days_to_expiry": 3,
+      "bid": 0.27,
+      "ask": 0.28,
+      "mid": 0.275,
+      "spread_pct": 0.0364,
+      "premium": 27.5,
+      "open_interest": 857,
+      "last_trade_age_days": 0.03,
+      "moneyness": 0.0035,
+      "implied_volatility": 0.173
+    },
+    {
+      "symbol": "XLP260904C00085500",
+      "underlying": "XLP",
+      "kind": "call",
+      "strike": 85.5,
+      "expiry": "2026-09-04",
+      "days_to_expiry": 3,
+      "bid": 0.51,
+      "ask": 0.55,
+      "mid": 0.53,
+      "spread_pct": 0.0755,
+      "premium": 53.0,
+      "open_interest": 164,
+      "last_trade_age_days": 0.02,
+      "moneyness": 0.0008,
+      "implied_volatility": 0.181
+    },
+    {
+      "symbol": "XLP260904C00086000",
+      "underlying": "XLP",
+      "kind": "call",
+      "strike": 86.0,
+      "expiry": "2026-09-04",
+      "days_to_expiry": 3,
+      "bid": 0.3,
+      "ask": 0.33,
+      "mid": 0.315,
+      "spread_pct": 0.0952,
+      "premium": 31.5,
+      "open_interest": 198,
+      "last_trade_age_days": 0.05,
+      "moneyness": 0.0066,
+      "implied_volatility": 0.1775
+    }
+  ],
+  "proposal": {
+    "action": "covered_call",
+    "underlying": "XLP",
+    "contract_symbol": "XLP260904C00085500",
+    "strike": 85.5,
+    "expiry": "2026-09-04",
+    "contracts": 3,
+    "expected_premium": 53.0,
+    "total_premium": 159.0,
+    "max_loss": 0.0,
+    "reasoning": "I'm selling calls against my fully uncovered 300 XLP shares at a strike right at the money, collecting decent premium while accepting a modest cap on near-term upside given the short 3-day expiry.",
+    "raw": "{\"action\": \"covered_call\", \"underlying\": \"XLP\", \"contract_symbol\": \"XLP260904C00085500\", \"strike\": 85.5, \"expiry\": \"2026-09-04\", \"contracts\": 3, \"expected_premium\": 53.0, \"reasoning\": \"I'm selling calls against my fully uncovered 300 XLP shares at a strike right at the money, collecting decent premium while accepting a modest cap on near-term upside given the short 3-day expiry.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "objection": {
+    "severity": 0.75,
+    "failure_mode": "assignment_risk",
+    "objection": "Strike is only 0.1% above spot with just 3 days to expiry, making assignment highly likely on any modest uptick. This surrenders shares for negligible premium ($159 total) relative to the position's value.",
+    "what_would_fix_it": "Choose the $86 strike or a later expiry to add buffer against assignment while still capturing meaningful premium.",
+    "raw": "{\"severity\": 0.75, \"failure_mode\": \"assignment_risk\", \"objection\": \"Strike is only 0.1% above spot with just 3 days to expiry, making assignment highly likely on any modest uptick. This surrenders shares for negligible premium ($159 total) relative to the position's value.\", \"what_would_fix_it\": \"Choose the $86 strike or a later expiry to add buffer against assignment while still capturing meaningful premium.\"}",
+    "failed": false
+  },
+  "ruling1": {
+    "outcome": "reject",
+    "rationale": "Persistent deadlock: the adversary has blocked 3 consecutive sessions. No trade is forced; standing down for this session. Flagged for human review.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  },
+  "ruling": {
+    "outcome": "reject",
+    "rationale": "Persistent deadlock: the adversary has blocked 3 consecutive sessions. No trade is forced; standing down for this session. Flagged for human review.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  },
+  "final_ruling": {
+    "outcome": "reject",
+    "rationale": "Persistent deadlock: the adversary has blocked 3 consecutive sessions. No trade is forced; standing down for this session. Flagged for human review.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  }
+}

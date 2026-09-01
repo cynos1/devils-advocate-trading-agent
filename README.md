@@ -1,5 +1,7 @@
 # Devil's Advocate
 
+![Devil's Advocate](assets/devils-advocate-cover.png)
+
 **An adversarial AI options-trading agent with bounded execution**
 
 Devil's Advocate is an autonomous paper-trading agent built for the Alpaca AI Trading Agents Hackathon. Instead of trusting a single AI-generated trade, the system uses a second model to challenge the proposal before deterministic code decides what is actually allowed to execute.

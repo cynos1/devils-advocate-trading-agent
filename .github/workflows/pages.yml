@@ -1,10 +1,11 @@
-name: Publish Judge Report
+name: Publish Demo Site
 
 on:
   push:
     branches: [main]
     paths:
       - "report/**"
+      - "site/**"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 
@@ -23,12 +24,40 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: report
-      - id: deployment
-        uses: actions/deploy-pages@v4
 
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Build static site
+        run: |
+          rm -rf _site
+          mkdir -p _site
+
+          # Landing page becomes the root application URL.
+          cp site/index.html _site/index.html
+
+          # Preserve the existing judge-facing report behind a button.
+          if [ -f report/index.html ]; then
+            cp report/index.html _site/judge-report.html
+          fi
+
+          # Preserve any report assets and machine-readable summary.
+          if [ -f report/summary.json ]; then
+            cp report/summary.json _site/summary.json
+          fi
+          if [ -d report/assets ]; then
+            cp -R report/assets _site/assets
+          fi
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

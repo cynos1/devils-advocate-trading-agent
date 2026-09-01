@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Devil's Advocate — Autonomous Options Trading Agent</title>
+  <meta name="description" content="An adversarial AI options-trading agent built with Alpaca. Models make judgments; deterministic code controls authority." />
+  <style>
+    :root{
+      --bg:#0b1020; --panel:#121a31; --panel2:#17223f; --text:#f5f7fb;
+      --muted:#aeb8cf; --line:#283656; --accent:#f6c85f; --good:#74d6a0;
+      --warn:#f5b35c; --bad:#ef7c7c; --blue:#74a7ff;
+      --shadow:0 20px 60px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; background:
+        radial-gradient(circle at 80% -10%, rgba(116,167,255,.18), transparent 30%),
+        radial-gradient(circle at 10% 10%, rgba(246,200,95,.10), transparent 28%),
+        var(--bg);
+      color:var(--text); font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(1160px,92vw);margin:auto}
+    nav{display:flex;justify-content:space-between;align-items:center;padding:24px 0}
+    .brand{font-weight:800;letter-spacing:.2px}
+    .navlinks{display:flex;gap:20px;color:var(--muted);font-size:14px}
+    .hero{padding:70px 0 50px;display:grid;grid-template-columns:1.25fr .75fr;gap:36px;align-items:center}
+    .eyebrow{color:var(--accent);font-size:13px;text-transform:uppercase;letter-spacing:1.4px;font-weight:800}
+    h1{font-size:clamp(46px,7vw,82px);line-height:.95;margin:14px 0 22px;letter-spacing:-3px}
+    .lead{font-size:20px;line-height:1.6;color:var(--muted);max-width:760px}
+    .tagline{margin-top:22px;font-size:21px;font-weight:800}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn{padding:13px 18px;border-radius:12px;font-weight:750;border:1px solid var(--line);display:inline-flex;align-items:center;gap:8px}
+    .btn.primary{background:var(--accent);color:#16120a;border-color:transparent}
+    .btn.secondary{background:rgba(255,255,255,.04)}
+    .hero-card,.card{background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.025));border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}
+    .hero-card{padding:24px}
+    .hero-card h3{margin:0 0 8px;font-size:15px;color:var(--muted);font-weight:700}
+    .flow-mini{display:grid;gap:10px;margin-top:16px}
+    .step{padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--panel);font-weight:700}
+    .arrow{text-align:center;color:var(--muted)}
+    section{padding:54px 0}
+    .section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:24px}
+    h2{font-size:34px;margin:0;letter-spacing:-1px}
+    .sub{color:var(--muted);max-width:680px;line-height:1.6}
+    .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .metric{padding:22px}
+    .metric .num{font-size:34px;font-weight:900;letter-spacing:-1px}
+    .metric .label{color:var(--muted);margin-top:6px;line-height:1.35}
+    .arch{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;align-items:stretch}
+    .arch .card{padding:18px;min-height:150px}
+    .arch strong{display:block;margin-bottom:8px}
+    .arch p{color:var(--muted);font-size:14px;line-height:1.45;margin:0}
+    .arch .code{border-color:rgba(246,200,95,.55)}
+    .three{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .three .card{padding:24px}
+    .kicker{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--accent);font-weight:900}
+    .three h3{margin:9px 0 10px}
+    .three p{color:var(--muted);line-height:1.55}
+    .evidence{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .evidence .card{padding:24px}
+    .trace{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;line-height:1.7;color:#d8dfef}
+    .chip{display:inline-block;border:1px solid var(--line);padding:5px 9px;border-radius:999px;color:var(--muted);font-size:12px;margin:3px 4px 3px 0}
+    .note{color:var(--muted);font-size:13px;line-height:1.5}
+    footer{border-top:1px solid var(--line);margin-top:40px;padding:28px 0 50px;color:var(--muted);font-size:14px}
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr}.metrics{grid-template-columns:1fr 1fr}.arch{grid-template-columns:1fr}.three{grid-template-columns:1fr}.evidence{grid-template-columns:1fr}
+      .navlinks{display:none}
+    }
+    @media(max-width:560px){.metrics{grid-template-columns:1fr}h1{letter-spacing:-2px}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <div class="brand">DEVIL'S ADVOCATE</div>
+      <div class="navlinks">
+        <a href="#how">How it works</a><a href="#alpaca">Alpaca stack</a><a href="#evidence">Evidence</a>
+      </div>
+    </nav>
+
+    <main>
+      <section class="hero">
+        <div>
+          <div class="eyebrow">Alpaca AI Trading Agents Hackathon</div>
+          <h1>Don’t trust the first trade.</h1>
+          <p class="lead">Devil’s Advocate is an autonomous options-trading agent that makes one AI challenge another before deterministic code decides what can actually execute.</p>
+          <div class="tagline">Models make judgments. Code controls authority.</div>
+          <div class="actions">
+            <a class="btn primary" href="judge-report.html">Open Full Judge Report →</a>
+            <a class="btn secondary" href="https://github.com/cynos1/devils-advocate-trading-agent" target="_blank" rel="noreferrer">View GitHub Repository</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h3>DECISION LOOP</h3>
+          <div class="flow-mini">
+            <div class="step">1. Proposer recommends a trade</div>
+            <div class="arrow">↓</div>
+            <div class="step">2. Adversary challenges it</div>
+            <div class="arrow">↓</div>
+            <div class="step">3. One revision maximum</div>
+            <div class="arrow">↓</div>
+            <div class="step">4. Deterministic gate decides authority</div>
+            <div class="arrow">↓</div>
+            <div class="step">5. Execute or NO TRADE</div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="metrics">
+          <div class="card metric"><div class="num">95.8%</div><div class="label">Flawed benchmark cases triggered intervention</div></div>
+          <div class="card metric"><div class="num">83.3%</div><div class="label">Clean controls passed immediately</div></div>
+          <div class="card metric"><div class="num">0.951</div><div class="label">Severity AUC separating flawed from clean proposals</div></div>
+          <div class="card metric"><div class="num">28/28</div><div class="label">Deterministic gate tests passing</div></div>
+        </div>
+      </section>
+
+      <section id="how">
+        <div class="section-head">
+          <div><div class="eyebrow">How it works</div><h2>Reason creatively. Execute conservatively.</h2></div>
+          <p class="sub">The model can recommend, criticize and revise. It cannot increase its own authority, bypass hard limits, or force a trade after repeated disagreement.</p>
+        </div>
+        <div class="arch">
+          <div class="card"><strong>Market + Portfolio</strong><p>Account state and eligible options form the bounded decision context.</p></div>
+          <div class="card"><strong>Proposer Model</strong><p>Chooses strategy, contract, size and rationale.</p></div>
+          <div class="card"><strong>Devil’s Advocate</strong><p>Challenges liquidity, assignment risk, concentration, expiry, premium and more.</p></div>
+          <div class="card code"><strong>Deterministic Risk Gate</strong><p>Enforces sizing, collateral, exposure, daily limits, kill switch and fail-closed behavior.</p></div>
+          <div class="card"><strong>Fresh Execution Check</strong><p>Re-reads broker state immediately before any order submission. Final outcome: execute or NO TRADE.</p></div>
+        </div>
+      </section>
+
+      <section id="alpaca">
+        <div class="section-head">
+          <div><div class="eyebrow">Alpaca implementation</div><h2>Three tools. Three jobs.</h2></div>
+          <p class="sub">The project deliberately separates what the model can see, what can execute, and how the outcome is independently verified.</p>
+        </div>
+        <div class="three">
+          <div class="card"><div class="kicker">MCP Server</div><h3>Research / Context</h3><p>Model-facing access to account state, market data, options chains and research context. Read-oriented by design.</p></div>
+          <div class="card"><div class="kicker">Trading API</div><h3>Bounded Execution</h3><p>Paper-order submission only after adversarial review, deterministic validation and a fresh execution check.</p></div>
+          <div class="card"><div class="kicker">CLI</div><h3>Independent Audit</h3><p>Pre/post snapshots of account, positions, orders and market clock. The agent does not audit itself.</p></div>
+        </div>
+      </section>
+
+      <section id="evidence">
+        <div class="section-head">
+          <div><div class="eyebrow">Evidence</div><h2>When both models miss something, code still catches it.</h2></div>
+          <p class="sub">One observed dry-run episode demonstrated why the deterministic layer exists: the proposer asked for four contracts, while the hard limit was three.</p>
+        </div>
+        <div class="evidence">
+          <div class="card">
+            <div class="trace">
+              proposer → 4 contracts<br>
+              adversary → concern, but sizing issue not caught<br>
+              revision → still 4 contracts<br>
+              second review → sizing issue still not caught<br>
+              deterministic gate → safer code-generated substitute: 2<br>
+              fresh execution check → PASS<br>
+              outcome → DRY RUN, no broker order
+            </div>
+          </div>
+          <div class="card">
+            <h3 style="margin-top:0">Why this matters</h3>
+            <p class="sub">The project does not assume the models will always be right. It assumes they will sometimes disagree, misclassify a risk, or propose too much size — and designs the execution layer accordingly.</p>
+            <div style="margin-top:16px">
+              <span class="chip">Covered calls</span>
+              <span class="chip">Cash-secured puts</span>
+              <span class="chip">Protective puts</span>
+              <span class="chip">NO TRADE is valid</span>
+            </div>
+            <p class="note" style="margin-top:18px">For full decision logs, calibration results, live vs live-dry evidence and the compact ledger, open the judge report.</p>
+            <div class="actions"><a class="btn primary" href="judge-report.html">View Full Audit Report →</a></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Devil’s Advocate · Alpaca paper trading · GitHub Actions automation · Autonomous options agent
+    </footer>
+  </div>
+</body>
+</html>

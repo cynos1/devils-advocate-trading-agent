@@ -1,0 +1,127 @@
+{
+  "date": "2026-09-02",
+  "session": 1,
+  "time": "17:58 UTC",
+  "mode": "live",
+  "dry": false,
+  "blocks": [],
+  "fills": [],
+  "equity": 100368.33,
+  "cash": 25881.83,
+  "free_cash": 25881.83,
+  "market_open": true,
+  "shares": {
+    "XLE": 400,
+    "XLF": 400,
+    "XLP": 300
+  },
+  "open_options": [
+    {
+      "symbol": "XLE260904C00064000",
+      "underlying": "XLE",
+      "kind": "call",
+      "side": "short",
+      "contracts": 3,
+      "strike": 64.0,
+      "expiry": "2026-09-04",
+      "entry_premium": 41.3333,
+      "opened": ""
+    }
+  ],
+  "eligible_count": 1,
+  "eligible": [
+    "XLE260909C00065000"
+  ],
+  "candidates": [
+    {
+      "symbol": "XLE260909C00065000",
+      "underlying": "XLE",
+      "kind": "call",
+      "strike": 65.0,
+      "expiry": "2026-09-09",
+      "days_to_expiry": 7,
+      "bid": 0.77,
+      "ask": 0.81,
+      "mid": 0.79,
+      "spread_pct": 0.0506,
+      "premium": 79.0,
+      "open_interest": 74,
+      "last_trade_age_days": 0.04,
+      "moneyness": 0.0001,
+      "implied_volatility": 0.2144
+    }
+  ],
+  "proposal": {
+    "action": "covered_call",
+    "underlying": "XLE",
+    "contract_symbol": "XLE260909C00065000",
+    "strike": 65.0,
+    "expiry": "2026-09-09",
+    "contracts": 1,
+    "expected_premium": 79.0,
+    "total_premium": 79.0,
+    "max_loss": 0.0,
+    "reasoning": "I have one uncovered XLE lot left after the 3 existing short calls, so I can sell a call against it at the $65 strike, matching my cost basis while collecting premium.",
+    "raw": "{\"action\": \"covered_call\", \"underlying\": \"XLE\", \"contract_symbol\": \"XLE260909C00065000\", \"strike\": 65.0, \"expiry\": \"2026-09-09\", \"contracts\": 1, \"expected_premium\": 79.0, \"reasoning\": \"I have one uncovered XLE lot left after the 3 existing short calls, so I can sell a call against it at the $65 strike, matching my cost basis while collecting premium.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "objection": {
+    "severity": 0.6,
+    "failure_mode": "assignment_risk",
+    "objection": "Strike is exactly at-the-money with only 7 days to expiry, giving high probability of assignment on the last uncovered lot. This would fully call away the XLE position, eliminating any remaining upside participation.",
+    "what_would_fix_it": "Use a strike above $65 (e.g. $67-68) or a later expiry to reduce assignment probability while still collecting meaningful premium.",
+    "raw": "{\"severity\": 0.6, \"failure_mode\": \"assignment_risk\", \"objection\": \"Strike is exactly at-the-money with only 7 days to expiry, giving high probability of assignment on the last uncovered lot. This would fully call away the XLE position, eliminating any remaining upside participation.\", \"what_would_fix_it\": \"Use a strike above $65 (e.g. $67-68) or a later expiry to reduce assignment probability while still collecting meaningful premium.\"}",
+    "failed": false
+  },
+  "ruling1": {
+    "outcome": "revise",
+    "rationale": "The adversary raised assignment_risk at severity 0.60. Sending back for one revision.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260909C00065000",
+      "strike": 65.0,
+      "expiry": "2026-09-09",
+      "contracts": 1,
+      "expected_premium": 79.0,
+      "total_premium": 79.0,
+      "max_loss": 0.0,
+      "reasoning": "I have one uncovered XLE lot left after the 3 existing short calls, so I can sell a call against it at the $65 strike, matching my cost basis while collecting premium.",
+      "raw": "{\"action\": \"covered_call\", \"underlying\": \"XLE\", \"contract_symbol\": \"XLE260909C00065000\", \"strike\": 65.0, \"expiry\": \"2026-09-09\", \"contracts\": 1, \"expected_premium\": 79.0, \"reasoning\": \"I have one uncovered XLE lot left after the 3 existing short calls, so I can sell a call against it at the $65 strike, matching my cost basis while collecting premium.\"}",
+      "failed": false,
+      "corrections": []
+    }
+  },
+  "revision": {
+    "action": "no_trade",
+    "underlying": "",
+    "contract_symbol": "",
+    "strike": 0.0,
+    "expiry": "",
+    "contracts": 0,
+    "expected_premium": 0.0,
+    "total_premium": 0.0,
+    "max_loss": 0.0,
+    "reasoning": "The only eligible contract is the at-the-money 65 strike, which still carries high assignment risk on my last uncovered XLE lot; no better-strike alternative exists on the list, so I'll skip this week.",
+    "raw": "{\"action\": \"no_trade\", \"underlying\": \"XLE\", \"contract_symbol\": \"\", \"strike\": 0, \"expiry\": \"\", \"contracts\": 0, \"expected_premium\": 0, \"reasoning\": \"The only eligible contract is the at-the-money 65 strike, which still carries high assignment risk on my last uncovered XLE lot; no better-strike alternative exists on the list, so I'll skip this week.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "ruling": {
+    "outcome": "reject",
+    "rationale": "The revision produced no trade: The only eligible contract is the at-the-money 65 strike, which still carries high assignment risk on my last uncovered XLE lot; no better-strike alternative exists on the list, so I'll skip this week.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  },
+  "final_ruling": {
+    "outcome": "reject",
+    "rationale": "The revision produced no trade: The only eligible contract is the at-the-money 65 strike, which still carries high assignment risk on my last uncovered XLE lot; no better-strike alternative exists on the list, so I'll skip this week.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  }
+}

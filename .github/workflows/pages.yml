@@ -38,7 +38,7 @@ jobs:
           mkdir -p _site
 
           # Landing page becomes the root application URL.
-          cp site/index.html _site/index.html
+          cp -R site/* _site/
 
           # Preserve the existing judge-facing report behind a button.
           if [ -f report/index.html ]; then

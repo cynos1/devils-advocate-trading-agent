@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Devil's Advocate — Decision Trace</title>
+<style>
+:root{
+  --bg:#0b1020; --panel:#121a31; --panel2:#17223f; --text:#f5f7fb;
+  --muted:#aeb8cf; --line:#2a3654; --gold:#f6c85f; --blue:#76a9ff;
+  --green:#78d7a7; --red:#f18484; --orange:#f4ae62;
+}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(circle at 70% 0%,rgba(118,169,255,.14),transparent 28%),var(--bg);
+color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.wrap{width:min(1120px,92vw);margin:auto}
+header{padding:34px 0 14px}
+a{color:inherit;text-decoration:none}
+.top{display:flex;justify-content:space-between;gap:20px;align-items:center}
+.brand{font-weight:900;letter-spacing:.4px}
+.back{color:var(--muted);font-size:14px}
+h1{font-size:clamp(38px,6vw,64px);letter-spacing:-2px;margin:42px 0 12px}
+.lead{color:var(--muted);font-size:18px;line-height:1.6;max-width:820px}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin:30px 0}
+.tab{border:1px solid var(--line);background:rgba(255,255,255,.03);padding:11px 14px;border-radius:999px;cursor:pointer;color:var(--muted);font-weight:700}
+.tab.active{background:var(--gold);color:#171208;border-color:transparent}
+.story{display:none}
+.story.active{display:block}
+.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:26px}
+.metric{border:1px solid var(--line);background:var(--panel);padding:18px;border-radius:15px}
+.metric .k{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);font-weight:800}
+.metric .v{margin-top:7px;font-size:20px;font-weight:900}
+.flow{display:grid;gap:12px}
+.node{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.02));
+border-radius:18px;padding:22px;position:relative}
+.node::after{content:"↓";position:absolute;bottom:-25px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:20px}
+.node:last-child::after{display:none}
+.node-head{display:flex;justify-content:space-between;gap:16px;align-items:center}
+.role{font-size:12px;text-transform:uppercase;letter-spacing:1.1px;font-weight:900}
+.role.blue{color:var(--blue)} .role.gold{color:var(--gold)} .role.green{color:var(--green)} .role.red{color:var(--red)} .role.orange{color:var(--orange)}
+.badge{padding:6px 10px;border-radius:999px;border:1px solid var(--line);font-size:12px;color:var(--muted)}
+.node h3{margin:8px 0 10px;font-size:24px}
+.node p{margin:0;color:var(--muted);line-height:1.6}
+.details{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:var(--panel2);padding:7px 10px;border-radius:999px;font-size:12px;color:#dbe2f1}
+.callout{margin:24px 0 50px;padding:20px 22px;border-radius:16px;border:1px solid rgba(246,200,95,.5);background:rgba(246,200,95,.06)}
+.callout strong{color:var(--gold)}
+footer{border-top:1px solid var(--line);padding:26px 0 46px;margin-top:40px;color:var(--muted);font-size:13px}
+.note{font-size:13px;color:var(--muted);margin-top:12px}
+@media(max-width:820px){.summary{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.summary{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="top">
+    <div class="brand">DEVIL'S ADVOCATE</div>
+    <a class="back" href="index.html">← Back to project</a>
+  </div>
+  <h1>Decision Trace</h1>
+  <p class="lead">Three saved runs that show where the system can stop, challenge, modify, or verify a decision. The goal is to make the agent's behavior readable without opening raw JSON.</p>
+</header>
+
+<div class="tabs">
+  <button class="tab active" data-target="gate">4 → 2 Gate Intervention</button>
+  <button class="tab" data-target="filter">0 Eligible → Stand Down</button>
+  <button class="tab" data-target="review">Adversarial NO TRADE</button>
+</div>
+
+<section id="gate" class="story active">
+  <div class="summary">
+    <div class="metric"><div class="k">Run type</div><div class="v">LIVE-DRY</div></div>
+    <div class="metric"><div class="k">Requested</div><div class="v">4 contracts</div></div>
+    <div class="metric"><div class="k">Code substitute</div><div class="v">2 contracts</div></div>
+    <div class="metric"><div class="k">Broker order</div><div class="v">None</div></div>
+  </div>
+  <div class="flow">
+    <div class="node">
+      <div class="node-head"><span class="role blue">Proposer</span><span class="badge">AI judgment</span></div>
+      <h3>4 × XLE covered calls</h3>
+      <p>The proposer selected an XLE covered-call trade and requested four contracts.</p>
+      <div class="details"><span class="chip">XLE</span><span class="chip">Covered call</span><span class="chip">Qty 4</span></div>
+    </div>
+    <div class="node">
+      <div class="node-head"><span class="role gold">Adversary #1</span><span class="badge">Severity 0.50</span></div>
+      <h3>Concern raised, but sizing issue missed</h3>
+      <p>The adversary objected on insufficient premium. It did not identify the hard position-sizing problem.</p>
+      <div class="details"><span class="chip">Failure mode: insufficient_premium</span><span class="chip">Below 0.60</span></div>
+    </div>
+    <div class="node">
+      <div class="node-head"><span class="role blue">Revision</span><span class="badge">One revision allowed</span></div>
+      <h3>Revised proposal still requested 4</h3>
+      <p>The proposal changed contract details, but the requested quantity remained four contracts.</p>
+    </div>
+    <div class="node">
+      <div class="node-head"><span class="role gold">Adversary #2</span><span class="badge">Severity 0.50</span></div>
+      <h3>Second review still did not catch the size violation</h3>
+      <p>The model-to-model loop ended here. There was no additional revision cycle.</p>
+    </div>
+    <div class="node">
+      <div class="node-head"><span class="role orange">Deterministic Gate</span><span class="badge">Code authority</span></div>
+      <h3>Original quantity rejected → safer substitute: 2</h3>
+      <p>The requested quantity violated the hard sizing policy. Deterministic code generated a smaller, rule-compliant alternative.</p>
+      <div class="details"><span class="chip">Requested: 4</span><span class="chip">Hard cap: 3</span><span class="chip">Substitute: 2</span></div>
+    </div>
+    <div class="node">
+      <div class="node-head"><span class="role green">Fresh Execution Check</span><span class="badge">PASS</span></div>
+      <h3>The safer alternative was still valid</h3>
+      <p>Broker state was checked again immediately before execution.</p>
+    </div>
+    <div class="node">
+      <div class="node-head"><span class="role green">Final Outcome</span><span class="badge">LIVE-DRY</span></div>
+      <h3>No broker order submitted</h3>
+      <p>The full live decision path was exercised, but the run was intentionally configured not to send an order.</p>
+    </div>
+  </div>
+  <div class="callout"><strong>Why this run matters:</strong> both AI layers missed an important sizing constraint, yet the deterministic layer still prevented the original action from reaching execution.</div>
+</section>
+
+<section id="filter" class="story">
+  <div class="summary">
+    <div class="metric"><div class="k">Date</div><div class="v">Sep 2, 2026</div></div>
+    <div class="metric"><div class="k">Equity</div><div class="v">$100,362.33</div></div>
+    <div class="metric"><div class="k">Eligible contracts</div><div class="v">0</div></div>
+    <div class="metric"><div class="k">Outcome</div><div class="v">Stand down</div></div>
+  </div>
+  <div class="flow">
+    <div class="node">
+      <div class="node-head"><span class="role blue">Broker State</span><span class="badge">Market open</span></div>
+      <h3>Account context loaded</h3>
+      <p>Equity was $100,362.33, cash was $25,881.83, and one options position was already open.</p>
+    </div>
+    <div class="node">
+      <div class="node-head"><span class="role orange">Candidate Filter</span><span class="badge">Pre-proposer code</span></div>
+      <h3>0 contracts met the eligibility rules</h3>
+      <p>The options chain was screened before any contract reached the proposer. Nothing survived the minimum-quality requirements.</p>
+    </div>
+    <div class="node">
+      <div class="node-head"><span class="role red">Final Outcome</span><span class="badge">NO TRADE</span></div>
+      <h3>Nothing eligible → standing down</h3>
+      <p>The system did not ask the proposer to invent a trade from poor candidates. The run ended before model debate began.</p>
+      <div class="details"><span class="chip">Decision log written</span><span class="chip">Journal updated</span></div>
+    </div>
+  </div>
+  <div class="callout"><strong>Why this run matters:</strong> autonomy does not mean forced activity. If no contract satisfies the pre-defined eligibility rules, the correct action is to do nothing.</div>
+</section>
+
+<section id="review" class="story">
+  <div class="summary">
+    <div class="metric"><div class="k">Run type</div><div class="v">LIVE</div></div>
+    <div class="metric"><div class="k">Initial proposal</div><div class="v">XLE option</div></div>
+    <div class="metric"><div class="k">Revision</div><div class="v">Yes</div></div>
+    <div class="metric"><div class="k">Outcome</div><div class="v">NO TRADE</div></div>
+  </div>
+  <div class="flow">
+    <div class="node">
+      <div class="node-head"><span class="role blue">Proposer</span><span class="badge">AI judgment</span></div>
+      <h3>Trade proposed</h3>
+      <p>The proposer selected an XLE options trade from the eligible candidate set.</p>
+    </div>
+    <div class="node">
+      <div class="node-head"><span class="role gold">Adversary #1</span><span class="badge">Concern raised</span></div>
+      <h3>Assignment risk identified</h3>
+      <p>The adversary challenged the first proposal and pushed the decision into revision.</p>
+    </div>
+    <div class="node">
+      <div class="node-head"><span class="role blue">Revision</span><span class="badge">One chance</span></div>
+      <h3>Proposer changed the trade</h3>
+      <p>The proposer responded to the criticism with a revised options proposal.</p>
+    </div>
+    <div class="node">
+      <div class="node-head"><span class="role gold">Adversary #2</span><span class="badge">Final model review</span></div>
+      <h3>Insufficient premium remained a concern</h3>
+      <p>The second review did not create another revision loop. The model-level process ended.</p>
+    </div>
+    <div class="node">
+      <div class="node-head"><span class="role red">Final Outcome</span><span class="badge">NO TRADE</span></div>
+      <h3>No paper order submitted</h3>
+      <p>The proposal did not survive the decision policy, so the system stood down.</p>
+    </div>
+  </div>
+  <div class="callout"><strong>Why this run matters:</strong> the adversarial layer can change the course of a decision before deterministic execution authority is even considered.</div>
+</section>
+
+<footer>
+  Devil's Advocate · Decision evidence for Alpaca paper trading
+</footer>
+</div>
+
+<script>
+const tabs = document.querySelectorAll('.tab');
+const stories = document.querySelectorAll('.story');
+tabs.forEach(t => t.addEventListener('click', () => {
+  tabs.forEach(x => x.classList.remove('active'));
+  stories.forEach(x => x.classList.remove('active'));
+  t.classList.add('active');
+  document.getElementById(t.dataset.target).classList.add('active');
+}));
+</script>
+</body>
+</html>

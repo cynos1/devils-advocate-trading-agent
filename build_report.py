@@ -345,10 +345,112 @@ def ledger_rows(rows):
     return "".join(out)
 
 
-CSS = r'''
-:root{--bg:#0b0f14;--panel:#121923;--panel2:#0f151e;--text:#edf3f8;--muted:#93a1b2;--line:#273241;--accent:#f3c969;--green:#67d69a;--red:#ff8092;--blue:#78baff}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.wrap{max-width:1180px;margin:auto;padding:42px 24px 80px}.hero{border-bottom:1px solid var(--line);padding-bottom:28px}.eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:.13em;font-size:12px;font-weight:700}h1{font-size:46px;line-height:1.05;margin:8px 0 12px;letter-spacing:-.03em}h2{font-size:27px;margin:42px 0 16px}.lede{max-width:850px;color:#c9d2dd;font-size:18px}.muted,.sub{color:var(--muted)}.grid{display:grid;gap:14px}.kpis{grid-template-columns:repeat(4,1fr);margin-top:22px}.kpi{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}.label{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.08em}.value{font-size:30px;font-weight:750;margin:5px 0}.sub{font-size:13px}.callout{background:var(--panel2);border-left:3px solid var(--accent);padding:16px 19px;margin:18px 0;border-radius:0 12px 12px 0}.badge{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:3px 8px;font-size:11px;text-transform:uppercase}.badge.good{color:var(--green)}.badge.bad{color:var(--red)}.badge.warn{color:var(--accent)}.badge.blue{color:var(--blue)}.badge.neutral{color:var(--muted)}.episode{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:19px;margin:13px 0}.episode-head{display:flex;justify-content:space-between;gap:15px}.stages{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:14px}.stage{background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:11px}.stage-name{color:var(--muted);font-size:11px;text-transform:uppercase;margin-bottom:4px}.chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.chip{background:#1d2633;border-radius:999px;padding:4px 9px;font-size:12px}details{margin-top:13px;color:var(--muted)}table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line)}th,td{padding:10px 11px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{font-size:11px;color:var(--muted);text-transform:uppercase;background:var(--panel2)}td{font-size:13px}.scroll{overflow:auto}.footer{border-top:1px solid var(--line);margin-top:46px;padding-top:18px;color:var(--muted);font-size:12px}@media(max-width:850px){.kpis,.stages{grid-template-columns:1fr 1fr}}@media(max-width:560px){.kpis,.stages{grid-template-columns:1fr}.wrap{padding:28px 14px 60px}}
-'''
+CSS = r"""
+:root{
+  --bg:#0b0d12;--panel:#11151d;--panel2:#151a24;--text:#f4f1ea;
+  --muted:#a6acb8;--line:#2a303b;--gold:#d8a84e;--blue:#6f8fbf;
+  --green:#7dbb8a;--red:#d26a64;--amber:#c99a56
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at 82% -8%,rgba(111,143,191,.12),transparent 28%),
+    radial-gradient(circle at 10% 9%,rgba(216,168,78,.08),transparent 25%),
+    var(--bg);
+  color:var(--text);
+  font:15px/1.55 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif
+}
+a{text-decoration:none;color:inherit}
+.wrap{max-width:1180px;margin:auto;padding:0 24px}
+.topbar{
+  position:sticky;top:0;z-index:20;
+  backdrop-filter:blur(16px);
+  background:rgba(11,13,18,.86);
+  border-bottom:1px solid var(--line)
+}
+.nav{height:66px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:900;letter-spacing:.04em}
+.navlinks{display:flex;gap:18px;color:var(--muted);font-size:13px}
+.navlinks a:hover{color:var(--text)}
+.hero{padding:70px 0 38px}
+.eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:.14em;font-size:11px;font-weight:800}
+h1,h2{font-family:Georgia,"Times New Roman",serif;letter-spacing:-.025em}
+h1{font-size:clamp(48px,7vw,78px);line-height:.96;margin:12px 0 18px}
+h2{font-size:36px;margin:0}
+.lede{max-width:880px;color:#c9d0d9;font-size:19px;line-height:1.65}
+.policy{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.pill,.chip,.badge{
+  display:inline-block;border:1px solid var(--line);border-radius:999px;
+  padding:6px 10px;font-size:11px
+}
+.pill{color:#d8dde5;background:rgba(255,255,255,.025)}
+section{padding:48px 0}
+.section-head{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:22px}
+.section-sub{max-width:680px;color:var(--muted);line-height:1.65}
+.grid{display:grid;gap:14px}
+.kpis{grid-template-columns:repeat(4,1fr)}
+.kpi,.card{
+  background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.018));
+  border:1px solid var(--line);border-radius:18px;padding:21px
+}
+.kpi:first-child{border-top:2px solid var(--gold)}
+.label,.kpi-label{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.08em}
+.value,.kpi-value{font-size:31px;font-weight:800;margin:5px 0}
+.sub,.kpi-sub,.muted,.small{color:var(--muted)}
+.sub,.kpi-sub{font-size:13px}
+.small{font-size:12px}
+.callout{
+  background:rgba(216,168,78,.055);
+  border-left:3px solid var(--gold);
+  padding:18px 20px;margin:18px 0;border-radius:0 14px 14px 0;
+  color:#dfd9cf;line-height:1.65
+}
+.compare{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center}
+.compare .side{padding:22px;border:1px solid var(--line);border-radius:18px;background:var(--panel)}
+.compare .side h3{margin:0 0 8px;font-size:16px}
+.compare .arrow{font-size:30px;color:var(--gold)}
+.badge{padding:3px 8px;text-transform:uppercase}
+.badge.good{color:var(--green)}.badge.bad{color:var(--red)}.badge.warn{color:var(--gold)}
+.badge.blue{color:var(--blue)}.badge.neutral{color:var(--muted)}
+.episode{
+  background:var(--panel);border:1px solid var(--line);border-radius:18px;
+  padding:20px;margin:14px 0
+}
+.episode-head{display:flex;justify-content:space-between;gap:15px}
+.stages{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:15px}
+.stage{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px}
+.stage-name{color:var(--gold);font-size:10px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:5px}
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
+.chip{background:#1b212b;color:#d7dce4;padding:5px 9px}
+details{margin-top:14px;color:var(--muted)}
+details summary{cursor:pointer;color:#d9dde5}
+.scroll{overflow:auto;border:1px solid var(--line);border-radius:16px}
+table{width:100%;border-collapse:collapse;min-width:780px;background:var(--panel)}
+th,td{padding:11px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;background:var(--panel2)}
+td{font-size:13px}
+.two{grid-template-columns:1fr 1fr}
+.boundary{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.boundary ul{margin:0;padding-left:18px;color:var(--muted);line-height:1.75}
+.sources{grid-template-columns:repeat(4,1fr)}
+.source-card strong{display:block;margin-bottom:6px}
+.footer{border-top:1px solid var(--line);margin-top:48px;padding:24px 0 48px;color:var(--muted);font-size:12px}
+@media(max-width:900px){
+  .kpis,.sources{grid-template-columns:1fr 1fr}
+  .two,.boundary{grid-template-columns:1fr}
+  .stages{grid-template-columns:1fr 1fr}
+  .compare{grid-template-columns:1fr}
+  .compare .arrow{transform:rotate(90deg);text-align:center}
+  .navlinks{display:none}
+}
+@media(max-width:560px){
+  .kpis,.sources,.stages{grid-template-columns:1fr}
+  .wrap{padding:0 14px}
+  section{padding:38px 0}
+}
+"""
 
 
 def build_html(decisions, da, cal_path, cal):
@@ -357,23 +459,13 @@ def build_html(decisions, da, cal_path, cal):
     dry = da["live_dry"]
     allm = da["all"]
 
-    # Pick three narrative episodes:
-    # 1) strongest safety intervention / substitution
-    # 2) real live no-trade
-    # 3) strategy-changing revision if available
-    valid = [r for r in decisions if "_load_error" not in r]
+    valid = [r for r in decisions if "_error" not in r and "_load_error" not in r]
 
     def strongest_substitution():
-        cands = [
-            r for r in valid
-            if final_ruling_of(r).get("outcome") == "substitute"
-        ]
+        cands = [r for r in valid if final_ruling_of(r).get("outcome") == "substitute"]
         if not cands:
             return None
-        return max(cands, key=lambda r: (
-            1 if oversized_initial(r) else 0,
-            episode_score(r)
-        ))
+        return max(cands, key=lambda r: (1 if oversized_initial(r) else 0, episode_score(r)))
 
     def strongest_live_reject():
         cands = [
@@ -384,10 +476,7 @@ def build_html(decisions, da, cal_path, cal):
         return max(cands, key=episode_score) if cands else None
 
     def strongest_strategy_change():
-        cands = [
-            r for r in valid
-            if strategy_changed(r)
-        ]
+        cands = [r for r in valid if strategy_changed(r)]
         return max(cands, key=episode_score) if cands else None
 
     featured = []
@@ -399,7 +488,6 @@ def build_html(decisions, da, cal_path, cal):
         if candidate and candidate.get("_path") not in {x.get("_path") for x in featured}:
             featured.append(candidate)
 
-    # Backfill if fewer than 3.
     for r in select_episodes(valid, 8):
         if len(featured) >= 3:
             break
@@ -410,40 +498,55 @@ def build_html(decisions, da, cal_path, cal):
     if cal["n"]:
         auc_text = f"{cal['auc']:.3f}" if cal["auc"] is not None else "—"
         benchmark_section = f"""
-        <div class="grid kpis">
+        <div class="compare">
+          <div class="side">
+            <div class="label">Initial guess</div>
+            <h3>Heuristic policy</h3>
+            <p class="muted">Proceed &lt; 0.40<br>Revise 0.40–0.70<br>Reject &gt; 0.70</p>
+          </div>
+          <div class="arrow">→</div>
+          <div class="side">
+            <div class="label">Calibrated policy</div>
+            <h3>Frozen after benchmark</h3>
+            <p class="muted">Proceed &lt; {gate.SEVERITY_PROCEED:.2f}<br>
+            Revise {gate.SEVERITY_PROCEED:.2f}–{gate.SEVERITY_BLOCK:.2f}<br>
+            Reject &gt; {gate.SEVERITY_BLOCK:.2f}</p>
+          </div>
+        </div>
+
+        <div class="grid kpis" style="margin-top:16px">
           {kpi("Benchmark cases", str(cal["n"]), f"{cal['flawed_n']} flawed + {cal['clean_n']} clean")}
           {kpi("Flawed intervention", fmt_pct(cal["flawed_intervene"], cal["flawed_n"]), f"{cal['flawed_intervene']}/{cal['flawed_n']} revised or blocked")}
           {kpi("Clean immediate pass", fmt_pct(cal["clean_proceed"], cal["clean_n"]), f"{cal['clean_proceed']}/{cal['clean_n']} proceed immediately")}
-          {kpi("Severity AUC", auc_text, "flawed vs clean severity separation")}
+          {kpi("Severity AUC", auc_text, "flawed vs clean separation")}
         </div>
 
         <div class="callout">
-          <strong>Calibration result.</strong>
-          Severity was a much stronger signal than exact failure-mode naming.
-          With the frozen thresholds, {cal['flawed_intervene']}/{cal['flawed_n']} flawed cases
-          triggered intervention while {cal['clean_proceed']}/{cal['clean_n']} clean controls
-          proceeded immediately. Exact mode match was {exact_matches}/{cal['flawed_n']}
-          ({fmt_pct(exact_matches, cal['flawed_n'])}), so the system treats the label
-          as diagnostic context rather than the safety decision itself.
+          <strong>What changed?</strong>
+          Severity separated flawed from clean proposals much better than exact failure-mode naming.
+          Exact mode match was {exact_matches}/{cal['flawed_n']}
+          ({fmt_pct(exact_matches, cal['flawed_n'])}), so labels are treated as diagnostic context
+          while severity drives escalation.
         </div>
 
-        <table>
-          <thead>
-            <tr>
-              <th>Injected mode</th>
-              <th>Exact label</th>
-              <th>Mean severity</th>
-              <th>Observed adversary labels</th>
-            </tr>
-          </thead>
-          <tbody>{calibration_table(cal)}</tbody>
-        </table>
+        <div class="scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Injected mode</th>
+                <th>Exact label</th>
+                <th>Mean severity</th>
+                <th>Observed adversary labels</th>
+              </tr>
+            </thead>
+            <tbody>{calibration_table(cal)}</tbody>
+          </table>
+        </div>
         <p class="small">Calibration source: {esc(str(cal_path.relative_to(ROOT)) if cal_path else "—")}</p>
         """
 
     featured_html = "".join(episode_html(r) for r in featured)
 
-    # Compact ledger rows for live + live-dry validation only.
     compact_rows = []
     for r in sorted(
         da["live_rows"] + da["live_dry_rows"],
@@ -494,70 +597,137 @@ def build_html(decisions, da, cal_path, cal):
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Devil's Advocate — Judge Brief</title>
+  <title>Devil's Advocate — Judge Report</title>
   <style>{CSS}</style>
 </head>
 <body>
-<div class="wrap">
 
-  <section class="hero">
-    <div class="eyebrow">Alpaca AI Trading Agents Hackathon</div>
-    <h1>Devil's Advocate</h1>
-    <div class="lede">
-      One model proposes. A second attacks. One revision is allowed.
-      Deterministic code decides what authority survives.
+<div class="topbar">
+  <div class="wrap nav">
+    <div class="brand">DEVIL'S ADVOCATE</div>
+    <div class="navlinks">
+      <a href="#summary">Summary</a>
+      <a href="#calibration">Calibration</a>
+      <a href="#stories">Decision Stories</a>
+      <a href="#live">Live Evidence</a>
+      <a href="#ledger">Ledger</a>
+      <a href="#authority">Authority</a>
     </div>
-    <div class="freeze">
-      Frozen policy:
-      <strong>proceed &lt; {gate.SEVERITY_PROCEED:.2f}</strong> ·
-      <strong>revise {gate.SEVERITY_PROCEED:.2f}–{gate.SEVERITY_BLOCK:.2f}</strong> ·
-      <strong>reject &gt; {gate.SEVERITY_BLOCK:.2f}</strong> ·
-      max {gate.MAX_CONTRACTS_PER_TRADE} contracts/trade ·
-      fresh-state execution gate before broker submission.
-    </div>
-  </section>
+  </div>
+</div>
 
-  <h2>What the system proved</h2>
+<main class="wrap">
+
+<section class="hero">
+  <div class="eyebrow">Alpaca AI Trading Agents Hackathon · Judge Report</div>
+  <h1>Evidence.</h1>
+  <div class="lede">
+    Devil's Advocate lets AI models propose, challenge, and revise trading decisions
+    while deterministic code controls what authority survives.
+    This report summarizes the evidence generated by the system.
+  </div>
+  <div class="policy">
+    <span class="pill">Proceed &lt; {gate.SEVERITY_PROCEED:.2f}</span>
+    <span class="pill">Revise {gate.SEVERITY_PROCEED:.2f}–{gate.SEVERITY_BLOCK:.2f}</span>
+    <span class="pill">Reject &gt; {gate.SEVERITY_BLOCK:.2f}</span>
+    <span class="pill">Max {gate.MAX_CONTRACTS_PER_TRADE} contracts / trade</span>
+    <span class="pill">Fresh-state execution check</span>
+    <span class="pill">NO TRADE remains valid</span>
+  </div>
+</section>
+
+<section id="summary">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">Executive summary</div>
+      <h2>What the system proved</h2>
+    </div>
+    <div class="section-sub">
+      The strongest result is not that the models were perfect.
+      It is that model mistakes did not automatically become actions.
+    </div>
+  </div>
+
   <div class="grid kpis">
     {kpi("Stored decision sessions", str(allm["sessions"]), f"{allm['revisions']} included model revision")}
     {kpi("Code substitutions", str(allm["substitutions"]), "safer alternatives generated by deterministic logic")}
-    {kpi("Oversized proposals caught", str(allm["oversized_initial"]), "model intent constrained by hard authority limits")}
-    {kpi("Gate tests", "28/28", "latest deterministic safety suite")}
+    {kpi("Oversized proposals caught", str(allm["oversized_initial"]), "model intent constrained by hard limits")}
+    {kpi("Gate tests", "28/28", "latest deterministic suite")}
   </div>
 
   <div class="callout">
     <strong>Core result.</strong>
-    The models are allowed to be imperfect. They may disagree, misclassify a risk,
-    or propose too much size. They still cannot exceed the authority encoded in the gate.
-    No-trade remains valid, and repeated disagreement never forces execution.
+    The models may disagree, misclassify a risk, or propose too much size.
+    They still cannot exceed the authority encoded in the gate.
+    Repeated disagreement never forces execution.
+  </div>
+</section>
+
+<section id="calibration">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">Adversary calibration</div>
+      <h2>From guessed thresholds to measured policy</h2>
+    </div>
+    <div class="section-sub">
+      A 30-case benchmark calibrated how the adversary's severity score should trigger
+      proceed, revise, or reject behavior.
+    </div>
+  </div>
+  {benchmark_section}
+</section>
+
+<section id="stories">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">Decision evidence</div>
+      <h2>Three stories worth reading</h2>
+    </div>
+    <div class="section-sub">
+      These are the highest-value episodes from the audit trail rather than a raw JSON dump.
+    </div>
+  </div>
+  {featured_html if featured_html else "<p class='muted'>No decision logs found.</p>"}
+</section>
+
+<section id="live">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">Paper trading</div>
+      <h2>Live activity, separated from validation</h2>
+    </div>
+    <div class="section-sub">
+      LIVE and LIVE-DRY remain intentionally distinct so judges can see what reached the
+      paper-trading path versus what used real market data without submission.
+    </div>
   </div>
 
-  <h2>Calibration evidence</h2>
-  {benchmark_section}
-
-  <h2>Three decision stories</h2>
-  <p class="muted">
-    These are the highest-value episodes from the audit trail: one safety substitution,
-    one genuine live no-trade decision, and one revision that materially changed the trade.
-  </p>
-  {featured_html if featured_html else "<p>No decision logs found.</p>"}
-
-  <h2>Real live decisions</h2>
   <div class="grid kpis">
-    {kpi("Live sessions", str(live["sessions"]), "competition paper account; mode=live")}
-    {kpi("Live no-trade decisions", str(live["no_trade"]), "inaction remained a valid output")}
-    {kpi("Live broker submissions", str(live["fills"]), "actual paper orders accepted by broker")}
-    {kpi("Live-dry validations", str(dry["sessions"]), "real market data, intentionally no submission")}
+    {kpi("Live sessions", str(live["sessions"]), "competition paper account")}
+    {kpi("Live no-trade decisions", str(live["no_trade"]), "inaction remained valid")}
+    {kpi("Live broker submissions", str(live["fills"]), "paper orders accepted by broker")}
+    {kpi("Live-dry validations", str(dry["sessions"]), "real market data, no submission")}
   </div>
 
   <div class="callout">
-    <strong>LIVE and LIVE-DRY are intentionally separated.</strong>
+    <strong>LIVE vs LIVE-DRY.</strong>
     LIVE means the full paper-trading path was enabled.
     LIVE-DRY used real broker state and market data but intentionally stopped before order submission.
   </div>
+</section>
 
-  <h2>Compact audit ledger</h2>
-  <div style="overflow:auto">
+<section id="ledger">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">Audit trail</div>
+      <h2>Compact decision ledger</h2>
+    </div>
+    <div class="section-sub">
+      Scan the run mode, initial proposal, first objection, and final outcome without opening raw files.
+    </div>
+  </div>
+
+  <div class="scroll">
     <table>
       <thead>
         <tr>
@@ -571,59 +741,105 @@ def build_html(decisions, da, cal_path, cal):
       <tbody>{compact_ledger}</tbody>
     </table>
   </div>
+</section>
 
-  <h2>What worked — and what did not</h2>
+<section>
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">Interpretation</div>
+      <h2>What worked — and what did not</h2>
+    </div>
+  </div>
+
   <div class="grid two">
-    <div class="kpi">
-      <div class="kpi-label">Strongest behavior</div>
-      <div class="kpi-value">Risk escalation</div>
-      <div class="kpi-sub">
+    <div class="card">
+      <div class="label">Strongest behavior</div>
+      <div class="value">Risk escalation</div>
+      <div class="sub">
         Flawed proposals were separated from clean controls well enough to calibrate
         intervention thresholds from observed severity rather than guesses.
       </div>
     </div>
-    <div class="kpi">
-      <div class="kpi-label">Known limitation</div>
-      <div class="kpi-value">Exact labels</div>
-      <div class="kpi-sub">
+    <div class="card">
+      <div class="label">Known limitation</div>
+      <div class="value">Exact labels</div>
+      <div class="sub">
         The adversary matched the injected failure-mode label only
         {exact_matches if cal['n'] else 0}/{cal['flawed_n'] if cal['n'] else 0}.
-        Concrete market risks were stronger than abstract reasoning-bias labels.
+        It is a calibrated escalation layer, not an infallible classifier.
       </div>
     </div>
   </div>
+</section>
 
-  <div class="callout">
-    <strong>Interpretation.</strong>
-    The adversary is useful as a calibrated escalation layer, not as an infallible classifier.
-    Exact naming is secondary; deterministic code remains responsible for enforceable safety.
-  </div>
-
-  <h2>Authority boundary</h2>
-  <div class="grid two">
-    <div class="kpi">
-      <div class="kpi-label">Models may</div>
-      <div class="kpi-sub">
-        Propose trades · criticize reasoning · suggest a revision · abstain.
-      </div>
+<section id="authority">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">Authority boundary</div>
+      <h2>What models may and may not do</h2>
     </div>
-    <div class="kpi">
-      <div class="kpi-label">Models may not</div>
-      <div class="kpi-sub">
-        Bypass contract caps · create naked calls · exceed collateral or coverage ·
-        override the daily loss halt · remove the kill switch · bypass the fresh execution gate.
-      </div>
+    <div class="section-sub">
+      AI is allowed to reason. It is not allowed to redefine its own permissions.
     </div>
   </div>
 
-  <div class="footer">
+  <div class="boundary">
+    <div class="card">
+      <div class="label">Models may</div>
+      <ul>
+        <li>Propose trades</li>
+        <li>Criticize reasoning</li>
+        <li>Suggest one revision</li>
+        <li>Abstain</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="label">Models may not</div>
+      <ul>
+        <li>Bypass contract caps</li>
+        <li>Create naked calls</li>
+        <li>Exceed collateral or coverage</li>
+        <li>Override the daily loss halt</li>
+        <li>Remove the kill switch</li>
+        <li>Bypass the fresh execution gate</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">Implementation evidence</div>
+      <h2>Where the report comes from</h2>
+    </div>
+    <div class="section-sub">
+      The report is generated from stored local artifacts. Rendering performs no model,
+      broker, or network calls.
+    </div>
+  </div>
+
+  <div class="grid sources">
+    <div class="card source-card"><strong>Decision logs</strong><div class="sub">Proposal, challenge, revision, ruling, execution check.</div></div>
+    <div class="card source-card"><strong>Calibration artifacts</strong><div class="sub">30-case benchmark and severity evidence.</div></div>
+    <div class="card source-card"><strong>CLI audit</strong><div class="sub">Pre/post account, position, order, and clock verification.</div></div>
+    <div class="card source-card"><strong>Gate tests</strong><div class="sub">Deterministic enforcement validated before automated live runs.</div></div>
+  </div>
+</section>
+
+</main>
+
+<div class="footer">
+  <div class="wrap">
     Generated {generated} from local JSON decision/calibration artifacts.
-    This report performs no model calls, broker calls, or network access.
+    &nbsp;·&nbsp; <strong>A bad model decision should not automatically become a bad action.</strong>
   </div>
 </div>
+
 </body>
 </html>
 """
+
 
 def build_summary(da, cal_path, cal, decisions):
     return {

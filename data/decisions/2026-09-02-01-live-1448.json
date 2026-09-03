@@ -1,0 +1,39 @@
+{
+  "date": "2026-09-02",
+  "session": 1,
+  "time": "14:48 UTC",
+  "mode": "live",
+  "dry": false,
+  "blocks": [
+    {
+      "rule": "no_candidates",
+      "detail": "No contract passed today's eligibility filters."
+    }
+  ],
+  "fills": [],
+  "equity": 100362.33,
+  "cash": 25881.83,
+  "free_cash": 25881.83,
+  "market_open": true,
+  "shares": {
+    "XLE": 400,
+    "XLF": 400,
+    "XLP": 300
+  },
+  "open_options": [
+    {
+      "symbol": "XLE260904C00064000",
+      "underlying": "XLE",
+      "kind": "call",
+      "side": "short",
+      "contracts": 3,
+      "strike": 64.0,
+      "expiry": "2026-09-04",
+      "entry_premium": 41.3333,
+      "opened": ""
+    }
+  ],
+  "eligible_count": 0,
+  "eligible": [],
+  "candidates": []
+}

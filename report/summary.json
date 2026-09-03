@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-02T23:32:59+00:00",
+  "generated_at": "2026-09-03T19:19:39+00:00",
   "thresholds": {
     "proceed_below": 0.6,
     "block_above": 0.7
@@ -10,6 +10,68 @@
     "max_loss_per_position_pct": 0.05,
     "max_trades_per_day": 4,
     "daily_loss_halt_pct": 0.03
+  },
+  "performance": {
+    "starting_equity": 100000.0,
+    "snapshot_count": 3,
+    "latest": {
+      "date": "2026-09-03",
+      "timestamp": "2026-09-03T14:36:46-04:00",
+      "equity": 100512.83,
+      "cash": 25881.83,
+      "last_equity": 100272.83,
+      "starting_equity": 100000.0,
+      "position_count": 4,
+      "source": "Alpaca paper account snapshot",
+      "pnl": 512.8300000000017,
+      "return_pct": 0.5128300000000018,
+      "snapshot_change": 150.5,
+      "broker_intraday_change": 240.0
+    },
+    "snapshots": [
+      {
+        "date": "2026-09-01",
+        "timestamp": "",
+        "equity": 99884.83,
+        "cash": 25881.83,
+        "last_equity": null,
+        "starting_equity": 100000.0,
+        "position_count": null,
+        "source": "Alpaca paper account snapshot",
+        "pnl": -115.16999999999825,
+        "return_pct": -0.11516999999999826,
+        "snapshot_change": null,
+        "broker_intraday_change": null
+      },
+      {
+        "date": "2026-09-02",
+        "timestamp": "",
+        "equity": 100362.33,
+        "cash": 25881.83,
+        "last_equity": null,
+        "starting_equity": 100000.0,
+        "position_count": null,
+        "source": "Alpaca paper account snapshot",
+        "pnl": 362.33000000000175,
+        "return_pct": 0.36233000000000176,
+        "snapshot_change": 477.5,
+        "broker_intraday_change": null
+      },
+      {
+        "date": "2026-09-03",
+        "timestamp": "2026-09-03T14:36:46-04:00",
+        "equity": 100512.83,
+        "cash": 25881.83,
+        "last_equity": 100272.83,
+        "starting_equity": 100000.0,
+        "position_count": 4,
+        "source": "Alpaca paper account snapshot",
+        "pnl": 512.8300000000017,
+        "return_pct": 0.5128300000000018,
+        "snapshot_change": 150.5,
+        "broker_intraday_change": 240.0
+      }
+    ]
   },
   "decisions": {
     "all": {

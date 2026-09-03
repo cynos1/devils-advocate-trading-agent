@@ -1,0 +1,28 @@
+{
+  "snapshots": [
+    {
+      "date": "2026-09-01",
+      "equity": 99884.83,
+      "cash": 25881.83,
+      "starting_equity": 100000.00,
+      "source": "Alpaca paper account snapshot"
+    },
+    {
+      "date": "2026-09-02",
+      "equity": 100362.33,
+      "cash": 25881.83,
+      "starting_equity": 100000.00,
+      "source": "Alpaca paper account snapshot"
+    },
+    {
+      "date": "2026-09-03",
+      "timestamp": "2026-09-03T14:36:46-04:00",
+      "equity": 100512.83,
+      "cash": 25881.83,
+      "last_equity": 100272.83,
+      "starting_equity": 100000.00,
+      "position_count": 4,
+      "source": "Alpaca paper account snapshot"
+    }
+  ]
+}

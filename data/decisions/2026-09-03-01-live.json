@@ -1,0 +1,116 @@
+{
+  "date": "2026-09-03",
+  "session": 1,
+  "time": "17:56 UTC",
+  "mode": "live",
+  "dry": false,
+  "blocks": [],
+  "fills": [],
+  "equity": 100544.33,
+  "cash": 25881.83,
+  "free_cash": 25881.83,
+  "market_open": true,
+  "shares": {
+    "XLE": 400,
+    "XLF": 400,
+    "XLP": 300
+  },
+  "open_options": [
+    {
+      "symbol": "XLE260904C00064000",
+      "underlying": "XLE",
+      "kind": "call",
+      "side": "short",
+      "contracts": 3,
+      "strike": 64.0,
+      "expiry": "2026-09-04",
+      "entry_premium": 41.3333,
+      "opened": ""
+    }
+  ],
+  "eligible_count": 2,
+  "eligible": [
+    "XLE260909P00064000",
+    "XLF260908C00058500"
+  ],
+  "candidates": [
+    {
+      "symbol": "XLE260909P00064000",
+      "underlying": "XLE",
+      "kind": "put",
+      "strike": 64.0,
+      "expiry": "2026-09-09",
+      "days_to_expiry": 6,
+      "bid": 0.32,
+      "ask": 0.34,
+      "mid": 0.33,
+      "spread_pct": 0.0606,
+      "premium": 33.0,
+      "open_interest": 78,
+      "last_trade_age_days": 0.04,
+      "moneyness": -0.0143,
+      "implied_volatility": 0.2164
+    },
+    {
+      "symbol": "XLF260908C00058500",
+      "underlying": "XLF",
+      "kind": "call",
+      "strike": 58.5,
+      "expiry": "2026-09-08",
+      "days_to_expiry": 5,
+      "bid": 0.31,
+      "ask": 0.34,
+      "mid": 0.325,
+      "spread_pct": 0.0923,
+      "premium": 32.5,
+      "open_interest": 340,
+      "last_trade_age_days": 0.01,
+      "moneyness": 0.0003,
+      "implied_volatility": 0.1155
+    }
+  ],
+  "proposal": {
+    "action": "covered_call",
+    "underlying": "XLF",
+    "contract_symbol": "XLF260908C00058500",
+    "strike": 58.5,
+    "expiry": "2026-09-08",
+    "contracts": 4,
+    "expected_premium": 32.5,
+    "total_premium": 130.0,
+    "max_loss": 0.0,
+    "reasoning": "I have 400 XLF shares fully uncovered, so selling calls slightly above cost basis collects premium while capping upside marginally above my entry price. This diversifies away from my already concentrated XLE covered call position.",
+    "raw": "{\"action\": \"covered_call\", \"underlying\": \"XLF\", \"contract_symbol\": \"XLF260908C00058500\", \"strike\": 58.5, \"expiry\": \"2026-09-08\", \"contracts\": 4, \"expected_premium\": 32.0, \"reasoning\": \"I have 400 XLF shares fully uncovered, so selling calls slightly above cost basis collects premium while capping upside marginally above my entry price. This diversifies away from my already concentrated XLE covered call position.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "objection": {
+    "severity": 0.75,
+    "failure_mode": "assignment_risk",
+    "objection": "Strike is essentially at-the-money (+0.0%) with only 5 calendar days to expiry, giving very high probability of assignment and minimal time value to justify the tiny $32.50 premium. This locks in shares being called away almost at cost basis for negligible compensation.",
+    "what_would_fix_it": "Choose a strike further out-of-the-money (e.g. $60-61) or a longer expiry to collect more premium for the assignment risk taken.",
+    "raw": "{\"severity\": 0.75, \"failure_mode\": \"assignment_risk\", \"objection\": \"Strike is essentially at-the-money (+0.0%) with only 5 calendar days to expiry, giving very high probability of assignment and minimal time value to justify the tiny $32.50 premium. This locks in shares being called away almost at cost basis for negligible compensation.\", \"what_would_fix_it\": \"Choose a strike further out-of-the-money (e.g. $60-61) or a longer expiry to collect more premium for the assignment risk taken.\"}",
+    "failed": false
+  },
+  "ruling1": {
+    "outcome": "reject",
+    "rationale": "Persistent deadlock: the adversary has blocked 3 consecutive sessions. No trade is forced; standing down for this session. Flagged for human review.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  },
+  "ruling": {
+    "outcome": "reject",
+    "rationale": "Persistent deadlock: the adversary has blocked 3 consecutive sessions. No trade is forced; standing down for this session. Flagged for human review.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  },
+  "final_ruling": {
+    "outcome": "reject",
+    "rationale": "Persistent deadlock: the adversary has blocked 3 consecutive sessions. No trade is forced; standing down for this session. Flagged for human review.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  }
+}

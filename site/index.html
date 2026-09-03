@@ -1,185 +1,74 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Devil's Advocate — Autonomous Options Trading Agent</title>
-  <meta name="description" content="An adversarial AI options-trading agent built with Alpaca. Models make judgments; deterministic code controls authority." />
-  <style>
-    :root{
-      --bg:#0b1020; --panel:#121a31; --panel2:#17223f; --text:#f5f7fb;
-      --muted:#aeb8cf; --line:#283656; --accent:#f6c85f; --good:#74d6a0;
-      --warn:#f5b35c; --bad:#ef7c7c; --blue:#74a7ff;
-      --shadow:0 20px 60px rgba(0,0,0,.35);
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0; background:
-        radial-gradient(circle at 80% -10%, rgba(116,167,255,.18), transparent 30%),
-        radial-gradient(circle at 10% 10%, rgba(246,200,95,.10), transparent 28%),
-        var(--bg);
-      color:var(--text); font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-    }
-    a{color:inherit;text-decoration:none}
-    .wrap{width:min(1160px,92vw);margin:auto}
-    nav{display:flex;justify-content:space-between;align-items:center;padding:24px 0}
-    .brand{font-weight:800;letter-spacing:.2px}
-    .navlinks{display:flex;gap:20px;color:var(--muted);font-size:14px}
-    .hero{padding:70px 0 50px;display:grid;grid-template-columns:1.25fr .75fr;gap:36px;align-items:center}
-    .eyebrow{color:var(--accent);font-size:13px;text-transform:uppercase;letter-spacing:1.4px;font-weight:800}
-    h1{font-size:clamp(46px,7vw,82px);line-height:.95;margin:14px 0 22px;letter-spacing:-3px}
-    .lead{font-size:20px;line-height:1.6;color:var(--muted);max-width:760px}
-    .tagline{margin-top:22px;font-size:21px;font-weight:800}
-    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
-    .btn{padding:13px 18px;border-radius:12px;font-weight:750;border:1px solid var(--line);display:inline-flex;align-items:center;gap:8px}
-    .btn.primary{background:var(--accent);color:#16120a;border-color:transparent}
-    .btn.secondary{background:rgba(255,255,255,.04)}
-    .hero-card,.card{background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.025));border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}
-    .hero-card{padding:24px}
-    .hero-card h3{margin:0 0 8px;font-size:15px;color:var(--muted);font-weight:700}
-    .flow-mini{display:grid;gap:10px;margin-top:16px}
-    .step{padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--panel);font-weight:700}
-    .arrow{text-align:center;color:var(--muted)}
-    section{padding:54px 0}
-    .section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:24px}
-    h2{font-size:34px;margin:0;letter-spacing:-1px}
-    .sub{color:var(--muted);max-width:680px;line-height:1.6}
-    .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-    .metric{padding:22px}
-    .metric .num{font-size:34px;font-weight:900;letter-spacing:-1px}
-    .metric .label{color:var(--muted);margin-top:6px;line-height:1.35}
-    .arch{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;align-items:stretch}
-    .arch .card{padding:18px;min-height:150px}
-    .arch strong{display:block;margin-bottom:8px}
-    .arch p{color:var(--muted);font-size:14px;line-height:1.45;margin:0}
-    .arch .code{border-color:rgba(246,200,95,.55)}
-    .three{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .three .card{padding:24px}
-    .kicker{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--accent);font-weight:900}
-    .three h3{margin:9px 0 10px}
-    .three p{color:var(--muted);line-height:1.55}
-    .evidence{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    .evidence .card{padding:24px}
-    .trace{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;line-height:1.7;color:#d8dfef}
-    .chip{display:inline-block;border:1px solid var(--line);padding:5px 9px;border-radius:999px;color:var(--muted);font-size:12px;margin:3px 4px 3px 0}
-    .note{color:var(--muted);font-size:13px;line-height:1.5}
-    footer{border-top:1px solid var(--line);margin-top:40px;padding:28px 0 50px;color:var(--muted);font-size:14px}
-    @media(max-width:900px){
-      .hero{grid-template-columns:1fr}.metrics{grid-template-columns:1fr 1fr}.arch{grid-template-columns:1fr}.three{grid-template-columns:1fr}.evidence{grid-template-columns:1fr}
-      .navlinks{display:none}
-    }
-    @media(max-width:560px){.metrics{grid-template-columns:1fr}h1{letter-spacing:-2px}}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Devil's Advocate — AI Trading Agent</title>
+<style>
+:root{--bg:#0b0d12;--panel:#11151d;--panel2:#151a24;--text:#f4f1ea;--muted:#a6acb8;--line:#2a303b;--gold:#d8a84e;--blue:#6f8fbf;--green:#7dbb8a;--red:#d26a64}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 76% -8%,rgba(111,143,191,.14),transparent 28%),radial-gradient(circle at 12% 10%,rgba(216,168,78,.09),transparent 24%),var(--bg);color:var(--text);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:inherit;text-decoration:none}.wrap{width:min(1160px,92vw);margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(11,13,18,.84);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}.nav{height:68px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:11px;font-weight:900;letter-spacing:.05em;font-size:14px}.mark{width:30px;height:30px;border-radius:9px;border:1px solid rgba(216,168,78,.45);display:grid;place-items:center;color:var(--gold);background:rgba(216,168,78,.06);font-size:18px}.navlinks{display:flex;gap:20px;color:var(--muted);font-size:13px}.navlinks a:hover{color:var(--text)}.status{display:flex;align-items:center;gap:7px;padding:7px 10px;border:1px solid var(--line);border-radius:999px;font-size:11px;color:#c7cdd6}.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 14px rgba(125,187,138,.65)}
+.hero{min-height:720px;display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center;padding:74px 0 64px}.eyebrow{color:var(--gold);font-size:11px;text-transform:uppercase;letter-spacing:.14em;font-weight:800}h1,h2{font-family:Georgia,"Times New Roman",serif;letter-spacing:-.035em}h1{font-size:clamp(58px,8vw,94px);line-height:.92;margin:15px 0 24px}.lede{max-width:700px;color:#c8ced7;font-size:21px;line-height:1.6}.lede strong{color:var(--text)}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.btn{padding:13px 17px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.025);font-size:13px;font-weight:700;transition:.2s}.btn:hover{transform:translateY(-2px);border-color:#424b5b}.btn.primary{background:var(--text);color:#0c0f14;border-color:var(--text)}.btn.gold{border-color:rgba(216,168,78,.4);color:#ead7ad}.hero-note{margin-top:24px;color:var(--muted);font-size:12px}
+.flow-shell{position:relative;min-height:500px;display:flex;align-items:center;justify-content:center}.flow-shell:before{content:"";position:absolute;inset:5% 0;background:radial-gradient(circle,rgba(111,143,191,.15),transparent 60%);filter:blur(18px)}.flow{position:relative;width:min(390px,100%);border:1px solid var(--line);border-radius:24px;padding:22px;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.016));box-shadow:0 30px 80px rgba(0,0,0,.35)}.flow-label{font-size:10px;text-transform:uppercase;letter-spacing:.13em;color:var(--muted);margin-bottom:15px}.flow-step{display:flex;align-items:center;justify-content:space-between;padding:14px 15px;border:1px solid var(--line);border-radius:13px;background:var(--panel2)}.flow-step+.arrow{height:24px;display:grid;place-items:center;color:#5b6472}.flow-step span:first-child{font-weight:700}.flow-step small{color:var(--muted)}.flow-step.proposer{border-left:2px solid var(--blue)}.flow-step.adversary{border-left:2px solid var(--red)}.flow-step.gate{border-left:2px solid var(--gold)}.flow-step.final{border-left:2px solid var(--green)}
+section{padding:76px 0}.section-head{max-width:720px;margin-bottom:30px}.section-head h2{font-size:42px;margin:10px 0 12px}.section-head p{color:var(--muted);font-size:17px;line-height:1.6;margin:0}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.step-card{min-height:220px;padding:24px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.014))}.step-num{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);color:var(--gold);margin-bottom:28px;font-size:12px;font-weight:800}.step-card h3{font-size:22px;margin:0 0 10px}.step-card p{color:var(--muted);line-height:1.6;margin:0}
+.proof-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:18px}.feature-proof{border:1px solid var(--line);border-radius:22px;padding:30px;background:linear-gradient(135deg,rgba(216,168,78,.08),transparent 48%),var(--panel)}.feature-proof .big{font-size:44px;line-height:1.05;font-family:Georgia,"Times New Roman",serif;margin:12px 0 16px}.feature-proof p{color:var(--muted);max-width:650px;line-height:1.65}.proof-side{display:grid;gap:18px}.proof-card{border:1px solid var(--line);border-radius:18px;padding:22px;background:var(--panel)}.proof-card .metric{font-size:31px;font-weight:850;margin:8px 0 5px}.proof-card p{color:var(--muted);margin:0;line-height:1.5}
+.explore{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.link-card{min-height:230px;border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;background:rgba(255,255,255,.018);transition:.2s}.link-card:hover{transform:translateY(-3px);border-color:#414958;background:rgba(255,255,255,.028)}.link-card h3{font-size:22px;margin:10px 0 8px}.link-card p{color:var(--muted);line-height:1.55;margin:0}.arrow-link{color:var(--gold);font-size:22px}
+.final-cta{padding:60px 0 84px}.final-box{border:1px solid var(--line);border-radius:24px;padding:34px;display:flex;align-items:center;justify-content:space-between;gap:28px;background:linear-gradient(110deg,rgba(111,143,191,.07),transparent 42%),rgba(255,255,255,.018)}.final-box h2{font-size:34px;margin:0 0 8px}.final-box p{color:var(--muted);margin:0}.quote{text-align:center;padding:26px 0 48px;color:#d5d8de;font-family:Georgia,"Times New Roman",serif;font-size:20px;border-top:1px solid var(--line)}footer{color:var(--muted);font-size:12px;padding:0 0 30px;text-align:center}
+@media(max-width:900px){.hero{grid-template-columns:1fr;min-height:auto;gap:24px}.flow-shell{min-height:auto}.steps,.explore{grid-template-columns:1fr}.proof-grid{grid-template-columns:1fr}.navlinks{display:none}}@media(max-width:580px){.status{display:none}h1{font-size:56px}.lede{font-size:18px}.final-box{flex-direction:column;align-items:flex-start}}
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <nav>
-      <div class="brand">DEVIL'S ADVOCATE</div>
-      <div class="navlinks">
-        <a href="#how">How it works</a><a href="#alpaca">Alpaca stack</a><a href="#evidence">Evidence</a>
-      </div>
-    </nav>
+<header><div class="wrap nav"><a class="brand" href="./"><span class="mark">Ψ</span><span>DEVIL'S ADVOCATE</span></a><nav class="navlinks"><a href="#how">How it works</a><a href="#proof">Evidence</a><a href="judge-report.html">Judge Report</a><a href="decision-trace.html">Decision Traces</a></nav><div class="status"><span class="dot"></span> Paper trading</div></div></header>
+<main>
+<section class="hero wrap">
+<div>
+<div class="eyebrow">Alpaca AI Trading Agents Hackathon</div>
+<h1>Devil's<br>Advocate</h1>
+<div class="lede">An AI trading agent that <strong>argues with itself before it trades.</strong> One model proposes. Another challenges. Code decides the final action.</div>
+<div class="actions"><a class="btn primary" href="decision-trace.html">View Decision Trace</a><a class="btn gold" href="judge-report.html">Read Judge Report</a><a class="btn" href="https://github.com/cynos1/devils-advocate-trading-agent">View GitHub</a></div>
+<div class="hero-note">Built with Alpaca · Python · LLM agents · GitHub Actions</div>
+</div>
+<div class="flow-shell"><div class="flow">
+<div class="flow-label">Decision path</div>
+<div class="flow-step"><span>Market + portfolio state</span><small>context</small></div><div class="arrow">↓</div>
+<div class="flow-step"><span>Candidate filter</span><small>code</small></div><div class="arrow">↓</div>
+<div class="flow-step proposer"><span>Proposer</span><small>AI</small></div><div class="arrow">↓</div>
+<div class="flow-step adversary"><span>Adversary</span><small>AI</small></div><div class="arrow">↓</div>
+<div class="flow-step"><span>One revision</span><small>AI</small></div><div class="arrow">↓</div>
+<div class="flow-step gate"><span>Deterministic risk gate</span><small>code</small></div><div class="arrow">↓</div>
+<div class="flow-step final"><span>Execute or No Trade</span><small>final</small></div>
+</div></div>
+</section>
 
-    <main>
-      <section class="hero">
-        <div>
-          <div class="eyebrow">Alpaca AI Trading Agents Hackathon</div>
-          <h1>Don’t trust the first trade.</h1>
-          <p class="lead">Devil’s Advocate is an autonomous options-trading agent that makes one AI challenge another before deterministic code decides what can actually execute.</p>
-          <div class="tagline">Models make judgments. Code controls authority.</div>
-          <div class="actions">
-            <a class="btn primary" href="judge-report.html">Open Full Judge Report →</a>
-            <a class="btn secondary" href="https://github.com/cynos1/devils-advocate-trading-agent" target="_blank" rel="noreferrer">View GitHub Repository</a>
-          </div>
-        </div>
-        <div class="hero-card">
-          <h3>DECISION LOOP</h3>
-          <div class="flow-mini">
-            <div class="step">1. Proposer recommends a trade</div>
-            <div class="arrow">↓</div>
-            <div class="step">2. Adversary challenges it</div>
-            <div class="arrow">↓</div>
-            <div class="step">3. One revision maximum</div>
-            <div class="arrow">↓</div>
-            <div class="step">4. Deterministic gate decides authority</div>
-            <div class="arrow">↓</div>
-            <div class="step">5. Execute or NO TRADE</div>
-          </div>
-        </div>
-      </section>
+<section id="how"><div class="wrap">
+<div class="section-head"><div class="eyebrow">How it works</div><h2>Reasoning is flexible. Authority is not.</h2><p>The AI can explore ideas and challenge itself. Deterministic code decides whether anything is actually allowed to happen.</p></div>
+<div class="steps">
+<article class="step-card"><div class="step-num">01</div><h3>Propose</h3><p>The first model selects a trade from a filtered set of eligible options contracts.</p></article>
+<article class="step-card"><div class="step-num">02</div><h3>Challenge</h3><p>A second model attacks the reasoning, scores severity, and can trigger one revision.</p></article>
+<article class="step-card"><div class="step-num">03</div><h3>Control</h3><p>Hard rules check position size, collateral, exposure, daily limits, and fresh broker state before execution.</p></article>
+</div></div></section>
 
-      <section>
-        <div class="metrics">
-          <div class="card metric"><div class="num">95.8%</div><div class="label">Flawed benchmark cases triggered intervention</div></div>
-          <div class="card metric"><div class="num">83.3%</div><div class="label">Clean controls passed immediately</div></div>
-          <div class="card metric"><div class="num">0.951</div><div class="label">Severity AUC separating flawed from clean proposals</div></div>
-          <div class="card metric"><div class="num">28/28</div><div class="label">Deterministic gate tests passing</div></div>
-        </div>
-      </section>
+<section id="proof"><div class="wrap">
+<div class="section-head"><div class="eyebrow">Proof it works</div><h2>The interesting part is what the system refuses to do.</h2><p>The project is built to preserve useful model reasoning without giving the model unlimited authority.</p></div>
+<div class="proof-grid">
+<article class="feature-proof"><div class="eyebrow">Deterministic intervention</div><div class="big">4 contracts proposed<br>→ 2 contracts approved</div><p>The models did not fix the sizing issue themselves. The deterministic gate did. It generated a safer substitute and re-checked the trade before execution.</p><div class="actions"><a class="btn gold" href="decision-trace.html">See the full trace</a></div></article>
+<div class="proof-side">
+<article class="proof-card"><div class="eyebrow">Stand down</div><div class="metric">0 eligible</div><p>No proposal reached the model. The system chose no trade.</p></article>
+<article class="proof-card"><div class="eyebrow">Gate tests</div><div class="metric">28 / 28</div><p>Latest deterministic enforcement suite passing.</p></article>
+</div></div></div></section>
 
-      <section id="how">
-        <div class="section-head">
-          <div><div class="eyebrow">How it works</div><h2>Reason creatively. Execute conservatively.</h2></div>
-          <p class="sub">The model can recommend, criticize and revise. It cannot increase its own authority, bypass hard limits, or force a trade after repeated disagreement.</p>
-        </div>
-        <div class="arch">
-          <div class="card"><strong>Market + Portfolio</strong><p>Account state and eligible options form the bounded decision context.</p></div>
-          <div class="card"><strong>Proposer Model</strong><p>Chooses strategy, contract, size and rationale.</p></div>
-          <div class="card"><strong>Devil’s Advocate</strong><p>Challenges liquidity, assignment risk, concentration, expiry, premium and more.</p></div>
-          <div class="card code"><strong>Deterministic Risk Gate</strong><p>Enforces sizing, collateral, exposure, daily limits, kill switch and fail-closed behavior.</p></div>
-          <div class="card"><strong>Fresh Execution Check</strong><p>Re-reads broker state immediately before any order submission. Final outcome: execute or NO TRADE.</p></div>
-        </div>
-      </section>
+<section><div class="wrap">
+<div class="section-head"><div class="eyebrow">Explore the evidence</div></div>
+<div class="explore">
+<a class="link-card" href="judge-report.html"><div><div class="eyebrow">Evidence</div><h3>Judge Report</h3><p>Calibration, decision stories, live activity, limitations, and the compact audit ledger.</p></div><div class="arrow-link">→</div></a>
+<a class="link-card" href="decision-trace.html"><div><div class="eyebrow">Trace</div><h3>Decision Traces</h3><p>Follow individual decisions from proposal through challenge, revision, gate, and final outcome.</p></div><div class="arrow-link">→</div></a>
+<a class="link-card" href="https://github.com/cynos1/devils-advocate-trading-agent"><div><div class="eyebrow">Build</div><h3>Source Code</h3><p>Inspect the agent, deterministic gate, tests, automation workflow, and report builder.</p></div><div class="arrow-link">→</div></a>
+</div></div></section>
 
-      <section id="alpaca">
-        <div class="section-head">
-          <div><div class="eyebrow">Alpaca implementation</div><h2>Three tools. Three jobs.</h2></div>
-          <p class="sub">The project deliberately separates what the model can see, what can execute, and how the outcome is independently verified.</p>
-        </div>
-        <div class="three">
-          <div class="card"><div class="kicker">MCP Server</div><h3>Research / Context</h3><p>Model-facing access to account state, market data, options chains and research context. Read-oriented by design.</p></div>
-          <div class="card"><div class="kicker">Trading API</div><h3>Bounded Execution</h3><p>Paper-order submission only after adversarial review, deterministic validation and a fresh execution check.</p></div>
-          <div class="card"><div class="kicker">CLI</div><h3>Independent Audit</h3><p>Pre/post snapshots of account, positions, orders and market clock. The agent does not audit itself.</p></div>
-        </div>
-      </section>
+<section class="final-cta"><div class="wrap"><div class="final-box"><div><div class="eyebrow">Core idea</div><h2>Models make judgments. Code controls authority.</h2><p>That boundary is the product.</p></div><div class="actions"><a class="btn primary" href="judge-report.html">Open Judge Report</a><a class="btn" href="decision-trace.html">View Decision Trace</a></div></div></div></section>
 
-      <section id="evidence">
-        <div class="section-head">
-          <div><div class="eyebrow">Evidence</div><h2>When both models miss something, code still catches it.</h2></div>
-          <p class="sub">One observed dry-run episode demonstrated why the deterministic layer exists: the proposer asked for four contracts, while the hard limit was three.</p>
-        </div>
-        <div class="evidence">
-          <div class="card">
-            <div class="trace">
-              proposer → 4 contracts<br>
-              adversary → concern, but sizing issue not caught<br>
-              revision → still 4 contracts<br>
-              second review → sizing issue still not caught<br>
-              deterministic gate → safer code-generated substitute: 2<br>
-              fresh execution check → PASS<br>
-              outcome → DRY RUN, no broker order
-            </div>
-          </div>
-          <div class="card">
-            <h3 style="margin-top:0">Why this matters</h3>
-            <p class="sub">The project does not assume the models will always be right. It assumes they will sometimes disagree, misclassify a risk, or propose too much size — and designs the execution layer accordingly.</p>
-            <div style="margin-top:16px">
-              <span class="chip">Covered calls</span>
-              <span class="chip">Cash-secured puts</span>
-              <span class="chip">Protective puts</span>
-              <span class="chip">NO TRADE is valid</span>
-            </div>
-            <p class="note" style="margin-top:18px">For full decision logs, calibration results, live vs live-dry evidence and the compact ledger, open the judge report.</p>
-            <div class="actions"><a class="btn primary" href="judge-report.html">View Full Audit Report →</a></div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      Devil’s Advocate · Alpaca paper trading · GitHub Actions automation · Autonomous options agent
-    </footer>
-  </div>
+<div class="wrap quote">“A bad model decision should not automatically become a bad action.”</div>
+</main>
+<footer class="wrap">Devil's Advocate · Alpaca AI Trading Agents Hackathon</footer>
 </body>
 </html>

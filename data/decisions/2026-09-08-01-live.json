@@ -1,0 +1,104 @@
+{
+  "date": "2026-09-08",
+  "session": 1,
+  "time": "17:59 UTC",
+  "mode": "live",
+  "dry": false,
+  "blocks": [],
+  "fills": [],
+  "equity": 99755.33,
+  "cash": 45081.83,
+  "free_cash": 45081.83,
+  "market_open": true,
+  "shares": {
+    "XLE": 100,
+    "XLF": 400,
+    "XLP": 300
+  },
+  "open_options": [],
+  "eligible_count": 2,
+  "eligible": [
+    "XLF260911P00057500",
+    "XLP260911P00083500"
+  ],
+  "candidates": [
+    {
+      "symbol": "XLF260911P00057500",
+      "underlying": "XLF",
+      "kind": "put",
+      "strike": 57.5,
+      "expiry": "2026-09-11",
+      "days_to_expiry": 3,
+      "bid": 0.31,
+      "ask": 0.34,
+      "mid": 0.325,
+      "spread_pct": 0.0923,
+      "premium": 32.5,
+      "open_interest": 268,
+      "last_trade_age_days": 0.01,
+      "moneyness": -0.0007,
+      "implied_volatility": 0.1679
+    },
+    {
+      "symbol": "XLP260911P00083500",
+      "underlying": "XLP",
+      "kind": "put",
+      "strike": 83.5,
+      "expiry": "2026-09-11",
+      "days_to_expiry": 3,
+      "bid": 0.25,
+      "ask": 0.27,
+      "mid": 0.26,
+      "spread_pct": 0.0769,
+      "premium": 26.0,
+      "open_interest": 197,
+      "last_trade_age_days": 0.01,
+      "moneyness": -0.0058,
+      "implied_volatility": 0.1571
+    }
+  ],
+  "proposal": {
+    "action": "cash_secured_put",
+    "underlying": "XLF",
+    "contract_symbol": "XLF260911P00057500",
+    "strike": 57.5,
+    "expiry": "2026-09-11",
+    "contracts": 1,
+    "expected_premium": 32.5,
+    "total_premium": 32.5,
+    "max_loss": 5717.5,
+    "reasoning": "This put is right at the money with a solid premium relative to its 3-day expiry, and I'm already comfortable owning more XLF shares at $57.50 if assigned since I hold 400 shares now. It uses modest collateral and leaves plenty of free cash for later in the week.",
+    "raw": "{\"action\": \"cash_secured_put\", \"underlying\": \"XLF\", \"contract_symbol\": \"XLF260911P00057500\", \"strike\": 57.50, \"expiry\": \"2026-09-11\", \"contracts\": 1, \"expected_premium\": 32.0, \"reasoning\": \"This put is right at the money with a solid premium relative to its 3-day expiry, and I'm already comfortable owning more XLF shares at $57.50 if assigned since I hold 400 shares now. It uses modest collateral and leaves plenty of free cash for later in the week.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "objection": {
+    "severity": 0.75,
+    "failure_mode": "assignment_risk",
+    "objection": "Strike is essentially at-the-money (-0.1%) with only 3 days to expiry, making assignment highly likely on any minor downside move. Combined with existing 400 share XLF position, this adds concentrated exposure right before expiry with little time value cushion.",
+    "what_would_fix_it": "Choose a strike further out-of-the-money, e.g. $55, to reduce assignment probability while still collecting premium.",
+    "raw": "{\"severity\": 0.75, \"failure_mode\": \"assignment_risk\", \"objection\": \"Strike is essentially at-the-money (-0.1%) with only 3 days to expiry, making assignment highly likely on any minor downside move. Combined with existing 400 share XLF position, this adds concentrated exposure right before expiry with little time value cushion.\", \"what_would_fix_it\": \"Choose a strike further out-of-the-money, e.g. $55, to reduce assignment probability while still collecting premium.\"}",
+    "failed": false
+  },
+  "ruling1": {
+    "outcome": "reject",
+    "rationale": "Persistent deadlock: the adversary has blocked 3 consecutive sessions. No trade is forced; standing down for this session. Flagged for human review.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  },
+  "ruling": {
+    "outcome": "reject",
+    "rationale": "Persistent deadlock: the adversary has blocked 3 consecutive sessions. No trade is forced; standing down for this session. Flagged for human review.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  },
+  "final_ruling": {
+    "outcome": "reject",
+    "rationale": "Persistent deadlock: the adversary has blocked 3 consecutive sessions. No trade is forced; standing down for this session. Flagged for human review.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  }
+}

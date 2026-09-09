@@ -1,0 +1,115 @@
+{
+  "date": "2026-09-09",
+  "session": 1,
+  "time": "17:53 UTC",
+  "mode": "live",
+  "dry": false,
+  "blocks": [],
+  "fills": [],
+  "equity": 99455.33,
+  "cash": 45081.83,
+  "free_cash": 45081.83,
+  "market_open": true,
+  "shares": {
+    "XLE": 100,
+    "XLF": 400,
+    "XLP": 300
+  },
+  "open_options": [],
+  "eligible_count": 1,
+  "eligible": [
+    "XLE260916P00064000"
+  ],
+  "candidates": [
+    {
+      "symbol": "XLE260916P00064000",
+      "underlying": "XLE",
+      "kind": "put",
+      "strike": 64.0,
+      "expiry": "2026-09-16",
+      "days_to_expiry": 7,
+      "bid": 0.38,
+      "ask": 0.42,
+      "mid": 0.4,
+      "spread_pct": 0.1,
+      "premium": 40.0,
+      "open_interest": 144,
+      "last_trade_age_days": 0.11,
+      "moneyness": -0.0208,
+      "implied_volatility": 0.2637
+    }
+  ],
+  "proposal": {
+    "action": "cash_secured_put",
+    "underlying": "XLE",
+    "contract_symbol": "XLE260916P00064000",
+    "strike": 64.0,
+    "expiry": "2026-09-16",
+    "contracts": 1,
+    "expected_premium": 40.0,
+    "total_premium": 40.0,
+    "max_loss": 6360.0,
+    "reasoning": "I'm selling one cash-secured put on XLE below current levels, collecting $40 premium for a short 7-day obligation backed by ample free cash. This is the only eligible contract and the risk is acceptable given I already hold shares I'm comfortable adding to.",
+    "raw": "{\"action\": \"cash_secured_put\", \"underlying\": \"XLE\", \"contract_symbol\": \"XLE260916P00064000\", \"strike\": 64.0, \"expiry\": \"2026-09-16\", \"contracts\": 1, \"expected_premium\": 40.0, \"reasoning\": \"I'm selling one cash-secured put on XLE below current levels, collecting $40 premium for a short 7-day obligation backed by ample free cash. This is the only eligible contract and the risk is acceptable given I already hold shares I'm comfortable adding to.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "objection": {
+    "severity": 0.6,
+    "failure_mode": "insufficient_premium",
+    "objection": "Only $40 premium against $6,360 cash secured is a 0.63% return for a week, poor compensation given a 10% wide bid-ask spread eating execution quality further.",
+    "what_would_fix_it": "Choose a further-dated expiry or lower strike offering higher annualized premium relative to capital tied up.",
+    "raw": "{\"severity\": 0.6,\n \"failure_mode\": \"insufficient_premium\",\n \"objection\": \"Only $40 premium against $6,360 cash secured is a 0.63% return for a week, poor compensation given a 10% wide bid-ask spread eating execution quality further.\",\n \"what_would_fix_it\": \"Choose a further-dated expiry or lower strike offering higher annualized premium relative to capital tied up.\"}",
+    "failed": false
+  },
+  "ruling1": {
+    "outcome": "revise",
+    "rationale": "The adversary raised insufficient_premium at severity 0.60. Sending back for one revision. It also failed a hard limit: Max loss $6,360.00 exceeds the $4,972.77 limit (5% of equity).",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": {
+      "action": "cash_secured_put",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260916P00064000",
+      "strike": 64.0,
+      "expiry": "2026-09-16",
+      "contracts": 1,
+      "expected_premium": 40.0,
+      "total_premium": 40.0,
+      "max_loss": 6360.0,
+      "reasoning": "I'm selling one cash-secured put on XLE below current levels, collecting $40 premium for a short 7-day obligation backed by ample free cash. This is the only eligible contract and the risk is acceptable given I already hold shares I'm comfortable adding to.",
+      "raw": "{\"action\": \"cash_secured_put\", \"underlying\": \"XLE\", \"contract_symbol\": \"XLE260916P00064000\", \"strike\": 64.0, \"expiry\": \"2026-09-16\", \"contracts\": 1, \"expected_premium\": 40.0, \"reasoning\": \"I'm selling one cash-secured put on XLE below current levels, collecting $40 premium for a short 7-day obligation backed by ample free cash. This is the only eligible contract and the risk is acceptable given I already hold shares I'm comfortable adding to.\"}",
+      "failed": false,
+      "corrections": []
+    }
+  },
+  "revision": {
+    "action": "no_trade",
+    "underlying": "",
+    "contract_symbol": "",
+    "strike": 0.0,
+    "expiry": "",
+    "contracts": 0,
+    "expected_premium": 0.0,
+    "total_premium": 0.0,
+    "max_loss": 0.0,
+    "reasoning": "The only eligible contract offers just 0.63% return for a week against a wide 10% spread, which is poor compensation for tying up cash; no better alternative exists on the list, so I'll pass this session.",
+    "raw": "{\"action\": \"no_trade\", \"underlying\": \"\", \"contract_symbol\": \"\", \"strike\": 0, \"expiry\": \"\", \"contracts\": 0, \"expected_premium\": 0.0, \"reasoning\": \"The only eligible contract offers just 0.63% return for a week against a wide 10% spread, which is poor compensation for tying up cash; no better alternative exists on the list, so I'll pass this session.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "ruling": {
+    "outcome": "reject",
+    "rationale": "The revision produced no trade: The only eligible contract offers just 0.63% return for a week against a wide 10% spread, which is poor compensation for tying up cash; no better alternative exists on the list, so I'll pass this session.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  },
+  "final_ruling": {
+    "outcome": "reject",
+    "rationale": "The revision produced no trade: The only eligible contract offers just 0.63% return for a week against a wide 10% spread, which is poor compensation for tying up cash; no better alternative exists on the list, so I'll pass this session.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-09T17:54:17+00:00",
+  "generated_at": "2026-09-10T17:46:53+00:00",
   "thresholds": {
     "proceed_below": 0.6,
     "block_above": 0.7
@@ -75,11 +75,11 @@
   },
   "decisions": {
     "all": {
-      "sessions": 18,
-      "revisions": 10,
+      "sessions": 19,
+      "revisions": 11,
       "substitutions": 4,
-      "rejects": 11,
-      "no_trade": 14,
+      "rejects": 12,
+      "no_trade": 15,
       "fills": 1,
       "oversized_initial": 7,
       "size_reduced": 4,
@@ -89,11 +89,11 @@
       "fresh_gate_block": 0
     },
     "live": {
-      "sessions": 11,
-      "revisions": 5,
+      "sessions": 12,
+      "revisions": 6,
       "substitutions": 1,
-      "rejects": 8,
-      "no_trade": 10,
+      "rejects": 9,
+      "no_trade": 11,
       "fills": 1,
       "oversized_initial": 3,
       "size_reduced": 1,
@@ -117,7 +117,7 @@
       "fresh_gate_block": 0
     },
     "objection_modes": {
-      "insufficient_premium": 7,
+      "insufficient_premium": 8,
       "assignment_risk": 12,
       "unfavourable_expiry": 1
     }

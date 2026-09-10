@@ -1,0 +1,133 @@
+{
+  "date": "2026-09-10",
+  "session": 1,
+  "time": "17:46 UTC",
+  "mode": "live",
+  "dry": false,
+  "blocks": [],
+  "fills": [],
+  "equity": 99271.33,
+  "cash": 45081.83,
+  "free_cash": 45081.83,
+  "market_open": true,
+  "shares": {
+    "XLE": 100,
+    "XLF": 400,
+    "XLP": 300
+  },
+  "open_options": [],
+  "eligible_count": 2,
+  "eligible": [
+    "XLE260916C00066000",
+    "XLE260914C00066000"
+  ],
+  "candidates": [
+    {
+      "symbol": "XLE260916C00066000",
+      "underlying": "XLE",
+      "kind": "call",
+      "strike": 66.0,
+      "expiry": "2026-09-16",
+      "days_to_expiry": 6,
+      "bid": 0.54,
+      "ask": 0.56,
+      "mid": 0.55,
+      "spread_pct": 0.0364,
+      "premium": 55.0,
+      "open_interest": 109,
+      "last_trade_age_days": 0.01,
+      "moneyness": 0.013,
+      "implied_volatility": 0.267
+    },
+    {
+      "symbol": "XLE260914C00066000",
+      "underlying": "XLE",
+      "kind": "call",
+      "strike": 66.0,
+      "expiry": "2026-09-14",
+      "days_to_expiry": 4,
+      "bid": 0.31,
+      "ask": 0.33,
+      "mid": 0.32,
+      "spread_pct": 0.0625,
+      "premium": 32.0,
+      "open_interest": 363,
+      "last_trade_age_days": 0.01,
+      "moneyness": 0.013,
+      "implied_volatility": 0.2369
+    }
+  ],
+  "proposal": {
+    "action": "covered_call",
+    "underlying": "XLE",
+    "contract_symbol": "XLE260916C00066000",
+    "strike": 66.0,
+    "expiry": "2026-09-16",
+    "contracts": 1,
+    "expected_premium": 55.0,
+    "total_premium": 55.0,
+    "max_loss": 0.0,
+    "reasoning": "I own 100 shares of XLE at a cost basis below the $66 strike, so selling this call collects premium while leaving room for modest upside before assignment. The tighter 3.6% spread makes it more efficient than the shorter-dated alternative.",
+    "raw": "{\"action\": \"covered_call\", \"underlying\": \"XLE\", \"contract_symbol\": \"XLE260916C00066000\", \"strike\": 66.0, \"expiry\": \"2026-09-16\", \"contracts\": 1, \"expected_premium\": 55.0, \"reasoning\": \"I own 100 shares of XLE at a cost basis below the $66 strike, so selling this call collects premium while leaving room for modest upside before assignment. The tighter 3.6% spread makes it more efficient than the shorter-dated alternative.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "objection": {
+    "severity": 0.6,
+    "failure_mode": "insufficient_premium",
+    "objection": "Only $55 premium (0.85% of $6516 stock value) for 6 days risks assignment/upside cap of just 1.3% for negligible income; annualized return is poor compensation for surrendering upside.",
+    "what_would_fix_it": "Choose a further-dated expiry (30-45 days) or higher strike to collect more premium relative to capped upside.",
+    "raw": "{\"severity\": 0.6, \"failure_mode\": \"insufficient_premium\", \"objection\": \"Only $55 premium (0.85% of $6516 stock value) for 6 days risks assignment/upside cap of just 1.3% for negligible income; annualized return is poor compensation for surrendering upside.\", \"what_would_fix_it\": \"Choose a further-dated expiry (30-45 days) or higher strike to collect more premium relative to capped upside.\"}",
+    "failed": false
+  },
+  "ruling1": {
+    "outcome": "revise",
+    "rationale": "The adversary raised insufficient_premium at severity 0.60. Sending back for one revision.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLE",
+      "contract_symbol": "XLE260916C00066000",
+      "strike": 66.0,
+      "expiry": "2026-09-16",
+      "contracts": 1,
+      "expected_premium": 55.0,
+      "total_premium": 55.0,
+      "max_loss": 0.0,
+      "reasoning": "I own 100 shares of XLE at a cost basis below the $66 strike, so selling this call collects premium while leaving room for modest upside before assignment. The tighter 3.6% spread makes it more efficient than the shorter-dated alternative.",
+      "raw": "{\"action\": \"covered_call\", \"underlying\": \"XLE\", \"contract_symbol\": \"XLE260916C00066000\", \"strike\": 66.0, \"expiry\": \"2026-09-16\", \"contracts\": 1, \"expected_premium\": 55.0, \"reasoning\": \"I own 100 shares of XLE at a cost basis below the $66 strike, so selling this call collects premium while leaving room for modest upside before assignment. The tighter 3.6% spread makes it more efficient than the shorter-dated alternative.\"}",
+      "failed": false,
+      "corrections": []
+    }
+  },
+  "revision": {
+    "action": "no_trade",
+    "underlying": "",
+    "contract_symbol": "",
+    "strike": 0.0,
+    "expiry": "",
+    "contracts": 0,
+    "expected_premium": 0.0,
+    "total_premium": 0.0,
+    "max_loss": 0.0,
+    "reasoning": "Neither eligible XLE contract offers enough premium for the near-term expiry to justify capping upside; no 30-45 day expiry is available on the list, so I'll pass rather than accept a weak risk/reward.",
+    "raw": "{\"action\": \"no_trade\", \"underlying\": \"\", \"contract_symbol\": \"\", \"strike\": 0, \"expiry\": \"\", \"contracts\": 0, \"expected_premium\": 0.0, \"reasoning\": \"Neither eligible XLE contract offers enough premium for the near-term expiry to justify capping upside; no 30-45 day expiry is available on the list, so I'll pass rather than accept a weak risk/reward.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "ruling": {
+    "outcome": "reject",
+    "rationale": "The revision produced no trade: Neither eligible XLE contract offers enough premium for the near-term expiry to justify capping upside; no 30-45 day expiry is available on the list, so I'll pass rather than accept a weak risk/reward.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  },
+  "final_ruling": {
+    "outcome": "reject",
+    "rationale": "The revision produced no trade: Neither eligible XLE contract offers enough premium for the near-term expiry to justify capping upside; no 30-45 day expiry is available on the list, so I'll pass rather than accept a weak risk/reward.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  }
+}

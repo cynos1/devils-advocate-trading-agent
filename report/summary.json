@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-11T17:49:03+00:00",
+  "generated_at": "2026-09-14T19:31:14+00:00",
   "thresholds": {
     "proceed_below": 0.6,
     "block_above": 0.7
@@ -75,11 +75,11 @@
   },
   "decisions": {
     "all": {
-      "sessions": 20,
+      "sessions": 21,
       "revisions": 11,
       "substitutions": 4,
       "rejects": 12,
-      "no_trade": 15,
+      "no_trade": 16,
       "fills": 2,
       "oversized_initial": 7,
       "size_reduced": 4,
@@ -89,11 +89,11 @@
       "fresh_gate_block": 0
     },
     "live": {
-      "sessions": 13,
+      "sessions": 14,
       "revisions": 6,
       "substitutions": 1,
       "rejects": 9,
-      "no_trade": 11,
+      "no_trade": 12,
       "fills": 2,
       "oversized_initial": 3,
       "size_reduced": 1,

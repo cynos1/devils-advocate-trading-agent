@@ -1,0 +1,98 @@
+{
+  "date": "2026-09-17",
+  "session": 1,
+  "time": "18:23 UTC",
+  "mode": "live",
+  "dry": false,
+  "blocks": [],
+  "fills": [],
+  "equity": 99049.15,
+  "cash": 45136.75,
+  "free_cash": 45136.75,
+  "market_open": true,
+  "shares": {
+    "XLE": 100,
+    "XLF": 400,
+    "XLP": 300
+  },
+  "open_options": [
+    {
+      "symbol": "XLE260918C00066000",
+      "underlying": "XLE",
+      "kind": "call",
+      "side": "short",
+      "contracts": 1,
+      "strike": 66.0,
+      "expiry": "2026-09-18",
+      "entry_premium": 55.00000000000001,
+      "opened": ""
+    }
+  ],
+  "eligible_count": 1,
+  "eligible": [
+    "XLE260921P00064000"
+  ],
+  "candidates": [
+    {
+      "symbol": "XLE260921P00064000",
+      "underlying": "XLE",
+      "kind": "put",
+      "strike": 64.0,
+      "expiry": "2026-09-21",
+      "days_to_expiry": 4,
+      "bid": 0.48,
+      "ask": 0.52,
+      "mid": 0.5,
+      "spread_pct": 0.08,
+      "premium": 50.0,
+      "open_interest": 116,
+      "last_trade_age_days": 0.02,
+      "moneyness": -0.0071,
+      "implied_volatility": 0.2675
+    }
+  ],
+  "proposal": {
+    "action": "cash_secured_put",
+    "underlying": "XLE",
+    "contract_symbol": "XLE260921P00064000",
+    "strike": 64.0,
+    "expiry": "2026-09-21",
+    "contracts": 1,
+    "expected_premium": 50.0,
+    "total_premium": 50.0,
+    "max_loss": 6350.0,
+    "reasoning": "I already hold XLE shares and a covered call, so this put just adds modest premium while obligating me to buy more XLE near its current price if assigned, which I'm comfortable with given ample free cash.",
+    "raw": "{\"action\": \"cash_secured_put\", \"underlying\": \"XLE\", \"contract_symbol\": \"XLE260921P00064000\", \"strike\": 64.0, \"expiry\": \"2026-09-21\", \"contracts\": 1, \"expected_premium\": 50.0, \"reasoning\": \"I already hold XLE shares and a covered call, so this put just adds modest premium while obligating me to buy more XLE near its current price if assigned, which I'm comfortable with given ample free cash.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "objection": {
+    "severity": 0.75,
+    "failure_mode": "assignment_risk",
+    "objection": "Strike is only 0.7% out of the money with just 4 days to expiry, making assignment highly likely on any minor pullback. The $50 premium is trivial compensation for taking on another $6,350 XLE obligation.",
+    "what_would_fix_it": "Move strike further OTM (e.g. 5-10% below spot) or extend expiry to collect meaningful premium for the risk taken.",
+    "raw": "{\"severity\": 0.75,\n \"failure_mode\": \"assignment_risk\",\n \"objection\": \"Strike is only 0.7% out of the money with just 4 days to expiry, making assignment highly likely on any minor pullback. The $50 premium is trivial compensation for taking on another $6,350 XLE obligation.\",\n \"what_would_fix_it\": \"Move strike further OTM (e.g. 5-10% below spot) or extend expiry to collect meaningful premium for the risk taken.\"}",
+    "failed": false
+  },
+  "ruling1": {
+    "outcome": "reject",
+    "rationale": "Persistent deadlock: the adversary has blocked 3 consecutive sessions. No trade is forced; standing down for this session. Flagged for human review.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  },
+  "ruling": {
+    "outcome": "reject",
+    "rationale": "Persistent deadlock: the adversary has blocked 3 consecutive sessions. No trade is forced; standing down for this session. Flagged for human review.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  },
+  "final_ruling": {
+    "outcome": "reject",
+    "rationale": "Persistent deadlock: the adversary has blocked 3 consecutive sessions. No trade is forced; standing down for this session. Flagged for human review.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  }
+}

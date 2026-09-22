@@ -1,0 +1,87 @@
+{
+  "date": "2026-09-22",
+  "session": 1,
+  "time": "18:11 UTC",
+  "mode": "live",
+  "dry": false,
+  "blocks": [],
+  "fills": [],
+  "equity": 98172.18,
+  "cash": 45182.68,
+  "free_cash": 45182.68,
+  "market_open": true,
+  "shares": {
+    "XLE": 100,
+    "XLF": 400,
+    "XLP": 300
+  },
+  "open_options": [
+    {
+      "symbol": "XLE260925C00063500",
+      "underlying": "XLE",
+      "kind": "call",
+      "side": "short",
+      "contracts": 1,
+      "strike": 63.5,
+      "expiry": "2026-09-25",
+      "entry_premium": 46.0,
+      "opened": ""
+    }
+  ],
+  "eligible_count": 2,
+  "eligible": [
+    "XLE260925P00062000",
+    "XLE260928P00061000"
+  ],
+  "candidates": [
+    {
+      "symbol": "XLE260925P00062000",
+      "underlying": "XLE",
+      "kind": "put",
+      "strike": 62.0,
+      "expiry": "2026-09-25",
+      "days_to_expiry": 3,
+      "bid": 0.66,
+      "ask": 0.69,
+      "mid": 0.675,
+      "spread_pct": 0.0444,
+      "premium": 67.5,
+      "open_interest": 7746,
+      "last_trade_age_days": 0.01,
+      "moneyness": -0.0011,
+      "implied_volatility": 0.3184
+    },
+    {
+      "symbol": "XLE260928P00061000",
+      "underlying": "XLE",
+      "kind": "put",
+      "strike": 61.0,
+      "expiry": "2026-09-28",
+      "days_to_expiry": 6,
+      "bid": 0.38,
+      "ask": 0.39,
+      "mid": 0.385,
+      "spread_pct": 0.026,
+      "premium": 38.5,
+      "open_interest": 472,
+      "last_trade_age_days": 0.01,
+      "moneyness": -0.0172,
+      "implied_volatility": 0.2606
+    }
+  ],
+  "proposal": {
+    "action": "no_trade",
+    "underlying": "",
+    "contract_symbol": "",
+    "strike": 0.0,
+    "expiry": "",
+    "contracts": 0,
+    "expected_premium": 0.0,
+    "total_premium": 0.0,
+    "max_loss": 0.0,
+    "reasoning": "Both eligible contracts are XLE puts, but I already own 100 XLE shares and have a covered call open on them, so adding a short put would concentrate risk further in one name without diversifying the portfolio.",
+    "raw": "{\"action\": \"no_trade\", \"underlying\": \"\", \"contract_symbol\": \"\", \"strike\": 0, \"expiry\": \"\", \"contracts\": 0, \"expected_premium\": 0, \"reasoning\": \"Both eligible contracts are XLE puts, but I already own 100 XLE shares and have a covered call open on them, so adding a short put would concentrate risk further in one name without diversifying the portfolio.\"}",
+    "failed": false,
+    "corrections": []
+  }
+}

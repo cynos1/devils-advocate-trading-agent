@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-22T18:11:44+00:00",
+  "generated_at": "2026-09-23T18:29:56+00:00",
   "thresholds": {
     "proceed_below": 0.6,
     "block_above": 0.7
@@ -75,13 +75,13 @@
   },
   "decisions": {
     "all": {
-      "sessions": 27,
-      "revisions": 12,
+      "sessions": 28,
+      "revisions": 13,
       "substitutions": 4,
-      "rejects": 15,
-      "no_trade": 21,
+      "rejects": 16,
+      "no_trade": 22,
       "fills": 3,
-      "oversized_initial": 7,
+      "oversized_initial": 8,
       "size_reduced": 4,
       "strategy_changed": 2,
       "contract_changed": 5,
@@ -89,13 +89,13 @@
       "fresh_gate_block": 0
     },
     "live": {
-      "sessions": 20,
-      "revisions": 7,
+      "sessions": 21,
+      "revisions": 8,
       "substitutions": 1,
-      "rejects": 12,
-      "no_trade": 17,
+      "rejects": 13,
+      "no_trade": 18,
       "fills": 3,
-      "oversized_initial": 3,
+      "oversized_initial": 4,
       "size_reduced": 1,
       "strategy_changed": 2,
       "contract_changed": 3,
@@ -118,7 +118,7 @@
     },
     "objection_modes": {
       "insufficient_premium": 9,
-      "assignment_risk": 16,
+      "assignment_risk": 17,
       "unfavourable_expiry": 1
     }
   },
@@ -209,6 +209,6 @@
     "data/decisions/2026-08-28-05-live-dry.json",
     "data/decisions/2026-08-28-01-live-dry.json",
     "data/decisions/2026-08-28-02-live.json",
-    "data/decisions/2026-08-28-03-live-dry.json"
+    "data/decisions/2026-09-23-01-live.json"
   ]
 }

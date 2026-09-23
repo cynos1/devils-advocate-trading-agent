@@ -1,0 +1,181 @@
+{
+  "date": "2026-09-23",
+  "session": 1,
+  "time": "18:29 UTC",
+  "mode": "live",
+  "dry": false,
+  "blocks": [],
+  "fills": [],
+  "equity": 97991.69,
+  "cash": 45182.68,
+  "free_cash": 45182.68,
+  "market_open": true,
+  "shares": {
+    "XLE": 100,
+    "XLF": 400,
+    "XLP": 300
+  },
+  "open_options": [
+    {
+      "symbol": "XLE260925C00063500",
+      "underlying": "XLE",
+      "kind": "call",
+      "side": "short",
+      "contracts": 1,
+      "strike": 63.5,
+      "expiry": "2026-09-25",
+      "entry_premium": 46.0,
+      "opened": ""
+    }
+  ],
+  "eligible_count": 4,
+  "eligible": [
+    "XLE260928C00063000",
+    "XLE260930P00061000",
+    "XLE260928P00061000",
+    "XLF260930C00055000"
+  ],
+  "candidates": [
+    {
+      "symbol": "XLE260928C00063000",
+      "underlying": "XLE",
+      "kind": "call",
+      "strike": 63.0,
+      "expiry": "2026-09-28",
+      "days_to_expiry": 5,
+      "bid": 0.44,
+      "ask": 0.47,
+      "mid": 0.455,
+      "spread_pct": 0.0659,
+      "premium": 45.5,
+      "open_interest": 86,
+      "last_trade_age_days": 0.03,
+      "moneyness": 0.0096,
+      "implied_volatility": 0.2413
+    },
+    {
+      "symbol": "XLE260930P00061000",
+      "underlying": "XLE",
+      "kind": "put",
+      "strike": 61.0,
+      "expiry": "2026-09-30",
+      "days_to_expiry": 7,
+      "bid": 0.35,
+      "ask": 0.38,
+      "mid": 0.365,
+      "spread_pct": 0.0822,
+      "premium": 36.5,
+      "open_interest": 5209,
+      "last_trade_age_days": 0.06,
+      "moneyness": -0.0224,
+      "implied_volatility": 0.2665
+    },
+    {
+      "symbol": "XLE260928P00061000",
+      "underlying": "XLE",
+      "kind": "put",
+      "strike": 61.0,
+      "expiry": "2026-09-28",
+      "days_to_expiry": 5,
+      "bid": 0.24,
+      "ask": 0.26,
+      "mid": 0.25,
+      "spread_pct": 0.08,
+      "premium": 25.0,
+      "open_interest": 530,
+      "last_trade_age_days": 0.03,
+      "moneyness": -0.0224,
+      "implied_volatility": 0.2633
+    },
+    {
+      "symbol": "XLF260930C00055000",
+      "underlying": "XLF",
+      "kind": "call",
+      "strike": 55.0,
+      "expiry": "2026-09-30",
+      "days_to_expiry": 7,
+      "bid": 0.34,
+      "ask": 0.35,
+      "mid": 0.345,
+      "spread_pct": 0.029,
+      "premium": 34.5,
+      "open_interest": 2371,
+      "last_trade_age_days": 0.01,
+      "moneyness": 0.0052,
+      "implied_volatility": 0.1521
+    }
+  ],
+  "proposal": {
+    "action": "covered_call",
+    "underlying": "XLF",
+    "contract_symbol": "XLF260930C00055000",
+    "strike": 55.0,
+    "expiry": "2026-09-30",
+    "contracts": 4,
+    "expected_premium": 34.5,
+    "total_premium": 138.0,
+    "max_loss": 0.0,
+    "reasoning": "I hold 400 XLF shares uncovered, so selling calls slightly above the current price collects premium while capping limited upside I'm fine giving up. Tight 2.9% spread and 7-day expiry keep the obligation short and manageable.",
+    "raw": "{\"action\": \"covered_call\", \"underlying\": \"XLF\", \"contract_symbol\": \"XLF260930C00055000\", \"strike\": 55.0, \"expiry\": \"2026-09-30\", \"contracts\": 4, \"expected_premium\": 34.0, \"reasoning\": \"I hold 400 XLF shares uncovered, so selling calls slightly above the current price collects premium while capping limited upside I'm fine giving up. Tight 2.9% spread and 7-day expiry keep the obligation short and manageable.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "objection": {
+    "severity": 0.65,
+    "failure_mode": "assignment_risk",
+    "objection": "Strike is only 0.5% above spot with just 7 days to expiry, giving very high probability of assignment on minimal further upside. This effectively locks in a near-term sale of shares for negligible extra premium.",
+    "what_would_fix_it": "Choose a strike further out-of-the-money, e.g. 3-5% above spot, or extend expiry to capture more premium for the risk taken.",
+    "raw": "{\"severity\": 0.65, \"failure_mode\": \"assignment_risk\", \"objection\": \"Strike is only 0.5% above spot with just 7 days to expiry, giving very high probability of assignment on minimal further upside. This effectively locks in a near-term sale of shares for negligible extra premium.\", \"what_would_fix_it\": \"Choose a strike further out-of-the-money, e.g. 3-5% above spot, or extend expiry to capture more premium for the risk taken.\"}",
+    "failed": false
+  },
+  "ruling1": {
+    "outcome": "revise",
+    "rationale": "The adversary raised assignment_risk at severity 0.65. Sending back for one revision. It also failed a hard limit: 4 contracts exceeds the 3 per-trade limit.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLF",
+      "contract_symbol": "XLF260930C00055000",
+      "strike": 55.0,
+      "expiry": "2026-09-30",
+      "contracts": 4,
+      "expected_premium": 34.5,
+      "total_premium": 138.0,
+      "max_loss": 0.0,
+      "reasoning": "I hold 400 XLF shares uncovered, so selling calls slightly above the current price collects premium while capping limited upside I'm fine giving up. Tight 2.9% spread and 7-day expiry keep the obligation short and manageable.",
+      "raw": "{\"action\": \"covered_call\", \"underlying\": \"XLF\", \"contract_symbol\": \"XLF260930C00055000\", \"strike\": 55.0, \"expiry\": \"2026-09-30\", \"contracts\": 4, \"expected_premium\": 34.0, \"reasoning\": \"I hold 400 XLF shares uncovered, so selling calls slightly above the current price collects premium while capping limited upside I'm fine giving up. Tight 2.9% spread and 7-day expiry keep the obligation short and manageable.\"}",
+      "failed": false,
+      "corrections": []
+    }
+  },
+  "revision": {
+    "action": "no_trade",
+    "underlying": "",
+    "contract_symbol": "",
+    "strike": 0.0,
+    "expiry": "",
+    "contracts": 0,
+    "expected_premium": 0.0,
+    "total_premium": 0.0,
+    "max_loss": 0.0,
+    "reasoning": "The only XLF call available is just 0.5% OTM with 7 days to expiry, so the assignment risk objection can't be fixed within the eligible list; XLE is already fully covered and XLP has no listed contracts, so I'll pass today.",
+    "raw": "{\"action\": \"no_trade\", \"underlying\": \"\", \"contract_symbol\": \"\", \"strike\": 0, \"expiry\": \"\", \"contracts\": 0, \"expected_premium\": 0, \"reasoning\": \"The only XLF call available is just 0.5% OTM with 7 days to expiry, so the assignment risk objection can't be fixed within the eligible list; XLE is already fully covered and XLP has no listed contracts, so I'll pass today.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "ruling": {
+    "outcome": "reject",
+    "rationale": "The revision produced no trade: The only XLF call available is just 0.5% OTM with 7 days to expiry, so the assignment risk objection can't be fixed within the eligible list; XLE is already fully covered and XLP has no listed contracts, so I'll pass today.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  },
+  "final_ruling": {
+    "outcome": "reject",
+    "rationale": "The revision produced no trade: The only XLF call available is just 0.5% OTM with 7 days to expiry, so the assignment risk objection can't be fixed within the eligible list; XLE is already fully covered and XLP has no listed contracts, so I'll pass today.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  }
+}

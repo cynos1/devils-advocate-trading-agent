@@ -154,8 +154,8 @@ table{width:100%;border-collapse:collapse;background:var(--panel);border:1px sol
     <h2>Agentic Live Runs</h2>
     <p class="muted">This section isolates actual autonomous runs with the competition paper-account path enabled. LIVE-DRY validation is reported separately below.</p>
     <div class="grid kpis">
-      <div class="kpi"><div class="label">Live sessions</div><div class="value">20</div><div class="sub">mode=live; competition paper account</div></div>
-      <div class="kpi"><div class="label">Live no-trade decisions</div><div class="value">17</div><div class="sub">standing down is a valid autonomous action</div></div>
+      <div class="kpi"><div class="label">Live sessions</div><div class="value">21</div><div class="sub">mode=live; competition paper account</div></div>
+      <div class="kpi"><div class="label">Live no-trade decisions</div><div class="value">18</div><div class="sub">standing down is a valid autonomous action</div></div>
       <div class="kpi"><div class="label">Live broker submissions</div><div class="value">3</div><div class="sub">paper orders accepted by broker</div></div>
       <div class="kpi"><div class="label">Fresh-gate passes</div><div class="value">3</div><div class="sub">0 blocked at final execution check</div></div>
     </div>
@@ -167,7 +167,7 @@ table{width:100%;border-collapse:collapse;background:var(--panel);border:1px sol
   <div class="view-panel" data-view-panel="decisions">
   <section id="traces">
     <div class="section-head"><div><h2>Decision Explorer</h2><p class="muted">Choose a stored episode and follow the decision path instead of scrolling through a wall of cards.</p></div></div>
-    <div class="trace-switcher"><button type="button" class="trace-btn active" data-trace-target="0">2026-08-31 · substitute</button><button type="button" class="trace-btn " data-trace-target="1">2026-08-28 · substitute</button><button type="button" class="trace-btn " data-trace-target="2">2026-08-28 · substitute</button><button type="button" class="trace-btn " data-trace-target="3">2026-08-28 · reject</button><button type="button" class="trace-btn " data-trace-target="4">2026-08-28 · substitute</button></div>
+    <div class="trace-switcher"><button type="button" class="trace-btn active" data-trace-target="0">2026-08-31 · substitute</button><button type="button" class="trace-btn " data-trace-target="1">2026-08-28 · substitute</button><button type="button" class="trace-btn " data-trace-target="2">2026-08-28 · substitute</button><button type="button" class="trace-btn " data-trace-target="3">2026-08-28 · reject</button><button type="button" class="trace-btn " data-trace-target="4">2026-09-23 · reject</button></div>
     
     <article class="episode trace-card" data-trace-index="0">
       <div class="episode-head"><div><strong>data/decisions/2026-08-31-01-live.json</strong><div class="muted">2026-08-31 · session 1 · <span class="badge good">live</span></div></div><span class="badge warn">substitute</span></div>
@@ -194,10 +194,10 @@ table{width:100%;border-collapse:collapse;background:var(--panel);border:1px sol
       <details><summary>Rationale</summary><p><b>Proposal:</b> I&#x27;m selling calls against my full 400-share XLE position at a strike above cost basis, collecting decent premium on a tight 2.4% spread while keeping upside room to the $63.50 strike.</p><p><b>First objection:</b> Strike is only 1.6% OTM with just 7 days to expiry, giving minimal room against normal weekly volatility in XLE; a small move triggers assignment and caps upside almost immediately.</p><p><b>Final ruling:</b> The revision still drew insufficient_premium at severity 0.50, and no smaller alternative existed. The trade then failed a hard limit and no safer alternative was available. Max loss $12,148.00 exceeds the $4,981.80 limit (5% of equity).</p></details>
     </article>
     <article class="episode trace-card" data-trace-index="4">
-      <div class="episode-head"><div><strong>data/decisions/2026-08-28-03-live-dry.json</strong><div class="muted">2026-08-28 · session 3 · <span class="badge blue">live-dry</span></div></div><span class="badge warn">substitute</span></div>
-      <div class="stages"><div class="stage"><div class="stage-name">Proposed</div><div>4× covered call · XLE260904C00064000</div></div><div class="stage"><div class="stage-name">Challenge</div><div>insufficient_premium · severity 0.35</div></div><div class="stage"><div class="stage-name">Final ruling</div><div>substitute → 2× XLE260904C00064000</div></div><div class="stage"><div class="stage-name">Fresh execution gate</div><div>passed</div></div><div class="stage"><div class="stage-name">Broker</div><div>No order placed</div></div></div>
-      <div class="chips"><span class="chip">Initial proposal exceeded contract cap</span><span class="chip">Final size reduced</span></div>
-      <details><summary>Rationale</summary><p><b>Proposal:</b> I&#x27;m selling calls against my full 400-share XLE position, capturing premium with a tight 3.3% spread and strong open interest. Strike 64 sits above my cost basis, letting me collect income while still allowing modest upside before assignment.</p><p><b>First objection:</b> $122 total premium on a ~$25k covered call position (4x100 shares at $62.59) is roughly 0.5% for one week, a thin yield for surrendering upside and taking assignment risk at only 2.3% OTM.</p><p><b>Final ruling:</b> The adversary raised insufficient_premium at severity 0.35, below the 0.40 threshold. The trade then failed a hard limit (max_contracts), so the gate substituted a safer version: reduced from 4 to 2 contracts.</p></details>
+      <div class="episode-head"><div><strong>data/decisions/2026-09-23-01-live.json</strong><div class="muted">2026-09-23 · session 1 · <span class="badge good">live</span></div></div><span class="badge bad">reject</span></div>
+      <div class="stages"><div class="stage"><div class="stage-name">Proposed</div><div>4× covered call · XLF260930C00055000</div></div><div class="stage"><div class="stage-name">Challenge</div><div>assignment_risk · severity 0.65</div></div><div class="stage"><div class="stage-name">Revision</div><div>No trade</div></div><div class="stage"><div class="stage-name">Final ruling</div><div>reject</div></div><div class="stage"><div class="stage-name">Broker</div><div>No order placed</div></div></div>
+      <div class="chips"><span class="chip">Initial proposal exceeded contract cap</span><span class="chip">Resolved to NO TRADE</span></div>
+      <details><summary>Rationale</summary><p><b>Proposal:</b> I hold 400 XLF shares uncovered, so selling calls slightly above the current price collects premium while capping limited upside I&#x27;m fine giving up. Tight 2.9% spread and 7-day expiry keep the obligation short and manageable.</p><p><b>First objection:</b> Strike is only 0.5% above spot with just 7 days to expiry, giving very high probability of assignment on minimal further upside. This effectively locks in a near-term sale of shares for negligible extra premium.</p><p><b>Final ruling:</b> The revision produced no trade: The only XLF call available is just 0.5% OTM with 7 days to expiry, so the assignment risk objection can&#x27;t be fixed within the eligible list; XLE is already fully covered and XLP has no listed contracts, so I&#x27;ll pass today.</p></details>
     </article>
   </section>
 
@@ -215,7 +215,19 @@ table{width:100%;border-collapse:collapse;background:var(--panel);border:1px sol
     <div class="scroll">
       <table id="decisionLedger">
         <thead><tr><th>Date</th><th>Session</th><th>Mode</th><th>Initial action</th><th>Initial size</th><th>Objection</th><th>Severity</th><th>Final ruling</th><th>Final size</th><th>Final gate</th><th>Fills</th></tr></thead>
-        <tbody><tr data-mode="live" data-search="2026-09-22 1 live no_trade   no_trade">
+        <tbody><tr data-mode="live" data-search="2026-09-23 1 live covered_call XLF260930C00055000 assignment_risk reject">
+              <td>2026-09-23</td>
+              <td>1</td>
+              <td><span class="badge good">live</span></td>
+              <td>covered call</td>
+              <td>4</td>
+              <td>assignment_risk</td>
+              <td>0.65</td>
+              <td><span class="badge bad">reject</span></td>
+              <td>—</td>
+              <td>not reached</td>
+              <td>0</td>
+            </tr><tr data-mode="live" data-search="2026-09-22 1 live no_trade   no_trade">
               <td>2026-09-22</td>
               <td>1</td>
               <td><span class="badge good">live</span></td>
@@ -558,9 +570,9 @@ table{width:100%;border-collapse:collapse;background:var(--panel);border:1px sol
       <summary>Deterministic gate verification and aggregate behavior</summary>
       <div class="grid kpis">
         <div class="kpi"><div class="label">Gate tests</div><div class="value">28/28</div><div class="sub">latest deterministic enforcement suite</div></div>
-        <div class="kpi"><div class="label">Stored sessions</div><div class="value">27</div><div class="sub">12 revisions</div></div>
+        <div class="kpi"><div class="label">Stored sessions</div><div class="value">28</div><div class="sub">13 revisions</div></div>
         <div class="kpi"><div class="label">Code substitutions</div><div class="value">4</div><div class="sub">safer alternatives generated by code</div></div>
-        <div class="kpi"><div class="label">Oversized proposals caught</div><div class="value">7</div><div class="sub">detected in stored decisions</div></div>
+        <div class="kpi"><div class="label">Oversized proposals caught</div><div class="value">8</div><div class="sub">detected in stored decisions</div></div>
       </div>
       <div class="grid kpis">
         <div class="kpi"><div class="label">Live-dry validations</div><div class="value">6</div><div class="sub">real broker state; intentionally no submission</div></div>
@@ -579,7 +591,7 @@ table{width:100%;border-collapse:collapse;background:var(--panel);border:1px sol
 
   </div>
 
-  <div class="footer">Generated 2026-09-22 18:11 UTC from local JSON artifacts. This report makes no model, broker, or network calls while rendering.</div>
+  <div class="footer">Generated 2026-09-23 18:29 UTC from local JSON artifacts. This report makes no model, broker, or network calls while rendering.</div>
 </div>
 <script>window.DA_PERFORMANCE = [{"date": "2026-09-01", "timestamp": "", "equity": 99884.83, "cash": 25881.83, "last_equity": null, "starting_equity": 100000.0, "position_count": null, "source": "Alpaca paper account snapshot", "pnl": -115.16999999999825, "return_pct": -0.11516999999999826, "snapshot_change": null, "broker_intraday_change": null}, {"date": "2026-09-02", "timestamp": "", "equity": 100362.33, "cash": 25881.83, "last_equity": null, "starting_equity": 100000.0, "position_count": null, "source": "Alpaca paper account snapshot", "pnl": 362.33000000000175, "return_pct": 0.36233000000000176, "snapshot_change": 477.5, "broker_intraday_change": null}, {"date": "2026-09-03", "timestamp": "2026-09-03T14:36:46-04:00", "equity": 100512.83, "cash": 25881.83, "last_equity": 100272.83, "starting_equity": 100000.0, "position_count": 4, "source": "Alpaca paper account snapshot", "pnl": 512.8300000000017, "return_pct": 0.5128300000000018, "snapshot_change": 150.5, "broker_intraday_change": 240.0}];</script>
 <script>

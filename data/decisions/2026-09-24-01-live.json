@@ -1,0 +1,105 @@
+{
+  "date": "2026-09-24",
+  "session": 1,
+  "time": "18:31 UTC",
+  "mode": "live",
+  "dry": false,
+  "blocks": [],
+  "fills": [],
+  "equity": 97927.68,
+  "cash": 45182.68,
+  "free_cash": 45182.68,
+  "market_open": true,
+  "shares": {
+    "XLE": 100,
+    "XLF": 400,
+    "XLP": 300
+  },
+  "open_options": [
+    {
+      "symbol": "XLE260925C00063500",
+      "underlying": "XLE",
+      "kind": "call",
+      "side": "short",
+      "contracts": 1,
+      "strike": 63.5,
+      "expiry": "2026-09-25",
+      "entry_premium": 46.0,
+      "opened": ""
+    }
+  ],
+  "eligible_count": 3,
+  "eligible": [
+    "XLE260930C00063000",
+    "XLE260928C00063000",
+    "XLE260930C00064000"
+  ],
+  "candidates": [
+    {
+      "symbol": "XLE260930C00063000",
+      "underlying": "XLE",
+      "kind": "call",
+      "strike": 63.0,
+      "expiry": "2026-09-30",
+      "days_to_expiry": 6,
+      "bid": 0.68,
+      "ask": 0.72,
+      "mid": 0.7,
+      "spread_pct": 0.0571,
+      "premium": 70.0,
+      "open_interest": 179,
+      "last_trade_age_days": 0.01,
+      "moneyness": 0.0047,
+      "implied_volatility": 0.2541
+    },
+    {
+      "symbol": "XLE260928C00063000",
+      "underlying": "XLE",
+      "kind": "call",
+      "strike": 63.0,
+      "expiry": "2026-09-28",
+      "days_to_expiry": 4,
+      "bid": 0.48,
+      "ask": 0.51,
+      "mid": 0.495,
+      "spread_pct": 0.0606,
+      "premium": 49.5,
+      "open_interest": 138,
+      "last_trade_age_days": 0.01,
+      "moneyness": 0.0047,
+      "implied_volatility": 0.2345
+    },
+    {
+      "symbol": "XLE260930C00064000",
+      "underlying": "XLE",
+      "kind": "call",
+      "strike": 64.0,
+      "expiry": "2026-09-30",
+      "days_to_expiry": 6,
+      "bid": 0.29,
+      "ask": 0.31,
+      "mid": 0.3,
+      "spread_pct": 0.0667,
+      "premium": 30.0,
+      "open_interest": 19651,
+      "last_trade_age_days": 0.02,
+      "moneyness": 0.0207,
+      "implied_volatility": 0.2367
+    }
+  ],
+  "proposal": {
+    "action": "no_trade",
+    "underlying": "",
+    "contract_symbol": "",
+    "strike": 0.0,
+    "expiry": "",
+    "contracts": 0,
+    "expected_premium": 0.0,
+    "total_premium": 0.0,
+    "max_loss": 0.0,
+    "reasoning": "XLE shares are already fully covered by the existing short call, so writing another would exceed my 100-share coverage. No eligible contracts exist for XLF or XLP, so I'll pass today.",
+    "raw": "{\"action\": \"no_trade\", \"underlying\": \"\", \"contract_symbol\": \"\", \"strike\": 0, \"expiry\": \"\", \"contracts\": 0, \"expected_premium\": 0, \"reasoning\": \"XLE shares are already fully covered by the existing short call, so writing another would exceed my 100-share coverage. No eligible contracts exist for XLF or XLP, so I'll pass today.\"}",
+    "failed": false,
+    "corrections": []
+  }
+}

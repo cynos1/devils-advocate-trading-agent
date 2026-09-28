@@ -1,0 +1,101 @@
+{
+  "date": "2026-09-28",
+  "session": 1,
+  "time": "20:39 UTC",
+  "mode": "live",
+  "dry": false,
+  "blocks": [
+    {
+      "rule": "market_closed",
+      "detail": "Market is closed. No action taken."
+    }
+  ],
+  "fills": [],
+  "equity": 97783.68,
+  "cash": 45182.68,
+  "free_cash": 45182.68,
+  "market_open": false,
+  "shares": {
+    "XLE": 100,
+    "XLF": 400,
+    "XLP": 300
+  },
+  "open_options": [],
+  "eligible_count": 4,
+  "eligible": [
+    "XLE261002C00063000",
+    "XLE261002P00062000",
+    "XLE261002P00061500",
+    "XLE261002P00061000"
+  ],
+  "candidates": [
+    {
+      "symbol": "XLE261002C00063000",
+      "underlying": "XLE",
+      "kind": "call",
+      "strike": 63.0,
+      "expiry": "2026-10-02",
+      "days_to_expiry": 4,
+      "bid": 0.43,
+      "ask": 0.47,
+      "mid": 0.45,
+      "spread_pct": 0.0889,
+      "premium": 45.0,
+      "open_interest": 628,
+      "last_trade_age_days": 0.03,
+      "moneyness": 0.0142,
+      "implied_volatility": 0.3071
+    },
+    {
+      "symbol": "XLE261002P00062000",
+      "underlying": "XLE",
+      "kind": "put",
+      "strike": 62.0,
+      "expiry": "2026-10-02",
+      "days_to_expiry": 4,
+      "bid": 0.79,
+      "ask": 0.83,
+      "mid": 0.81,
+      "spread_pct": 0.0494,
+      "premium": 81.0,
+      "open_interest": 756,
+      "last_trade_age_days": 0.03,
+      "moneyness": -0.0019,
+      "implied_volatility": 0.3419
+    },
+    {
+      "symbol": "XLE261002P00061500",
+      "underlying": "XLE",
+      "kind": "put",
+      "strike": 61.5,
+      "expiry": "2026-10-02",
+      "days_to_expiry": 4,
+      "bid": 0.6,
+      "ask": 0.65,
+      "mid": 0.625,
+      "spread_pct": 0.08,
+      "premium": 62.5,
+      "open_interest": 2647,
+      "last_trade_age_days": 0.05,
+      "moneyness": -0.01,
+      "implied_volatility": 0.3549
+    },
+    {
+      "symbol": "XLE261002P00061000",
+      "underlying": "XLE",
+      "kind": "put",
+      "strike": 61.0,
+      "expiry": "2026-10-02",
+      "days_to_expiry": 4,
+      "bid": 0.46,
+      "ask": 0.48,
+      "mid": 0.47,
+      "spread_pct": 0.0426,
+      "premium": 47.0,
+      "open_interest": 1226,
+      "last_trade_age_days": 0.03,
+      "moneyness": -0.018,
+      "implied_volatility": 0.3644
+    }
+  ]
+}

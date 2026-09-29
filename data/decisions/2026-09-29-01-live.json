@@ -1,7 +1,7 @@
 {
   "date": "2026-09-29",
   "session": 1,
-  "time": "21:49 UTC",
+  "time": "22:03 UTC",
   "mode": "live",
   "dry": false,
   "blocks": [
@@ -52,7 +52,7 @@
       "spread_pct": 0.0645,
       "premium": 46.5,
       "open_interest": 2392,
-      "last_trade_age_days": 0.08,
+      "last_trade_age_days": 0.09,
       "moneyness": 0.0073,
       "implied_volatility": 0.3147
     },
@@ -69,7 +69,7 @@
       "spread_pct": 0.0826,
       "premium": 60.5,
       "open_interest": 4449,
-      "last_trade_age_days": 0.08,
+      "last_trade_age_days": 0.09,
       "moneyness": -0.0008,
       "implied_volatility": 0.263
     }

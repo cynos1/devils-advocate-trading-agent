@@ -85,7 +85,68 @@ jobs:
         if: always()
         run: |
           scripts/alpaca_cli_audit.sh post
-
+      - name: Capture account performance
+        if: always()
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          from datetime import datetime, timezone
+          from pathlib import Path
+          from alpaca.trading.client import TradingClient
+      
+          client = TradingClient(
+              os.environ["ALPACA_API_KEY"],
+              os.environ["ALPACA_SECRET_KEY"],
+              paper=True
+          )
+      
+          account = client.get_account()
+      
+          now = datetime.now(timezone.utc)
+          today = now.date().isoformat()
+      
+          snapshot = {
+              "date": today,
+              "timestamp": now.isoformat(),
+              "equity": float(account.equity),
+              "cash": float(account.cash),
+              "portfolio_value": float(account.portfolio_value),
+              "last_equity": float(account.last_equity),
+              "starting_equity": 100000.00,
+              "source": "Alpaca paper account automated snapshot"
+          }
+      
+          path = Path("data/performance/account_snapshots.json")
+          path.parent.mkdir(parents=True, exist_ok=True)
+      
+          if path.exists():
+              with path.open() as f:
+                  data = json.load(f)
+          else:
+              data = {"snapshots": []}
+      
+          snapshots = data.setdefault("snapshots", [])
+      
+          # Keep one final snapshot per calendar day.
+          snapshots = [
+              s for s in snapshots
+              if s.get("date") != today
+          ]
+          snapshots.append(snapshot)
+      
+          snapshots.sort(key=lambda x: x.get("date", ""))
+      
+          data["snapshots"] = snapshots
+      
+          with path.open("w") as f:
+              json.dump(data, f, indent=2)
+      
+          print(f"Performance snapshot saved for {today}")
+          print(f"Equity: ${float(account.equity):,.2f}")
+          print(f"Cash: ${float(account.cash):,.2f}")
+          print(f"Last equity: ${float(account.last_equity):,.2f}")
+          PY
       - name: Rebuild judge report
         if: always()
         run: |
@@ -107,6 +168,7 @@ jobs:
             data/decisions/
             data/cli_audit/
             data/calibration/
+            data/performance/
             report/
 
       - name: Commit audit trail
@@ -115,7 +177,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add data/decisions data/cli_audit report site/judge-report.html site/summary.json || true
+          git add data/decisions data/cli_audit data/performance report site/judge-report.html site/summary.json || true
           if git diff --cached --quiet; then
             echo "No new audit artifacts."
           else

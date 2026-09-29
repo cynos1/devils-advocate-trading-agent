@@ -91,6 +91,12 @@ jobs:
         run: |
           python3 build_report.py
 
+      - name: Update public judge report
+        if: always()
+        run: |
+          cp report/index.html site/judge-report.html
+          cp report/summary.json site/summary.json
+      
       - name: Upload evidence
         if: always()
         uses: actions/upload-artifact@v4
@@ -109,8 +115,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add data/decisions data/cli_audit report || true
-
+          git add data/decisions data/cli_audit report site/judge-report.html site/summary.json || true
           if git diff --cached --quiet; then
             echo "No new audit artifacts."
           else

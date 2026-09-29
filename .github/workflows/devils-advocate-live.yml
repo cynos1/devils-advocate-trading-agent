@@ -147,6 +147,11 @@ jobs:
           print(f"Cash: ${float(account.cash):,.2f}")
           print(f"Last equity: ${float(account.last_equity):,.2f}")
           PY
+      
+      - name: Backfill historical performance
+        run: |
+          python3 scripts/backfill_performance.py
+      
       - name: Rebuild judge report
         if: always()
         run: |

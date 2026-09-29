@@ -7,6 +7,13 @@ on:
       - "report/**"
       - "site/**"
       - ".github/workflows/pages.yml"
+
+  workflow_run:
+    workflows:
+      - "Devil's Advocate — Daily Paper Live"
+    types:
+      - completed
+
   workflow_dispatch:
 
 permissions:
@@ -20,14 +27,21 @@ concurrency:
 
 jobs:
   deploy:
+    if: >
+      github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion == 'success'
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -40,15 +54,16 @@ jobs:
           # Landing page becomes the root application URL.
           cp -R site/* _site/
 
-          # Preserve the existing judge-facing report behind a button.
+          # Use the freshly generated judge report.
           if [ -f report/index.html ]; then
             cp report/index.html _site/judge-report.html
           fi
 
-          # Preserve any report assets and machine-readable summary.
+          # Preserve report assets and machine-readable summary.
           if [ -f report/summary.json ]; then
             cp report/summary.json _site/summary.json
           fi
+
           if [ -d report/assets ]; then
             cp -R report/assets _site/assets
           fi

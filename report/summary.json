@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-29T21:21:38+00:00",
+  "generated_at": "2026-09-29T21:49:52+00:00",
   "thresholds": {
     "proceed_below": 0.6,
     "block_above": 0.7
@@ -13,20 +13,20 @@
   },
   "performance": {
     "starting_equity": 100000.0,
-    "snapshot_count": 3,
+    "snapshot_count": 4,
     "latest": {
-      "date": "2026-09-03",
-      "timestamp": "2026-09-03T14:36:46-04:00",
-      "equity": 100512.83,
-      "cash": 25881.83,
-      "last_equity": 100272.83,
+      "date": "2026-09-29",
+      "timestamp": "2026-09-29T21:49:51.882509+00:00",
+      "equity": 97492.66,
+      "cash": 45224.66,
+      "last_equity": 97752.68,
       "starting_equity": 100000.0,
-      "position_count": 4,
-      "source": "Alpaca paper account snapshot",
-      "pnl": 512.8300000000017,
-      "return_pct": 0.5128300000000018,
-      "snapshot_change": 150.5,
-      "broker_intraday_change": 240.0
+      "position_count": null,
+      "source": "Alpaca paper account automated snapshot",
+      "pnl": -2507.3399999999965,
+      "return_pct": -2.5073399999999966,
+      "snapshot_change": -3020.1699999999983,
+      "broker_intraday_change": -260.0199999999895
     },
     "snapshots": [
       {
@@ -70,6 +70,20 @@
         "return_pct": 0.5128300000000018,
         "snapshot_change": 150.5,
         "broker_intraday_change": 240.0
+      },
+      {
+        "date": "2026-09-29",
+        "timestamp": "2026-09-29T21:49:51.882509+00:00",
+        "equity": 97492.66,
+        "cash": 45224.66,
+        "last_equity": 97752.68,
+        "starting_equity": 100000.0,
+        "position_count": null,
+        "source": "Alpaca paper account automated snapshot",
+        "pnl": -2507.3399999999965,
+        "return_pct": -2.5073399999999966,
+        "snapshot_change": -3020.1699999999983,
+        "broker_intraday_change": -260.0199999999895
       }
     ]
   },

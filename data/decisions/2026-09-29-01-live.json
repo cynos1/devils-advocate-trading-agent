@@ -1,7 +1,7 @@
 {
   "date": "2026-09-29",
   "session": 1,
-  "time": "21:21 UTC",
+  "time": "21:49 UTC",
   "mode": "live",
   "dry": false,
   "blocks": [
@@ -11,7 +11,7 @@
     }
   ],
   "fills": [],
-  "equity": 97495.66,
+  "equity": 97492.66,
   "cash": 45224.66,
   "free_cash": 45224.66,
   "market_open": false,
@@ -52,9 +52,9 @@
       "spread_pct": 0.0645,
       "premium": 46.5,
       "open_interest": 2392,
-      "last_trade_age_days": 0.06,
+      "last_trade_age_days": 0.08,
       "moneyness": 0.0073,
-      "implied_volatility": 0.3092
+      "implied_volatility": 0.3147
     },
     {
       "symbol": "XLE261002P00061500",
@@ -69,9 +69,9 @@
       "spread_pct": 0.0826,
       "premium": 60.5,
       "open_interest": 4449,
-      "last_trade_age_days": 0.06,
+      "last_trade_age_days": 0.08,
       "moneyness": -0.0008,
-      "implied_volatility": 0.2697
+      "implied_volatility": 0.263
     }
   ]
 }

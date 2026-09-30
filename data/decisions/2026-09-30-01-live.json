@@ -1,0 +1,69 @@
+{
+  "date": "2026-09-30",
+  "session": 1,
+  "time": "19:32 UTC",
+  "mode": "live",
+  "dry": false,
+  "blocks": [],
+  "fills": [],
+  "equity": 97010.26,
+  "cash": 45224.6,
+  "free_cash": 45224.6,
+  "market_open": true,
+  "shares": {
+    "XLE": 100,
+    "XLF": 400,
+    "XLP": 300
+  },
+  "open_options": [
+    {
+      "symbol": "XLE261002C00062000",
+      "underlying": "XLE",
+      "kind": "call",
+      "side": "short",
+      "contracts": 1,
+      "strike": 62.0,
+      "expiry": "2026-10-02",
+      "entry_premium": 42.0,
+      "opened": ""
+    }
+  ],
+  "eligible_count": 1,
+  "eligible": [
+    "XLE261005C00062000"
+  ],
+  "candidates": [
+    {
+      "symbol": "XLE261005C00062000",
+      "underlying": "XLE",
+      "kind": "call",
+      "strike": 62.0,
+      "expiry": "2026-10-05",
+      "days_to_expiry": 5,
+      "bid": 0.46,
+      "ask": 0.48,
+      "mid": 0.47,
+      "spread_pct": 0.0426,
+      "premium": 47.0,
+      "open_interest": 109,
+      "last_trade_age_days": 0.03,
+      "moneyness": 0.0073,
+      "implied_volatility": 0.2295
+    }
+  ],
+  "proposal": {
+    "action": "no_trade",
+    "underlying": "",
+    "contract_symbol": "",
+    "strike": 0.0,
+    "expiry": "",
+    "contracts": 0,
+    "expected_premium": 0.0,
+    "total_premium": 0.0,
+    "max_loss": 0.0,
+    "reasoning": "My XLE shares are already fully covered by the existing short call, so writing another would exceed my 100-share coverage. No eligible contracts exist for XLF or XLP, so I'll pass today.",
+    "raw": "{\"action\": \"no_trade\", \"underlying\": \"\", \"contract_symbol\": \"\", \"strike\": 0, \"expiry\": \"\", \"contracts\": 0, \"expected_premium\": 0, \"reasoning\": \"My XLE shares are already fully covered by the existing short call, so writing another would exceed my 100-share coverage. No eligible contracts exist for XLF or XLP, so I'll pass today.\"}",
+    "failed": false,
+    "corrections": []
+  }
+}

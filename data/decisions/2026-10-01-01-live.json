@@ -1,0 +1,163 @@
+{
+  "date": "2026-10-01",
+  "session": 1,
+  "time": "19:39 UTC",
+  "mode": "live",
+  "dry": false,
+  "blocks": [],
+  "fills": [],
+  "equity": 96871.1,
+  "cash": 45224.6,
+  "free_cash": 45224.6,
+  "market_open": true,
+  "shares": {
+    "XLE": 100,
+    "XLF": 400,
+    "XLP": 300
+  },
+  "open_options": [
+    {
+      "symbol": "XLE261002C00062000",
+      "underlying": "XLE",
+      "kind": "call",
+      "side": "short",
+      "contracts": 1,
+      "strike": 62.0,
+      "expiry": "2026-10-02",
+      "entry_premium": 42.0,
+      "opened": ""
+    }
+  ],
+  "eligible_count": 3,
+  "eligible": [
+    "XLE261005C00063000",
+    "XLE261005P00062000",
+    "XLF261007P00053000"
+  ],
+  "candidates": [
+    {
+      "symbol": "XLE261005C00063000",
+      "underlying": "XLE",
+      "kind": "call",
+      "strike": 63.0,
+      "expiry": "2026-10-05",
+      "days_to_expiry": 4,
+      "bid": 0.35,
+      "ask": 0.37,
+      "mid": 0.36,
+      "spread_pct": 0.0556,
+      "premium": 36.0,
+      "open_interest": 108,
+      "last_trade_age_days": 0.01,
+      "moneyness": 0.0068,
+      "implied_volatility": 0.2044
+    },
+    {
+      "symbol": "XLE261005P00062000",
+      "underlying": "XLE",
+      "kind": "put",
+      "strike": 62.0,
+      "expiry": "2026-10-05",
+      "days_to_expiry": 4,
+      "bid": 0.31,
+      "ask": 0.33,
+      "mid": 0.32,
+      "spread_pct": 0.0625,
+      "premium": 32.0,
+      "open_interest": 53,
+      "last_trade_age_days": 0.04,
+      "moneyness": -0.0092,
+      "implied_volatility": 0.2189
+    },
+    {
+      "symbol": "XLF261007P00053000",
+      "underlying": "XLF",
+      "kind": "put",
+      "strike": 53.0,
+      "expiry": "2026-10-07",
+      "days_to_expiry": 6,
+      "bid": 0.27,
+      "ask": 0.28,
+      "mid": 0.275,
+      "spread_pct": 0.0364,
+      "premium": 27.5,
+      "open_interest": 125,
+      "last_trade_age_days": 0.04,
+      "moneyness": -0.0079,
+      "implied_volatility": 0.1707
+    }
+  ],
+  "proposal": {
+    "action": "cash_secured_put",
+    "underlying": "XLF",
+    "contract_symbol": "XLF261007P00053000",
+    "strike": 53.0,
+    "expiry": "2026-10-07",
+    "contracts": 2,
+    "expected_premium": 27.5,
+    "total_premium": 55.0,
+    "max_loss": 10545.0,
+    "reasoning": "I already hold 400 XLF shares near $53, so I'm comfortable owning more at a $53 strike while collecting premium. XLE and XLP have no usable new contracts here, and XLE is already fully covered.",
+    "raw": "{\"action\": \"cash_secured_put\", \"underlying\": \"XLF\", \"contract_symbol\": \"XLF261007P00053000\", \"strike\": 53.0, \"expiry\": \"2026-10-07\", \"contracts\": 2, \"expected_premium\": 28.0, \"reasoning\": \"I already hold 400 XLF shares near $53, so I'm comfortable owning more at a $53 strike while collecting premium. XLE and XLP have no usable new contracts here, and XLE is already fully covered.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "objection": {
+    "severity": 0.6,
+    "failure_mode": "insufficient_premium",
+    "objection": "Only $55 total premium for $10,545 max loss over 6 days (0.26% return) is negligible compensation, especially with a strike just 0.8% OTM risking assignment on 200 more XLF shares.",
+    "what_would_fix_it": "Choose a further OTM strike or longer-dated expiry offering materially higher premium relative to capital at risk.",
+    "raw": "{\"severity\": 0.6,\n \"failure_mode\": \"insufficient_premium\",\n \"objection\": \"Only $55 total premium for $10,545 max loss over 6 days (0.26% return) is negligible compensation, especially with a strike just 0.8% OTM risking assignment on 200 more XLF shares.\",\n \"what_would_fix_it\": \"Choose a further OTM strike or longer-dated expiry offering materially higher premium relative to capital at risk.\"}",
+    "failed": false
+  },
+  "ruling1": {
+    "outcome": "revise",
+    "rationale": "The adversary raised insufficient_premium at severity 0.60. Sending back for one revision. It also failed a hard limit: Max loss $10,545.00 exceeds the $4,843.56 limit (5% of equity).",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": {
+      "action": "cash_secured_put",
+      "underlying": "XLF",
+      "contract_symbol": "XLF261007P00053000",
+      "strike": 53.0,
+      "expiry": "2026-10-07",
+      "contracts": 2,
+      "expected_premium": 27.5,
+      "total_premium": 55.0,
+      "max_loss": 10545.0,
+      "reasoning": "I already hold 400 XLF shares near $53, so I'm comfortable owning more at a $53 strike while collecting premium. XLE and XLP have no usable new contracts here, and XLE is already fully covered.",
+      "raw": "{\"action\": \"cash_secured_put\", \"underlying\": \"XLF\", \"contract_symbol\": \"XLF261007P00053000\", \"strike\": 53.0, \"expiry\": \"2026-10-07\", \"contracts\": 2, \"expected_premium\": 28.0, \"reasoning\": \"I already hold 400 XLF shares near $53, so I'm comfortable owning more at a $53 strike while collecting premium. XLE and XLP have no usable new contracts here, and XLE is already fully covered.\"}",
+      "failed": false,
+      "corrections": []
+    }
+  },
+  "revision": {
+    "action": "no_trade",
+    "underlying": "",
+    "contract_symbol": "",
+    "strike": 0.0,
+    "expiry": "",
+    "contracts": 0,
+    "expected_premium": 0.0,
+    "total_premium": 0.0,
+    "max_loss": 0.0,
+    "reasoning": "No contract on this list offers premium that justifies the capital at risk after the prior objection; XLE is already fully covered and the remaining strikes pay too little for short-dated obligations. I'd rather wait for better pricing than force a marginal trade.",
+    "raw": "{\"action\": \"no_trade\", \"underlying\": \"\", \"contract_symbol\": \"\", \"strike\": 0, \"expiry\": \"\", \"contracts\": 0, \"expected_premium\": 0, \"reasoning\": \"No contract on this list offers premium that justifies the capital at risk after the prior objection; XLE is already fully covered and the remaining strikes pay too little for short-dated obligations. I'd rather wait for better pricing than force a marginal trade.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "ruling": {
+    "outcome": "reject",
+    "rationale": "The revision produced no trade: No contract on this list offers premium that justifies the capital at risk after the prior objection; XLE is already fully covered and the remaining strikes pay too little for short-dated obligations. I'd rather wait for better pricing than force a marginal trade.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  },
+  "final_ruling": {
+    "outcome": "reject",
+    "rationale": "The revision produced no trade: No contract on this list offers premium that justifies the capital at risk after the prior objection; XLE is already fully covered and the remaining strikes pay too little for short-dated obligations. I'd rather wait for better pricing than force a marginal trade.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  }
+}

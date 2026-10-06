@@ -1,0 +1,150 @@
+{
+  "date": "2026-10-06",
+  "session": 1,
+  "time": "19:37 UTC",
+  "mode": "live",
+  "dry": false,
+  "blocks": [],
+  "fills": [],
+  "equity": 97555.1,
+  "cash": 51424.6,
+  "free_cash": 51424.6,
+  "market_open": true,
+  "shares": {
+    "XLF": 400,
+    "XLP": 300
+  },
+  "open_options": [],
+  "eligible_count": 3,
+  "eligible": [
+    "XLE261012C00064000",
+    "XLE261009C00064000",
+    "XLE261009P00063000"
+  ],
+  "candidates": [
+    {
+      "symbol": "XLE261012C00064000",
+      "underlying": "XLE",
+      "kind": "call",
+      "strike": 64.0,
+      "expiry": "2026-10-12",
+      "days_to_expiry": 6,
+      "bid": 0.68,
+      "ask": 0.71,
+      "mid": 0.695,
+      "spread_pct": 0.0432,
+      "premium": 69.5,
+      "open_interest": 64,
+      "last_trade_age_days": 0.04,
+      "moneyness": 0.0015,
+      "implied_volatility": 0.2207
+    },
+    {
+      "symbol": "XLE261009C00064000",
+      "underlying": "XLE",
+      "kind": "call",
+      "strike": 64.0,
+      "expiry": "2026-10-09",
+      "days_to_expiry": 3,
+      "bid": 0.56,
+      "ask": 0.6,
+      "mid": 0.58,
+      "spread_pct": 0.069,
+      "premium": 58.0,
+      "open_interest": 1084,
+      "last_trade_age_days": 0.02,
+      "moneyness": 0.0015,
+      "implied_volatility": 0.2666
+    },
+    {
+      "symbol": "XLE261009P00063000",
+      "underlying": "XLE",
+      "kind": "put",
+      "strike": 63.0,
+      "expiry": "2026-10-09",
+      "days_to_expiry": 3,
+      "bid": 0.25,
+      "ask": 0.27,
+      "mid": 0.26,
+      "spread_pct": 0.0769,
+      "premium": 26.0,
+      "open_interest": 489,
+      "last_trade_age_days": 0.01,
+      "moneyness": -0.0142,
+      "implied_volatility": 0.268
+    }
+  ],
+  "proposal": {
+    "action": "cash_secured_put",
+    "underlying": "XLE",
+    "contract_symbol": "XLE261009P00063000",
+    "strike": 63.0,
+    "expiry": "2026-10-09",
+    "contracts": 1,
+    "expected_premium": 26.0,
+    "total_premium": 26.0,
+    "max_loss": 6274.0,
+    "reasoning": "I have ample free cash and no XLE position, so selling a cash-secured put lets me collect premium while being willing to buy XLE at $63 if assigned, a level I find reasonable.",
+    "raw": "{\"action\": \"cash_secured_put\", \"underlying\": \"XLE\", \"contract_symbol\": \"XLE261009P00063000\", \"strike\": 63.0, \"expiry\": \"2026-10-09\", \"contracts\": 1, \"expected_premium\": 26.0, \"reasoning\": \"I have ample free cash and no XLE position, so selling a cash-secured put lets me collect premium while being willing to buy XLE at $63 if assigned, a level I find reasonable.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "objection": {
+    "severity": 0.6,
+    "failure_mode": "assignment_risk",
+    "objection": "Strike is only 1.4% OTM with just 3 days to expiry, making assignment highly likely on any minor downward move. Premium collected ($26) is tiny relative to the $6,274 capital at risk for such short, near-the-money exposure.",
+    "what_would_fix_it": "Choose a strike further OTM (e.g. $60) or extend expiry to collect more premium for the assignment risk taken.",
+    "raw": "{\"severity\": 0.6, \"failure_mode\": \"assignment_risk\", \"objection\": \"Strike is only 1.4% OTM with just 3 days to expiry, making assignment highly likely on any minor downward move. Premium collected ($26) is tiny relative to the $6,274 capital at risk for such short, near-the-money exposure.\", \"what_would_fix_it\": \"Choose a strike further OTM (e.g. $60) or extend expiry to collect more premium for the assignment risk taken.\"}",
+    "failed": false
+  },
+  "ruling1": {
+    "outcome": "revise",
+    "rationale": "The adversary raised assignment_risk at severity 0.60. Sending back for one revision. It also failed a hard limit: Max loss $6,274.00 exceeds the $4,877.76 limit (5% of equity).",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": {
+      "action": "cash_secured_put",
+      "underlying": "XLE",
+      "contract_symbol": "XLE261009P00063000",
+      "strike": 63.0,
+      "expiry": "2026-10-09",
+      "contracts": 1,
+      "expected_premium": 26.0,
+      "total_premium": 26.0,
+      "max_loss": 6274.0,
+      "reasoning": "I have ample free cash and no XLE position, so selling a cash-secured put lets me collect premium while being willing to buy XLE at $63 if assigned, a level I find reasonable.",
+      "raw": "{\"action\": \"cash_secured_put\", \"underlying\": \"XLE\", \"contract_symbol\": \"XLE261009P00063000\", \"strike\": 63.0, \"expiry\": \"2026-10-09\", \"contracts\": 1, \"expected_premium\": 26.0, \"reasoning\": \"I have ample free cash and no XLE position, so selling a cash-secured put lets me collect premium while being willing to buy XLE at $63 if assigned, a level I find reasonable.\"}",
+      "failed": false,
+      "corrections": []
+    }
+  },
+  "revision": {
+    "action": "no_trade",
+    "underlying": "",
+    "contract_symbol": "",
+    "strike": 0.0,
+    "expiry": "",
+    "contracts": 0,
+    "expected_premium": 0.0,
+    "total_premium": 0.0,
+    "max_loss": 0.0,
+    "reasoning": "The only eligible contracts are on XLE, which I don't own shares of, so covered calls and protective puts are off the table. The cash-secured put's assignment risk was flagged and no further-OTM or longer-dated alternative exists on this list, so I'll sit out.",
+    "raw": "{\"action\": \"no_trade\", \"underlying\": \"\", \"contract_symbol\": \"\", \"strike\": 0, \"expiry\": \"\", \"contracts\": 0, \"expected_premium\": 0, \"reasoning\": \"The only eligible contracts are on XLE, which I don't own shares of, so covered calls and protective puts are off the table. The cash-secured put's assignment risk was flagged and no further-OTM or longer-dated alternative exists on this list, so I'll sit out.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "ruling": {
+    "outcome": "reject",
+    "rationale": "The revision produced no trade: The only eligible contracts are on XLE, which I don't own shares of, so covered calls and protective puts are off the table. The cash-secured put's assignment risk was flagged and no further-OTM or longer-dated alternative exists on this list, so I'll sit out.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  },
+  "final_ruling": {
+    "outcome": "reject",
+    "rationale": "The revision produced no trade: The only eligible contracts are on XLE, which I don't own shares of, so covered calls and protective puts are off the table. The cash-secured put's assignment risk was flagged and no further-OTM or longer-dated alternative exists on this list, so I'll sit out.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-12",
+  "session": 1,
+  "time": "22:11 UTC",
+  "mode": "live",
+  "dry": false,
+  "blocks": [
+    {
+      "rule": "market_closed",
+      "detail": "Market is closed. No action taken."
+    }
+  ],
+  "fills": [],
+  "equity": 98782.6,
+  "cash": 51424.6,
+  "free_cash": 51424.6,
+  "market_open": false,
+  "shares": {
+    "XLF": 400,
+    "XLP": 300
+  },
+  "open_options": [],
+  "eligible_count": 1,
+  "eligible": [
+    "XLE261016C00067000"
+  ],
+  "candidates": [
+    {
+      "symbol": "XLE261016C00067000",
+      "underlying": "XLE",
+      "kind": "call",
+      "strike": 67.0,
+      "expiry": "2026-10-16",
+      "days_to_expiry": 4,
+      "bid": 0.34,
+      "ask": 0.37,
+      "mid": 0.355,
+      "spread_pct": 0.0845,
+      "premium": 35.5,
+      "open_interest": 23009,
+      "last_trade_age_days": 0.09,
+      "moneyness": 0.0147,
+      "implied_volatility": 0.2592
+    }
+  ]
+}

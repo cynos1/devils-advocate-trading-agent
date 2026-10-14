@@ -1,0 +1,132 @@
+{
+  "date": "2026-10-14",
+  "session": 1,
+  "time": "18:46 UTC",
+  "mode": "live",
+  "dry": false,
+  "blocks": [],
+  "fills": [],
+  "equity": 98862.6,
+  "cash": 51424.6,
+  "free_cash": 51424.6,
+  "market_open": true,
+  "shares": {
+    "XLF": 400,
+    "XLP": 300
+  },
+  "open_options": [],
+  "eligible_count": 2,
+  "eligible": [
+    "XLE261019C00068000",
+    "XLF261019P00054000"
+  ],
+  "candidates": [
+    {
+      "symbol": "XLE261019C00068000",
+      "underlying": "XLE",
+      "kind": "call",
+      "strike": 68.0,
+      "expiry": "2026-10-19",
+      "days_to_expiry": 5,
+      "bid": 0.56,
+      "ask": 0.58,
+      "mid": 0.57,
+      "spread_pct": 0.0351,
+      "premium": 57.0,
+      "open_interest": 174,
+      "last_trade_age_days": 0.01,
+      "moneyness": 0.0059,
+      "implied_volatility": 0.2303
+    },
+    {
+      "symbol": "XLF261019P00054000",
+      "underlying": "XLF",
+      "kind": "put",
+      "strike": 54.0,
+      "expiry": "2026-10-19",
+      "days_to_expiry": 5,
+      "bid": 0.26,
+      "ask": 0.27,
+      "mid": 0.265,
+      "spread_pct": 0.0377,
+      "premium": 26.5,
+      "open_interest": 51,
+      "last_trade_age_days": 0.02,
+      "moneyness": -0.0053,
+      "implied_volatility": 0.1608
+    }
+  ],
+  "proposal": {
+    "action": "cash_secured_put",
+    "underlying": "XLF",
+    "contract_symbol": "XLF261019P00054000",
+    "strike": 54.0,
+    "expiry": "2026-10-19",
+    "contracts": 2,
+    "expected_premium": 26.5,
+    "total_premium": 53.0,
+    "max_loss": 10747.0,
+    "reasoning": "I already hold 400 XLF shares near this strike, so I'm comfortable adding more at $54 if assigned while collecting premium now. Collateral fits easily within free cash.",
+    "raw": "{\"action\": \"cash_secured_put\", \"underlying\": \"XLF\", \"contract_symbol\": \"XLF261019P00054000\", \"strike\": 54.0, \"expiry\": \"2026-10-19\", \"contracts\": 2, \"expected_premium\": 26.0, \"reasoning\": \"I already hold 400 XLF shares near this strike, so I'm comfortable adding more at $54 if assigned while collecting premium now. Collateral fits easily within free cash.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "objection": {
+    "severity": 0.6,
+    "failure_mode": "assignment_risk",
+    "objection": "Strike is only 0.5% below spot with just 5 days to expiry, making near-term assignment highly likely and compounding existing 400-share XLF exposure.",
+    "what_would_fix_it": "Move strike further OTM (e.g. $51-52) or extend expiry to reduce delta/assignment probability.",
+    "raw": "{\"severity\": 0.6, \"failure_mode\": \"assignment_risk\", \"objection\": \"Strike is only 0.5% below spot with just 5 days to expiry, making near-term assignment highly likely and compounding existing 400-share XLF exposure.\", \"what_would_fix_it\": \"Move strike further OTM (e.g. $51-52) or extend expiry to reduce delta/assignment probability.\"}",
+    "failed": false
+  },
+  "ruling1": {
+    "outcome": "revise",
+    "rationale": "The adversary raised assignment_risk at severity 0.60. Sending back for one revision. It also failed a hard limit: Max loss $10,747.00 exceeds the $4,943.13 limit (5% of equity).",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": {
+      "action": "cash_secured_put",
+      "underlying": "XLF",
+      "contract_symbol": "XLF261019P00054000",
+      "strike": 54.0,
+      "expiry": "2026-10-19",
+      "contracts": 2,
+      "expected_premium": 26.5,
+      "total_premium": 53.0,
+      "max_loss": 10747.0,
+      "reasoning": "I already hold 400 XLF shares near this strike, so I'm comfortable adding more at $54 if assigned while collecting premium now. Collateral fits easily within free cash.",
+      "raw": "{\"action\": \"cash_secured_put\", \"underlying\": \"XLF\", \"contract_symbol\": \"XLF261019P00054000\", \"strike\": 54.0, \"expiry\": \"2026-10-19\", \"contracts\": 2, \"expected_premium\": 26.0, \"reasoning\": \"I already hold 400 XLF shares near this strike, so I'm comfortable adding more at $54 if assigned while collecting premium now. Collateral fits easily within free cash.\"}",
+      "failed": false,
+      "corrections": []
+    }
+  },
+  "revision": {
+    "action": "no_trade",
+    "underlying": "",
+    "contract_symbol": "",
+    "strike": 0.0,
+    "expiry": "",
+    "contracts": 0,
+    "expected_premium": 0.0,
+    "total_premium": 0.0,
+    "max_loss": 0.0,
+    "reasoning": "The only eligible put still sits 0.5% OTM with 5 days left, and no further-dated or lower-strike contract is offered, so I can't fix the assignment risk within this list. I'll pass rather than add to XLF exposure at this strike.",
+    "raw": "{\"action\": \"no_trade\", \"underlying\": \"\", \"contract_symbol\": \"\", \"strike\": 0, \"expiry\": \"\", \"contracts\": 0, \"expected_premium\": 0, \"reasoning\": \"The only eligible put still sits 0.5% OTM with 5 days left, and no further-dated or lower-strike contract is offered, so I can't fix the assignment risk within this list. I'll pass rather than add to XLF exposure at this strike.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "ruling": {
+    "outcome": "reject",
+    "rationale": "The revision produced no trade: The only eligible put still sits 0.5% OTM with 5 days left, and no further-dated or lower-strike contract is offered, so I can't fix the assignment risk within this list. I'll pass rather than add to XLF exposure at this strike.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  },
+  "final_ruling": {
+    "outcome": "reject",
+    "rationale": "The revision produced no trade: The only eligible put still sits 0.5% OTM with 5 days left, and no further-dated or lower-strike contract is offered, so I can't fix the assignment risk within this list. I'll pass rather than add to XLF exposure at this strike.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  }
+}

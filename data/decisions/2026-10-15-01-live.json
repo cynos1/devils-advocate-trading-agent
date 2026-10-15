@@ -1,0 +1,139 @@
+{
+  "date": "2026-10-15",
+  "session": 1,
+  "time": "18:27 UTC",
+  "mode": "live",
+  "dry": false,
+  "blocks": [],
+  "fills": [],
+  "equity": 99603.6,
+  "cash": 51424.6,
+  "free_cash": 51424.6,
+  "market_open": true,
+  "shares": {
+    "XLF": 400,
+    "XLP": 300
+  },
+  "open_options": [],
+  "eligible_count": 4,
+  "eligible": [
+    "XLE261019C00067000",
+    "XLE261021C00068000",
+    "XLE261021P00065000",
+    "XLF261021C00055500"
+  ],
+  "candidates": [
+    {
+      "symbol": "XLE261019C00067000",
+      "underlying": "XLE",
+      "kind": "call",
+      "strike": 67.0,
+      "expiry": "2026-10-19",
+      "days_to_expiry": 4,
+      "bid": 0.43,
+      "ask": 0.47,
+      "mid": 0.45,
+      "spread_pct": 0.0889,
+      "premium": 45.0,
+      "open_interest": 1326,
+      "last_trade_age_days": 0.01,
+      "moneyness": 0.0063,
+      "implied_volatility": 0.2268
+    },
+    {
+      "symbol": "XLE261021C00068000",
+      "underlying": "XLE",
+      "kind": "call",
+      "strike": 68.0,
+      "expiry": "2026-10-21",
+      "days_to_expiry": 6,
+      "bid": 0.32,
+      "ask": 0.34,
+      "mid": 0.33,
+      "spread_pct": 0.0606,
+      "premium": 33.0,
+      "open_interest": 16367,
+      "last_trade_age_days": 0.02,
+      "moneyness": 0.0213,
+      "implied_volatility": 0.2473
+    },
+    {
+      "symbol": "XLE261021P00065000",
+      "underlying": "XLE",
+      "kind": "put",
+      "strike": 65.0,
+      "expiry": "2026-10-21",
+      "days_to_expiry": 6,
+      "bid": 0.31,
+      "ask": 0.32,
+      "mid": 0.315,
+      "spread_pct": 0.0317,
+      "premium": 31.5,
+      "open_interest": 83,
+      "last_trade_age_days": 0.09,
+      "moneyness": -0.0237,
+      "implied_volatility": 0.2673
+    },
+    {
+      "symbol": "XLF261021C00055500",
+      "underlying": "XLF",
+      "kind": "call",
+      "strike": 55.5,
+      "expiry": "2026-10-21",
+      "days_to_expiry": 6,
+      "bid": 0.29,
+      "ask": 0.32,
+      "mid": 0.305,
+      "spread_pct": 0.0984,
+      "premium": 30.5,
+      "open_interest": 144,
+      "last_trade_age_days": 0.05,
+      "moneyness": 0.0048,
+      "implied_volatility": 0.1447
+    }
+  ],
+  "proposal": {
+    "action": "covered_call",
+    "underlying": "XLF",
+    "contract_symbol": "XLF261021C00055500",
+    "strike": 55.5,
+    "expiry": "2026-10-21",
+    "contracts": 2,
+    "expected_premium": 30.5,
+    "total_premium": 61.0,
+    "max_loss": 0.0,
+    "reasoning": "I'm selling calls against half my XLF shares at a strike just above my cost basis to collect premium while leaving room for some upside and keeping the rest uncapped.",
+    "raw": "{\"action\": \"covered_call\", \"underlying\": \"XLF\", \"contract_symbol\": \"XLF261021C00055500\", \"strike\": 55.50, \"expiry\": \"2026-10-21\", \"contracts\": 2, \"expected_premium\": 30.0, \"reasoning\": \"I'm selling calls against half my XLF shares at a strike just above my cost basis to collect premium while leaving room for some upside and keeping the rest uncapped.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "objection": {
+    "severity": 0.75,
+    "failure_mode": "assignment_risk",
+    "objection": "Strike is only 0.5% above spot with just 6 days to expiry, making assignment highly likely on any modest upward move. This caps gains almost immediately and forecloses meaningful upside participation.",
+    "what_would_fix_it": "Choose a strike further OTM (e.g. 3-5% above spot) or extend expiry to give the stock room to move before assignment risk becomes acute.",
+    "raw": "{\"severity\": 0.75,\n \"failure_mode\": \"assignment_risk\",\n \"objection\": \"Strike is only 0.5% above spot with just 6 days to expiry, making assignment highly likely on any modest upward move. This caps gains almost immediately and forecloses meaningful upside participation.\",\n \"what_would_fix_it\": \"Choose a strike further OTM (e.g. 3-5% above spot) or extend expiry to give the stock room to move before assignment risk becomes acute.\"}",
+    "failed": false
+  },
+  "ruling1": {
+    "outcome": "reject",
+    "rationale": "Persistent deadlock: the adversary has blocked 3 consecutive sessions. No trade is forced; standing down for this session. Flagged for human review.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  },
+  "ruling": {
+    "outcome": "reject",
+    "rationale": "Persistent deadlock: the adversary has blocked 3 consecutive sessions. No trade is forced; standing down for this session. Flagged for human review.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  },
+  "final_ruling": {
+    "outcome": "reject",
+    "rationale": "Persistent deadlock: the adversary has blocked 3 consecutive sessions. No trade is forced; standing down for this session. Flagged for human review.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  }
+}

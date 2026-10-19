@@ -343,6 +343,16 @@
       "last_equity": 99536.6,
       "starting_equity": 100000.0,
       "source": "Alpaca paper account automated snapshot"
+    },
+    {
+      "date": "2026-10-19",
+      "timestamp": "2026-10-19T20:02:37.403321+00:00",
+      "equity": 99616.52,
+      "cash": 51424.6,
+      "portfolio_value": 99616.52,
+      "last_equity": 99918.6,
+      "starting_equity": 100000.0,
+      "source": "Alpaca paper account automated snapshot"
     }
   ]
 }

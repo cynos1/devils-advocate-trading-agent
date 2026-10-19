@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-19",
+  "session": 1,
+  "time": "20:02 UTC",
+  "mode": "live",
+  "dry": false,
+  "blocks": [
+    {
+      "rule": "market_closed",
+      "detail": "Market is closed. No action taken."
+    }
+  ],
+  "fills": [],
+  "equity": 99616.52,
+  "cash": 51424.6,
+  "free_cash": 51424.6,
+  "market_open": false,
+  "shares": {
+    "XLF": 400,
+    "XLP": 300
+  },
+  "open_options": [],
+  "eligible_count": 1,
+  "eligible": [
+    "XLP261023P00087000"
+  ],
+  "candidates": [
+    {
+      "symbol": "XLP261023P00087000",
+      "underlying": "XLP",
+      "kind": "put",
+      "strike": 87.0,
+      "expiry": "2026-10-23",
+      "days_to_expiry": 4,
+      "bid": 0.52,
+      "ask": 0.56,
+      "mid": 0.54,
+      "spread_pct": 0.0741,
+      "premium": 54.0,
+      "open_interest": 61,
+      "last_trade_age_days": 0.01,
+      "moneyness": -0.0028,
+      "implied_volatility": 0.184
+    }
+  ]
+}

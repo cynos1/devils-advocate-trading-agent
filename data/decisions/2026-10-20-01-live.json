@@ -1,0 +1,183 @@
+{
+  "date": "2026-10-20",
+  "session": 1,
+  "time": "18:35 UTC",
+  "mode": "live",
+  "dry": false,
+  "blocks": [],
+  "fills": [],
+  "equity": 99974.1,
+  "cash": 51424.6,
+  "free_cash": 51424.6,
+  "market_open": true,
+  "shares": {
+    "XLF": 400,
+    "XLP": 300
+  },
+  "open_options": [],
+  "eligible_count": 4,
+  "eligible": [
+    "XLE261023C00069000",
+    "XLE261023P00067500",
+    "XLE261026P00067000",
+    "XLE261023P00067000"
+  ],
+  "candidates": [
+    {
+      "symbol": "XLE261023C00069000",
+      "underlying": "XLE",
+      "kind": "call",
+      "strike": 69.0,
+      "expiry": "2026-10-23",
+      "days_to_expiry": 3,
+      "bid": 0.32,
+      "ask": 0.34,
+      "mid": 0.33,
+      "spread_pct": 0.0606,
+      "premium": 33.0,
+      "open_interest": 1231,
+      "last_trade_age_days": 0.05,
+      "moneyness": 0.0187,
+      "implied_volatility": 0.3248
+    },
+    {
+      "symbol": "XLE261023P00067500",
+      "underlying": "XLE",
+      "kind": "put",
+      "strike": 67.5,
+      "expiry": "2026-10-23",
+      "days_to_expiry": 3,
+      "bid": 0.65,
+      "ask": 0.68,
+      "mid": 0.665,
+      "spread_pct": 0.0451,
+      "premium": 66.5,
+      "open_interest": 402,
+      "last_trade_age_days": 0.03,
+      "moneyness": -0.0035,
+      "implied_volatility": 0.3217
+    },
+    {
+      "symbol": "XLE261026P00067000",
+      "underlying": "XLE",
+      "kind": "put",
+      "strike": 67.0,
+      "expiry": "2026-10-26",
+      "days_to_expiry": 6,
+      "bid": 0.53,
+      "ask": 0.58,
+      "mid": 0.555,
+      "spread_pct": 0.0901,
+      "premium": 55.5,
+      "open_interest": 58,
+      "last_trade_age_days": 0.1,
+      "moneyness": -0.0109,
+      "implied_volatility": 0.2585
+    },
+    {
+      "symbol": "XLE261023P00067000",
+      "underlying": "XLE",
+      "kind": "put",
+      "strike": 67.0,
+      "expiry": "2026-10-23",
+      "days_to_expiry": 3,
+      "bid": 0.46,
+      "ask": 0.49,
+      "mid": 0.475,
+      "spread_pct": 0.0632,
+      "premium": 47.5,
+      "open_interest": 1439,
+      "last_trade_age_days": 0.04,
+      "moneyness": -0.0109,
+      "implied_volatility": 0.3271
+    }
+  ],
+  "proposal": {
+    "action": "cash_secured_put",
+    "underlying": "XLE",
+    "contract_symbol": "XLE261023P00067500",
+    "strike": 67.5,
+    "expiry": "2026-10-23",
+    "contracts": 1,
+    "expected_premium": 66.5,
+    "total_premium": 66.5,
+    "max_loss": 6683.5,
+    "reasoning": "I'm selling a short-dated XLE put with the tightest spread and solid open interest, collecting $66 premium while committing cash I already have free; I'm fine owning XLE at $67.50 if assigned.",
+    "raw": "{\"action\": \"cash_secured_put\", \"underlying\": \"XLE\", \"contract_symbol\": \"XLE261023P00067500\", \"strike\": 67.5, \"expiry\": \"2026-10-23\", \"contracts\": 1, \"expected_premium\": 66.0, \"reasoning\": \"I'm selling a short-dated XLE put with the tightest spread and solid open interest, collecting $66 premium while committing cash I already have free; I'm fine owning XLE at $67.50 if assigned.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "objection": {
+    "severity": 0.6,
+    "failure_mode": "assignment_risk",
+    "objection": "Strike is only 0.3% below spot with just 3 days to expiry, so any minor upward chop still leaves high odds of assignment at a near-the-money strike with minimal time premium cushion.",
+    "what_would_fix_it": "Move to the $67.00 strike (further OTM) or extend expiry to the 6-day contract for more premium buffer.",
+    "raw": "{\"severity\": 0.6, \"failure_mode\": \"assignment_risk\", \"objection\": \"Strike is only 0.3% below spot with just 3 days to expiry, so any minor upward chop still leaves high odds of assignment at a near-the-money strike with minimal time premium cushion.\", \"what_would_fix_it\": \"Move to the $67.00 strike (further OTM) or extend expiry to the 6-day contract for more premium buffer.\"}",
+    "failed": false
+  },
+  "ruling1": {
+    "outcome": "revise",
+    "rationale": "The adversary raised assignment_risk at severity 0.60. Sending back for one revision. It also failed a hard limit: Max loss $6,683.50 exceeds the $4,998.71 limit (5% of equity).",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": {
+      "action": "cash_secured_put",
+      "underlying": "XLE",
+      "contract_symbol": "XLE261023P00067500",
+      "strike": 67.5,
+      "expiry": "2026-10-23",
+      "contracts": 1,
+      "expected_premium": 66.5,
+      "total_premium": 66.5,
+      "max_loss": 6683.5,
+      "reasoning": "I'm selling a short-dated XLE put with the tightest spread and solid open interest, collecting $66 premium while committing cash I already have free; I'm fine owning XLE at $67.50 if assigned.",
+      "raw": "{\"action\": \"cash_secured_put\", \"underlying\": \"XLE\", \"contract_symbol\": \"XLE261023P00067500\", \"strike\": 67.5, \"expiry\": \"2026-10-23\", \"contracts\": 1, \"expected_premium\": 66.0, \"reasoning\": \"I'm selling a short-dated XLE put with the tightest spread and solid open interest, collecting $66 premium while committing cash I already have free; I'm fine owning XLE at $67.50 if assigned.\"}",
+      "failed": false,
+      "corrections": []
+    }
+  },
+  "revision": {
+    "action": "cash_secured_put",
+    "underlying": "XLE",
+    "contract_symbol": "XLE261026P00067000",
+    "strike": 67.0,
+    "expiry": "2026-10-26",
+    "contracts": 1,
+    "expected_premium": 55.5,
+    "total_premium": 55.5,
+    "max_loss": 6644.5,
+    "reasoning": "I moved to the $67 strike with 6 days to expiry, giving more OTM cushion and extra time premium to reduce assignment odds while still collecting solid premium backed by ample free cash.",
+    "raw": "{\"action\": \"cash_secured_put\", \"underlying\": \"XLE\", \"contract_symbol\": \"XLE261026P00067000\", \"strike\": 67.0, \"expiry\": \"2026-10-26\", \"contracts\": 1, \"expected_premium\": 56.0, \"reasoning\": \"I moved to the $67 strike with 6 days to expiry, giving more OTM cushion and extra time premium to reduce assignment odds while still collecting solid premium backed by ample free cash.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "objection2": {
+    "severity": 0.5,
+    "failure_mode": "insufficient_premium",
+    "objection": "Strike is only 1.1% OTM with 6 days left, and the $67 put at 3d (same strike) offers $48 at 6.3% spread with far better OI (1,439 vs 58) \u2014 this trade overpays spread cost for no real benefit.",
+    "what_would_fix_it": "Use the 3-day $67 put with 1,439 OI and tighter liquidity instead.",
+    "raw": "{\"severity\": 0.5, \"failure_mode\": \"insufficient_premium\", \"objection\": \"Strike is only 1.1% OTM with 6 days left, and the $67 put at 3d (same strike) offers $48 at 6.3% spread with far better OI (1,439 vs 58) \u2014 this trade overpays spread cost for no real benefit.\", \"what_would_fix_it\": \"Use the 3-day $67 put with 1,439 OI and tighter liquidity instead.\"}",
+    "failed": false
+  },
+  "ruling2": {
+    "outcome": "reject",
+    "rationale": "The adversary raised insufficient_premium at severity 0.50, below the 0.60 threshold. The trade then failed a hard limit and no safer alternative was available. Max loss $6,644.50 exceeds the $4,998.71 limit (5% of equity).",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  },
+  "ruling": {
+    "outcome": "reject",
+    "rationale": "The adversary raised insufficient_premium at severity 0.50, below the 0.60 threshold. The trade then failed a hard limit and no safer alternative was available. Max loss $6,644.50 exceeds the $4,998.71 limit (5% of equity).",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  },
+  "final_ruling": {
+    "outcome": "reject",
+    "rationale": "The adversary raised insufficient_premium at severity 0.50, below the 0.60 threshold. The trade then failed a hard limit and no safer alternative was available. Max loss $6,644.50 exceeds the $4,998.71 limit (5% of equity).",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  }
+}

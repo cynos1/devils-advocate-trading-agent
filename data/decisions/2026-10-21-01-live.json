@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-21",
+  "session": 1,
+  "time": "18:48 UTC",
+  "mode": "live",
+  "dry": false,
+  "blocks": [
+    {
+      "rule": "no_candidates",
+      "detail": "No contract passed today's eligibility filters."
+    }
+  ],
+  "fills": [],
+  "equity": 99976.1,
+  "cash": 51424.6,
+  "free_cash": 51424.6,
+  "market_open": true,
+  "shares": {
+    "XLF": 400,
+    "XLP": 300
+  },
+  "open_options": [],
+  "eligible_count": 0,
+  "eligible": [],
+  "candidates": []
+}

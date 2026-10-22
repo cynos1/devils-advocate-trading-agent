@@ -1,0 +1,132 @@
+{
+  "date": "2026-10-22",
+  "session": 1,
+  "time": "18:41 UTC",
+  "mode": "live",
+  "dry": false,
+  "blocks": [],
+  "fills": [],
+  "equity": 100879.1,
+  "cash": 51424.6,
+  "free_cash": 51424.6,
+  "market_open": true,
+  "shares": {
+    "XLF": 400,
+    "XLP": 300
+  },
+  "open_options": [],
+  "eligible_count": 2,
+  "eligible": [
+    "XLE261028C00068000",
+    "XLF261028C00057000"
+  ],
+  "candidates": [
+    {
+      "symbol": "XLE261028C00068000",
+      "underlying": "XLE",
+      "kind": "call",
+      "strike": 68.0,
+      "expiry": "2026-10-28",
+      "days_to_expiry": 6,
+      "bid": 0.75,
+      "ask": 0.78,
+      "mid": 0.765,
+      "spread_pct": 0.0392,
+      "premium": 76.5,
+      "open_interest": 94,
+      "last_trade_age_days": 0.01,
+      "moneyness": 0.0082,
+      "implied_volatility": 0.2882
+    },
+    {
+      "symbol": "XLF261028C00057000",
+      "underlying": "XLF",
+      "kind": "call",
+      "strike": 57.0,
+      "expiry": "2026-10-28",
+      "days_to_expiry": 6,
+      "bid": 0.27,
+      "ask": 0.28,
+      "mid": 0.275,
+      "spread_pct": 0.0364,
+      "premium": 27.5,
+      "open_interest": 87,
+      "last_trade_age_days": 0.01,
+      "moneyness": 0.0086,
+      "implied_volatility": 0.1603
+    }
+  ],
+  "proposal": {
+    "action": "covered_call",
+    "underlying": "XLF",
+    "contract_symbol": "XLF261028C00057000",
+    "strike": 57.0,
+    "expiry": "2026-10-28",
+    "contracts": 4,
+    "expected_premium": 27.5,
+    "total_premium": 110.0,
+    "max_loss": 0.0,
+    "reasoning": "I own 400 XLF shares and can sell 4 calls just above my cost basis to collect premium while keeping modest upside room before expiry in 6 days.",
+    "raw": "{\"action\": \"covered_call\", \"underlying\": \"XLF\", \"contract_symbol\": \"XLF261028C00057000\", \"strike\": 57.0, \"expiry\": \"2026-10-28\", \"contracts\": 4, \"expected_premium\": 28.0, \"reasoning\": \"I own 400 XLF shares and can sell 4 calls just above my cost basis to collect premium while keeping modest upside room before expiry in 6 days.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "objection": {
+    "severity": 0.7,
+    "failure_mode": "assignment_risk",
+    "objection": "Strike is only 0.9% above spot with just 6 days to expiry, offering little room for XLF to move before likely assignment. Premium collected ($110 total) is trivial compensation for surrendering upside on 400 shares.",
+    "what_would_fix_it": "Move strike further out-of-the-money (e.g. 3-5% above spot) or extend expiry to collect more premium for the risk taken.",
+    "raw": "{\"severity\": 0.7, \"failure_mode\": \"assignment_risk\", \"objection\": \"Strike is only 0.9% above spot with just 6 days to expiry, offering little room for XLF to move before likely assignment. Premium collected ($110 total) is trivial compensation for surrendering upside on 400 shares.\", \"what_would_fix_it\": \"Move strike further out-of-the-money (e.g. 3-5% above spot) or extend expiry to collect more premium for the risk taken.\"}",
+    "failed": false
+  },
+  "ruling1": {
+    "outcome": "revise",
+    "rationale": "The adversary raised assignment_risk at severity 0.70. Sending back for one revision. It also failed a hard limit: 4 contracts exceeds the 3 per-trade limit.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": {
+      "action": "covered_call",
+      "underlying": "XLF",
+      "contract_symbol": "XLF261028C00057000",
+      "strike": 57.0,
+      "expiry": "2026-10-28",
+      "contracts": 4,
+      "expected_premium": 27.5,
+      "total_premium": 110.0,
+      "max_loss": 0.0,
+      "reasoning": "I own 400 XLF shares and can sell 4 calls just above my cost basis to collect premium while keeping modest upside room before expiry in 6 days.",
+      "raw": "{\"action\": \"covered_call\", \"underlying\": \"XLF\", \"contract_symbol\": \"XLF261028C00057000\", \"strike\": 57.0, \"expiry\": \"2026-10-28\", \"contracts\": 4, \"expected_premium\": 28.0, \"reasoning\": \"I own 400 XLF shares and can sell 4 calls just above my cost basis to collect premium while keeping modest upside room before expiry in 6 days.\"}",
+      "failed": false,
+      "corrections": []
+    }
+  },
+  "revision": {
+    "action": "no_trade",
+    "underlying": "",
+    "contract_symbol": "",
+    "strike": 0.0,
+    "expiry": "",
+    "contracts": 0,
+    "expected_premium": 0.0,
+    "total_premium": 0.0,
+    "max_loss": 0.0,
+    "reasoning": "The only XLF strike available is still just 0.9% OTM with 6 days to expiry, same assignment risk as before, and no better-spaced alternative exists on the list, so I'll skip this week.",
+    "raw": "{\"action\": \"no_trade\", \"underlying\": \"\", \"contract_symbol\": \"\", \"strike\": 0, \"expiry\": \"\", \"contracts\": 0, \"expected_premium\": 0, \"reasoning\": \"The only XLF strike available is still just 0.9% OTM with 6 days to expiry, same assignment risk as before, and no better-spaced alternative exists on the list, so I'll skip this week.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "ruling": {
+    "outcome": "reject",
+    "rationale": "The revision produced no trade: The only XLF strike available is still just 0.9% OTM with 6 days to expiry, same assignment risk as before, and no better-spaced alternative exists on the list, so I'll skip this week.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  },
+  "final_ruling": {
+    "outcome": "reject",
+    "rationale": "The revision produced no trade: The only XLF strike available is still just 0.9% OTM with 6 days to expiry, same assignment risk as before, and no better-spaced alternative exists on the list, so I'll skip this week.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  }
+}

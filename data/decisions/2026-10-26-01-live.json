@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-26",
+  "session": 1,
+  "time": "20:02 UTC",
+  "mode": "live",
+  "dry": false,
+  "blocks": [
+    {
+      "rule": "market_closed",
+      "detail": "Market is closed. No action taken."
+    }
+  ],
+  "fills": [],
+  "equity": 100206.52,
+  "cash": 51462.52,
+  "free_cash": 51462.52,
+  "market_open": false,
+  "shares": {
+    "XLF": 400,
+    "XLP": 300
+  },
+  "open_options": [
+    {
+      "symbol": "XLP261030C00089500",
+      "underlying": "XLP",
+      "kind": "call",
+      "side": "short",
+      "contracts": 1,
+      "strike": 89.5,
+      "expiry": "2026-10-30",
+      "entry_premium": 38.0,
+      "opened": ""
+    }
+  ],
+  "eligible_count": 0,
+  "eligible": [],
+  "candidates": []
+}

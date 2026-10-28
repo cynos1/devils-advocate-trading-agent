@@ -1,0 +1,180 @@
+{
+  "date": "2026-10-28",
+  "session": 1,
+  "time": "19:42 UTC",
+  "mode": "live",
+  "dry": false,
+  "blocks": [],
+  "fills": [],
+  "equity": 99884.52,
+  "cash": 51462.52,
+  "free_cash": 51462.52,
+  "market_open": true,
+  "shares": {
+    "XLF": 400,
+    "XLP": 300
+  },
+  "open_options": [
+    {
+      "symbol": "XLP261030C00089500",
+      "underlying": "XLP",
+      "kind": "call",
+      "side": "short",
+      "contracts": 1,
+      "strike": 89.5,
+      "expiry": "2026-10-30",
+      "entry_premium": 38.0,
+      "opened": ""
+    }
+  ],
+  "eligible_count": 4,
+  "eligible": [
+    "XLE261102C00070000",
+    "XLE261102P00068000",
+    "XLF261102P00056000",
+    "XLF261104P00055500"
+  ],
+  "candidates": [
+    {
+      "symbol": "XLE261102C00070000",
+      "underlying": "XLE",
+      "kind": "call",
+      "strike": 70.0,
+      "expiry": "2026-11-02",
+      "days_to_expiry": 5,
+      "bid": 0.38,
+      "ask": 0.41,
+      "mid": 0.395,
+      "spread_pct": 0.0759,
+      "premium": 39.5,
+      "open_interest": 419,
+      "last_trade_age_days": 0.02,
+      "moneyness": 0.0202,
+      "implied_volatility": 0.2835
+    },
+    {
+      "symbol": "XLE261102P00068000",
+      "underlying": "XLE",
+      "kind": "put",
+      "strike": 68.0,
+      "expiry": "2026-11-02",
+      "days_to_expiry": 5,
+      "bid": 0.54,
+      "ask": 0.58,
+      "mid": 0.56,
+      "spread_pct": 0.0714,
+      "premium": 56.0,
+      "open_interest": 155,
+      "last_trade_age_days": 0.02,
+      "moneyness": -0.0089,
+      "implied_volatility": 0.2647
+    },
+    {
+      "symbol": "XLF261102P00056000",
+      "underlying": "XLF",
+      "kind": "put",
+      "strike": 56.0,
+      "expiry": "2026-11-02",
+      "days_to_expiry": 5,
+      "bid": 0.35,
+      "ask": 0.36,
+      "mid": 0.355,
+      "spread_pct": 0.0282,
+      "premium": 35.5,
+      "open_interest": 117,
+      "last_trade_age_days": 0.03,
+      "moneyness": -0.0017,
+      "implied_volatility": 0.1584
+    },
+    {
+      "symbol": "XLF261104P00055500",
+      "underlying": "XLF",
+      "kind": "put",
+      "strike": 55.5,
+      "expiry": "2026-11-04",
+      "days_to_expiry": 7,
+      "bid": 0.29,
+      "ask": 0.32,
+      "mid": 0.305,
+      "spread_pct": 0.0984,
+      "premium": 30.5,
+      "open_interest": 256,
+      "last_trade_age_days": 0.23,
+      "moneyness": -0.0106,
+      "implied_volatility": 0.1841
+    }
+  ],
+  "proposal": {
+    "action": "cash_secured_put",
+    "underlying": "XLE",
+    "contract_symbol": "XLE261102P00068000",
+    "strike": 68.0,
+    "expiry": "2026-11-02",
+    "contracts": 1,
+    "expected_premium": 56.0,
+    "total_premium": 56.0,
+    "max_loss": 6744.0,
+    "reasoning": "I have idle cash and no XLE exposure yet, so selling this put collects decent premium relative to the 5-day window without adding to my already concentrated XLF/XLP positions. If assigned, I'd own XLE at an effective discount to current levels.",
+    "raw": "{\"action\": \"cash_secured_put\", \"underlying\": \"XLE\", \"contract_symbol\": \"XLE261102P00068000\", \"strike\": 68.0, \"expiry\": \"2026-11-02\", \"contracts\": 1, \"expected_premium\": 56.0, \"reasoning\": \"I have idle cash and no XLE exposure yet, so selling this put collects decent premium relative to the 5-day window without adding to my already concentrated XLF/XLP positions. If assigned, I'd own XLE at an effective discount to current levels.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "objection": {
+    "severity": 0.6,
+    "failure_mode": "assignment_risk",
+    "objection": "Strike is only 0.9% OTM with just 5 days to expiry, making assignment highly likely on any minor pullback. Premium of $56 is thin compensation for taking on $6,744 of exposure this close to the money.",
+    "what_would_fix_it": "Choose a lower strike (e.g. 5-8% OTM) or extend expiry to collect more premium for the assignment risk taken.",
+    "raw": "{\"severity\": 0.6, \"failure_mode\": \"assignment_risk\", \"objection\": \"Strike is only 0.9% OTM with just 5 days to expiry, making assignment highly likely on any minor pullback. Premium of $56 is thin compensation for taking on $6,744 of exposure this close to the money.\", \"what_would_fix_it\": \"Choose a lower strike (e.g. 5-8% OTM) or extend expiry to collect more premium for the assignment risk taken.\"}",
+    "failed": false
+  },
+  "ruling1": {
+    "outcome": "revise",
+    "rationale": "The adversary raised assignment_risk at severity 0.60. Sending back for one revision. It also failed a hard limit: Max loss $6,744.00 exceeds the $4,994.23 limit (5% of equity).",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": {
+      "action": "cash_secured_put",
+      "underlying": "XLE",
+      "contract_symbol": "XLE261102P00068000",
+      "strike": 68.0,
+      "expiry": "2026-11-02",
+      "contracts": 1,
+      "expected_premium": 56.0,
+      "total_premium": 56.0,
+      "max_loss": 6744.0,
+      "reasoning": "I have idle cash and no XLE exposure yet, so selling this put collects decent premium relative to the 5-day window without adding to my already concentrated XLF/XLP positions. If assigned, I'd own XLE at an effective discount to current levels.",
+      "raw": "{\"action\": \"cash_secured_put\", \"underlying\": \"XLE\", \"contract_symbol\": \"XLE261102P00068000\", \"strike\": 68.0, \"expiry\": \"2026-11-02\", \"contracts\": 1, \"expected_premium\": 56.0, \"reasoning\": \"I have idle cash and no XLE exposure yet, so selling this put collects decent premium relative to the 5-day window without adding to my already concentrated XLF/XLP positions. If assigned, I'd own XLE at an effective discount to current levels.\"}",
+      "failed": false,
+      "corrections": []
+    }
+  },
+  "revision": {
+    "action": "no_trade",
+    "underlying": "",
+    "contract_symbol": "",
+    "strike": 0.0,
+    "expiry": "",
+    "contracts": 0,
+    "expected_premium": 0.0,
+    "total_premium": 0.0,
+    "max_loss": 0.0,
+    "reasoning": "None of the eligible puts offer the 5-8% OTM buffer needed to address the assignment risk objection; XLF puts are similarly tight to the money. I'll sit out rather than take on thin premium for high assignment probability.",
+    "raw": "{\"action\": \"no_trade\", \"underlying\": \"\", \"contract_symbol\": \"\", \"strike\": 0, \"expiry\": \"\", \"contracts\": 0, \"expected_premium\": 0, \"reasoning\": \"None of the eligible puts offer the 5-8% OTM buffer needed to address the assignment risk objection; XLF puts are similarly tight to the money. I'll sit out rather than take on thin premium for high assignment probability.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "ruling": {
+    "outcome": "reject",
+    "rationale": "The revision produced no trade: None of the eligible puts offer the 5-8% OTM buffer needed to address the assignment risk objection; XLF puts are similarly tight to the money. I'll sit out rather than take on thin premium for high assignment probability.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  },
+  "final_ruling": {
+    "outcome": "reject",
+    "rationale": "The revision produced no trade: None of the eligible puts offer the 5-8% OTM buffer needed to address the assignment risk objection; XLF puts are similarly tight to the money. I'll sit out rather than take on thin premium for high assignment probability.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  }
+}

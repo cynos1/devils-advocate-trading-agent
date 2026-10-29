@@ -1,0 +1,162 @@
+{
+  "date": "2026-10-29",
+  "session": 1,
+  "time": "19:44 UTC",
+  "mode": "live",
+  "dry": false,
+  "blocks": [],
+  "fills": [],
+  "equity": 100654.02,
+  "cash": 51462.52,
+  "free_cash": 51462.52,
+  "market_open": true,
+  "shares": {
+    "XLF": 400,
+    "XLP": 300
+  },
+  "open_options": [
+    {
+      "symbol": "XLP261030C00089500",
+      "underlying": "XLP",
+      "kind": "call",
+      "side": "short",
+      "contracts": 1,
+      "strike": 89.5,
+      "expiry": "2026-10-30",
+      "entry_premium": 38.0,
+      "opened": ""
+    }
+  ],
+  "eligible_count": 3,
+  "eligible": [
+    "XLE261104C00069000",
+    "XLE261102C00069000",
+    "XLE261104P00067000"
+  ],
+  "candidates": [
+    {
+      "symbol": "XLE261104C00069000",
+      "underlying": "XLE",
+      "kind": "call",
+      "strike": 69.0,
+      "expiry": "2026-11-04",
+      "days_to_expiry": 6,
+      "bid": 0.65,
+      "ask": 0.67,
+      "mid": 0.66,
+      "spread_pct": 0.0303,
+      "premium": 66.0,
+      "open_interest": 133,
+      "last_trade_age_days": 0.01,
+      "moneyness": 0.0088,
+      "implied_volatility": 0.26
+    },
+    {
+      "symbol": "XLE261102C00069000",
+      "underlying": "XLE",
+      "kind": "call",
+      "strike": 69.0,
+      "expiry": "2026-11-02",
+      "days_to_expiry": 4,
+      "bid": 0.41,
+      "ask": 0.44,
+      "mid": 0.425,
+      "spread_pct": 0.0706,
+      "premium": 42.5,
+      "open_interest": 220,
+      "last_trade_age_days": 0.01,
+      "moneyness": 0.0088,
+      "implied_volatility": 0.235
+    },
+    {
+      "symbol": "XLE261104P00067000",
+      "underlying": "XLE",
+      "kind": "put",
+      "strike": 67.0,
+      "expiry": "2026-11-04",
+      "days_to_expiry": 6,
+      "bid": 0.36,
+      "ask": 0.39,
+      "mid": 0.375,
+      "spread_pct": 0.08,
+      "premium": 37.5,
+      "open_interest": 165,
+      "last_trade_age_days": 0.03,
+      "moneyness": -0.0204,
+      "implied_volatility": 0.266
+    }
+  ],
+  "proposal": {
+    "action": "cash_secured_put",
+    "underlying": "XLE",
+    "contract_symbol": "XLE261104P00067000",
+    "strike": 67.0,
+    "expiry": "2026-11-04",
+    "contracts": 1,
+    "expected_premium": 37.5,
+    "total_premium": 37.5,
+    "max_loss": 6662.5,
+    "reasoning": "I don't hold XLE shares so a covered call isn't possible, but I have ample free cash to secure this put. I'm comfortable owning XLE at $67 if assigned, and the premium compensates for that obligation.",
+    "raw": "{\"action\": \"cash_secured_put\", \"underlying\": \"XLE\", \"contract_symbol\": \"XLE261104P00067000\", \"strike\": 67.0, \"expiry\": \"2026-11-04\", \"contracts\": 1, \"expected_premium\": 38.0, \"reasoning\": \"I don't hold XLE shares so a covered call isn't possible, but I have ample free cash to secure this put. I'm comfortable owning XLE at $67 if assigned, and the premium compensates for that obligation.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "objection": {
+    "severity": 0.6,
+    "failure_mode": "insufficient_premium",
+    "objection": "Only $37.50 collected against $6,662.50 at risk over 6 days is a 0.056% return, barely above noise, with an 8% wide spread eating further into that edge.",
+    "what_would_fix_it": "Select a further OTM strike or later expiry offering materially higher premium relative to capital secured.",
+    "raw": "{\"severity\": 0.6, \"failure_mode\": \"insufficient_premium\", \"objection\": \"Only $37.50 collected against $6,662.50 at risk over 6 days is a 0.056% return, barely above noise, with an 8% wide spread eating further into that edge.\", \"what_would_fix_it\": \"Select a further OTM strike or later expiry offering materially higher premium relative to capital secured.\"}",
+    "failed": false
+  },
+  "ruling1": {
+    "outcome": "revise",
+    "rationale": "The adversary raised insufficient_premium at severity 0.60. Sending back for one revision. It also failed a hard limit: Max loss $6,662.50 exceeds the $5,032.70 limit (5% of equity).",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": {
+      "action": "cash_secured_put",
+      "underlying": "XLE",
+      "contract_symbol": "XLE261104P00067000",
+      "strike": 67.0,
+      "expiry": "2026-11-04",
+      "contracts": 1,
+      "expected_premium": 37.5,
+      "total_premium": 37.5,
+      "max_loss": 6662.5,
+      "reasoning": "I don't hold XLE shares so a covered call isn't possible, but I have ample free cash to secure this put. I'm comfortable owning XLE at $67 if assigned, and the premium compensates for that obligation.",
+      "raw": "{\"action\": \"cash_secured_put\", \"underlying\": \"XLE\", \"contract_symbol\": \"XLE261104P00067000\", \"strike\": 67.0, \"expiry\": \"2026-11-04\", \"contracts\": 1, \"expected_premium\": 38.0, \"reasoning\": \"I don't hold XLE shares so a covered call isn't possible, but I have ample free cash to secure this put. I'm comfortable owning XLE at $67 if assigned, and the premium compensates for that obligation.\"}",
+      "failed": false,
+      "corrections": []
+    }
+  },
+  "revision": {
+    "action": "no_trade",
+    "underlying": "",
+    "contract_symbol": "",
+    "strike": 0.0,
+    "expiry": "",
+    "contracts": 0,
+    "expected_premium": 0.0,
+    "total_premium": 0.0,
+    "max_loss": 0.0,
+    "reasoning": "The only alternatives are XLE calls, but I hold no XLE shares to cover them, and the put's risk-adjusted return remains too thin even after the objection. I'll sit out this cycle rather than force a weak trade.",
+    "raw": "{\"action\": \"no_trade\", \"underlying\": \"\", \"contract_symbol\": \"\", \"strike\": 0, \"expiry\": \"\", \"contracts\": 0, \"expected_premium\": 0.0, \"reasoning\": \"The only alternatives are XLE calls, but I hold no XLE shares to cover them, and the put's risk-adjusted return remains too thin even after the objection. I'll sit out this cycle rather than force a weak trade.\"}",
+    "failed": false,
+    "corrections": []
+  },
+  "ruling": {
+    "outcome": "reject",
+    "rationale": "The revision produced no trade: The only alternatives are XLE calls, but I hold no XLE shares to cover them, and the put's risk-adjusted return remains too thin even after the objection. I'll sit out this cycle rather than force a weak trade.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  },
+  "final_ruling": {
+    "outcome": "reject",
+    "rationale": "The revision produced no trade: The only alternatives are XLE calls, but I hold no XLE shares to cover them, and the put's risk-adjusted return remains too thin even after the objection. I'll sit out this cycle rather than force a weak trade.",
+    "substituted": false,
+    "original_contracts": 0,
+    "proposal": null
+  }
+}

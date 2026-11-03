@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T22:50:35+00:00",
+  "generated_at": "2026-11-03T20:34:14+00:00",
   "thresholds": {
     "proceed_below": 0.6,
     "block_above": 0.7
@@ -13,20 +13,20 @@
   },
   "performance": {
     "starting_equity": 100000.0,
-    "snapshot_count": 43,
+    "snapshot_count": 44,
     "latest": {
-      "date": "2026-11-02",
-      "timestamp": "2026-11-02T22:50:35.775979+00:00",
-      "equity": 101858.52,
-      "cash": 51462.52,
-      "last_equity": 100892.52,
+      "date": "2026-11-03",
+      "timestamp": "2026-11-03T20:34:14.204526+00:00",
+      "equity": 101034.5,
+      "cash": 51499.5,
+      "last_equity": 101735.52,
       "starting_equity": 100000.0,
       "position_count": null,
       "source": "Alpaca paper account automated snapshot",
-      "pnl": 1858.520000000004,
-      "return_pct": 1.8585200000000042,
-      "snapshot_change": 978.5,
-      "broker_intraday_change": 966.0
+      "pnl": 1034.5,
+      "return_pct": 1.0345,
+      "snapshot_change": -824.0200000000041,
+      "broker_intraday_change": -701.0200000000041
     },
     "snapshots": [
       {
@@ -630,36 +630,50 @@
         "return_pct": 1.8585200000000042,
         "snapshot_change": 978.5,
         "broker_intraday_change": 966.0
+      },
+      {
+        "date": "2026-11-03",
+        "timestamp": "2026-11-03T20:34:14.204526+00:00",
+        "equity": 101034.5,
+        "cash": 51499.5,
+        "last_equity": 101735.52,
+        "starting_equity": 100000.0,
+        "position_count": null,
+        "source": "Alpaca paper account automated snapshot",
+        "pnl": 1034.5,
+        "return_pct": 1.0345,
+        "snapshot_change": -824.0200000000041,
+        "broker_intraday_change": -701.0200000000041
       }
     ]
   },
   "decisions": {
     "all": {
-      "sessions": 56,
-      "revisions": 22,
-      "substitutions": 5,
+      "sessions": 57,
+      "revisions": 23,
+      "substitutions": 6,
       "rejects": 30,
       "no_trade": 49,
-      "fills": 4,
-      "oversized_initial": 13,
-      "size_reduced": 5,
+      "fills": 5,
+      "oversized_initial": 14,
+      "size_reduced": 6,
       "strategy_changed": 2,
-      "contract_changed": 7,
-      "fresh_gate_pass": 7,
+      "contract_changed": 8,
+      "fresh_gate_pass": 8,
       "fresh_gate_block": 0
     },
     "live": {
-      "sessions": 49,
-      "revisions": 17,
-      "substitutions": 2,
+      "sessions": 50,
+      "revisions": 18,
+      "substitutions": 3,
       "rejects": 27,
       "no_trade": 45,
-      "fills": 4,
-      "oversized_initial": 9,
-      "size_reduced": 2,
+      "fills": 5,
+      "oversized_initial": 10,
+      "size_reduced": 3,
       "strategy_changed": 2,
-      "contract_changed": 5,
-      "fresh_gate_pass": 4,
+      "contract_changed": 6,
+      "fresh_gate_pass": 5,
       "fresh_gate_block": 0
     },
     "live_dry": {
@@ -677,8 +691,8 @@
       "fresh_gate_block": 0
     },
     "objection_modes": {
-      "insufficient_premium": 16,
-      "assignment_risk": 27,
+      "insufficient_premium": 17,
+      "assignment_risk": 28,
       "unfavourable_expiry": 1
     }
   },
@@ -765,10 +779,10 @@
     }
   },
   "selected_episodes": [
+    "data/decisions/2026-11-03-01-live.json",
     "data/decisions/2026-10-23-01-live.json",
     "data/decisions/2026-08-31-01-live.json",
     "data/decisions/2026-08-28-05-live-dry.json",
-    "data/decisions/2026-08-28-01-live-dry.json",
-    "data/decisions/2026-08-28-02-live.json"
+    "data/decisions/2026-08-28-01-live-dry.json"
   ]
 }

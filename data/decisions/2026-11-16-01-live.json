@@ -1,0 +1,64 @@
+{
+  "date": "2026-11-16",
+  "session": 1,
+  "time": "23:27 UTC",
+  "mode": "live",
+  "dry": false,
+  "blocks": [
+    {
+      "rule": "market_closed",
+      "detail": "Market is closed. No action taken."
+    }
+  ],
+  "fills": [],
+  "equity": 102512.32,
+  "cash": 69985.32,
+  "free_cash": 69985.32,
+  "market_open": false,
+  "shares": {
+    "XLF": 400,
+    "XLP": 100
+  },
+  "open_options": [],
+  "eligible_count": 2,
+  "eligible": [
+    "XLF261120P00058000",
+    "XLP261120P00092500"
+  ],
+  "candidates": [
+    {
+      "symbol": "XLF261120P00058000",
+      "underlying": "XLF",
+      "kind": "put",
+      "strike": 58.0,
+      "expiry": "2026-11-20",
+      "days_to_expiry": 4,
+      "bid": 0.48,
+      "ask": 0.53,
+      "mid": 0.505,
+      "spread_pct": 0.099,
+      "premium": 50.5,
+      "open_interest": 12863,
+      "last_trade_age_days": 0.1,
+      "moneyness": -0.0031,
+      "implied_volatility": 0.2407
+    },
+    {
+      "symbol": "XLP261120P00092500",
+      "underlying": "XLP",
+      "kind": "put",
+      "strike": 92.5,
+      "expiry": "2026-11-20",
+      "days_to_expiry": 4,
+      "bid": 0.9,
+      "ask": 0.98,
+      "mid": 0.94,
+      "spread_pct": 0.0851,
+      "premium": 94.0,
+      "open_interest": 241,
+      "last_trade_age_days": 0.1,
+      "moneyness": -0.0014,
+      "implied_volatility": 0.2741
+    }
+  ]
+}

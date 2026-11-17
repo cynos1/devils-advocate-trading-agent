@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-17",
+  "session": 1,
+  "time": "22:31 UTC",
+  "mode": "live",
+  "dry": false,
+  "blocks": [
+    {
+      "rule": "market_closed",
+      "detail": "Market is closed. No action taken."
+    }
+  ],
+  "fills": [],
+  "equity": 102020.32,
+  "cash": 69985.32,
+  "free_cash": 69985.32,
+  "market_open": false,
+  "shares": {
+    "XLF": 400,
+    "XLP": 100
+  },
+  "open_options": [],
+  "eligible_count": 0,
+  "eligible": [],
+  "candidates": []
+}

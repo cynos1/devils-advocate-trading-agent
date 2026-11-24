@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-20T21:54:11+00:00",
+  "generated_at": "2026-11-24T01:46:20+00:00",
   "thresholds": {
     "proceed_below": 0.6,
     "block_above": 0.7
@@ -13,20 +13,20 @@
   },
   "performance": {
     "starting_equity": 100000.0,
-    "snapshot_count": 57,
+    "snapshot_count": 58,
     "latest": {
-      "date": "2026-11-20",
-      "timestamp": "2026-11-20T21:54:10.887255+00:00",
-      "equity": 100943.32,
+      "date": "2026-11-24",
+      "timestamp": "2026-11-24T01:46:20.694898+00:00",
+      "equity": 101367.32,
       "cash": 69985.32,
-      "last_equity": 101203.32,
+      "last_equity": 100859.32,
       "starting_equity": 100000.0,
       "position_count": null,
       "source": "Alpaca paper account automated snapshot",
-      "pnl": 943.320000000007,
-      "return_pct": 0.9433200000000069,
-      "snapshot_change": -210.0,
-      "broker_intraday_change": -260.0
+      "pnl": 1367.320000000007,
+      "return_pct": 1.367320000000007,
+      "snapshot_change": 424.0,
+      "broker_intraday_change": 508.0
     },
     "snapshots": [
       {
@@ -826,16 +826,30 @@
         "return_pct": 0.9433200000000069,
         "snapshot_change": -210.0,
         "broker_intraday_change": -260.0
+      },
+      {
+        "date": "2026-11-24",
+        "timestamp": "2026-11-24T01:46:20.694898+00:00",
+        "equity": 101367.32,
+        "cash": 69985.32,
+        "last_equity": 100859.32,
+        "starting_equity": 100000.0,
+        "position_count": null,
+        "source": "Alpaca paper account automated snapshot",
+        "pnl": 1367.320000000007,
+        "return_pct": 1.367320000000007,
+        "snapshot_change": 424.0,
+        "broker_intraday_change": 508.0
       }
     ]
   },
   "decisions": {
     "all": {
-      "sessions": 70,
+      "sessions": 71,
       "revisions": 25,
       "substitutions": 6,
       "rejects": 33,
-      "no_trade": 61,
+      "no_trade": 62,
       "fills": 6,
       "oversized_initial": 14,
       "size_reduced": 6,
@@ -845,11 +859,11 @@
       "fresh_gate_block": 0
     },
     "live": {
-      "sessions": 63,
+      "sessions": 64,
       "revisions": 20,
       "substitutions": 3,
       "rejects": 30,
-      "no_trade": 57,
+      "no_trade": 58,
       "fills": 6,
       "oversized_initial": 10,
       "size_reduced": 3,

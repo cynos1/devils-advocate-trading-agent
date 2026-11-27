@@ -1,0 +1,46 @@
+{
+  "date": "2026-11-27",
+  "session": 1,
+  "time": "22:49 UTC",
+  "mode": "live",
+  "dry": false,
+  "blocks": [
+    {
+      "rule": "market_closed",
+      "detail": "Market is closed. No action taken."
+    }
+  ],
+  "fills": [],
+  "equity": 102117.32,
+  "cash": 69985.32,
+  "free_cash": 69985.32,
+  "market_open": false,
+  "shares": {
+    "XLF": 400,
+    "XLP": 100
+  },
+  "open_options": [],
+  "eligible_count": 1,
+  "eligible": [
+    "XLF261204C00058000"
+  ],
+  "candidates": [
+    {
+      "symbol": "XLF261204C00058000",
+      "underlying": "XLF",
+      "kind": "call",
+      "strike": 58.0,
+      "expiry": "2026-12-04",
+      "days_to_expiry": 7,
+      "bid": 0.25,
+      "ask": 0.26,
+      "mid": 0.255,
+      "spread_pct": 0.0392,
+      "premium": 25.5,
+      "open_interest": 1047,
+      "last_trade_age_days": 0.2,
+      "moneyness": 0.0138,
+      "implied_volatility": 0.1784
+    }
+  ]
+}
